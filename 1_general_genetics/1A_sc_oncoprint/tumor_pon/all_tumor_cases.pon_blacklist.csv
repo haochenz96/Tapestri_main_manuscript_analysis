@@ -1,0 +1,8 @@
+,num_patients,mean_mut_filtered_num_cells,mean_sc_AF_in_mut_filtered,functional,gene_name,snv_class,HGVSp,detected_by_bulk
+chr3:52436820:T/C,1,4.0,27.704933954933956,True,BAP1,missense_variant,p.Glu653Gly,False
+chr17:41276065:C/T,1,6.0,29.35423836882252,True,BRCA1,missense_variant,p.Ala17Thr,False
+chr15:28422129:A/C,1,103.0,26.85376348525664,True,HERC2,missense_variant,p.His3133Gln,False
+chr6:35425761:G/T,1,7.0,29.91429905295451,True,FANCE,missense_variant,p.Gln323His,False
+chr19:36222968:A/C,1,310.0,27.309648693266443,True,KMT2B,missense_variant,p.Lys1866Thr,False
+chr19:36222969:A/C,1,216.0,26.81463060320422,True,KMT2B,missense_variant,p.Lys1866Asn,False
+chr1:27057923:A/G,2,287.5,26.981898856861374,True,ARID1A,missense_variant,p.His544Arg,False

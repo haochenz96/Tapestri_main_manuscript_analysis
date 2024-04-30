@@ -1,0 +1,80 @@
+M04:
+  samples: [M04-1, M04-2, M04-3]
+  driver_snv: chr13:32907415:T/A # <---- BRCA2p.Y600*
+M07:
+  samples: [M07-1, M07-3]
+  driver_snv: chr12:25398284:C/T
+M11:
+  samples: [M11-1, M11-2]
+  driver_snv: chr12:25398284:C/A
+M12:
+  samples: [M12-3]
+  driver_snv: chr12:25398284:C/T
+M13:
+  samples: [M13-1, M13-5]
+  driver_snv: chr12:25398284:C/T
+RA15_06:
+  samples: [RA15_06-3_1, RA15_06-13_4, RA15_06-14_1] # RA15_06-10_1_3rd, 
+  driver_snv: chr12:25398284:C/A
+RA15_16: 
+  samples: [RA15_16-15_3, RA15_16-21_9, RA15_16-32_4]
+  driver_snv: chr12:25380275:T/G
+RA16_08: 
+  samples: [RA16_08-08_2, RA16_08-08_7, RA16_08-08_8, RA16_08-10_3, RA16_08-12_1]
+  driver_snv: chr12:25398284:C/A
+RA16_29: 
+  samples: [RA16_29-16_1, RA16_29-24_1, RA16_29-25_1, RA16_29-32_1, RA16_29-2_1, RA16_29-40_2] # RA16_29-47_1
+  driver_snv: chr12:25398285:C/T
+RA17_13:
+  samples: [RA17_13-34_1, RA17_13-44_1, RA17_13-50_1, RA17_13-55_1, RA17_13-56_1, RA17_13-67_1, RA17_13-73_4]
+  driver_snv: chr12:25398285:C/A
+RA17_22:
+  samples: [RA17_22-04_1, RA17_22-06_2, RA17_22-11_1, RA17_22-27_2, RA17_22-32_1, RA17_22-33_2, RA17_22-35_1, RA17_22-39_6, RA17_22-42_2]
+  driver_snv: chr12:25398284:C/A
+RA19_02:
+  samples: [RA19_02-42_2, RA19_02-37_1]
+  driver_snv: chr12:25398284:C/A
+RA19_10:
+  samples: [RA19_10-53_1, RA19_10-51_1]
+  driver_snv: chr12:25398284:C/A
+RA19_21:
+  samples: [RA19_21-31_1, RA19_21-pancreas_head]
+  driver_snv: chr12:25380275:T/A
+RA20_05:
+  samples: [RA20_05-66_4, RA20_05-23_1, RA20_05-27_1]
+  driver_snv: chr12:25398284:C/A
+RA21_17: 
+  samples: [RA21_17-28_1, RA21_17-31_1, RA21_17-Asc3, RA21_17-EUS56, RA21_17-39_1_2, RA21_17-Asc]
+  driver_snv: chr12:25398284:C/T
+# RA21_17hpo:
+#   samples: [RA21_17-Asc3, RA21_17-EUS56, RA21_17-39_1_2, RA21_17-Asc]
+#   driver_snv: chr12:25398284:C/T
+TP12hpo:
+  samples: [TP12-1T, TP12-4T]
+  driver_snv: chr12:25398284:C/A
+TP6hpo: 
+  samples: [TP6-1T, TP6-2T]
+  driver_snv: chr12:25398285:C/G
+# normal_pancreas:
+#   samples: [RA17_5-14_1, RA17_37-39_1, RA17_46-20_1, RA18_10-30_1, RA18_18-11_1, RA18_22-10_1, RA19_04-10_1, RA19_06-36_1]
+TP11:
+  samples: [TP11-IR-0T, TP11-IR-2T]
+  driver_snv: chr12:25398285:C/G
+TP12:
+  samples: [TP12-EUS-0T, TP12-IR-2T]
+  driver_snv: chr12:25398284:C/A
+TP49:
+  samples: [TP49-IR-0T, TP49-IR-1T]
+  driver_snv: chr12:25398284:C/T
+BPA-1:
+  samples: [BPA-1-RSX, BPA-1-IR]
+  driver_snv: chr12:25380277:G/T
+BPA-2:
+  samples: [BPA-2-IR]
+  driver_snv: chr12:25398284:C/T
+BPA-3:
+  samples: [BP3-RSX]
+  driver_snv: # no SNV. Should use the biggest nondiploid clone
+BPA-5:
+  samples: [BPA5-RSX]
+  driver_snv: chr12:25398284:C/T
