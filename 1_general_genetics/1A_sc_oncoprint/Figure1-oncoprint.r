@@ -24,11 +24,10 @@ patient_info_table <- patient_info_table %>% mutate_all(str_trim)
 # # adjust survival column
 # patient_info_table$os <- as.numeric(patient_info_table$Overall.survivial)
 
-composite_maf %>% mutate(patient_name = factor(as.character(patient_name), levels = patient_info_table$patient_name)) -> composite_maf
+# composite_maf %>% mutate(patient_name = factor(as.character(patient_name), levels = patient_info_table$patient_name)) -> composite_maf
 
-# ----- 1. per-case SNV MAF -----
-
-combined_sc_maf <- read.table("pan_cohort.scMAF.csv", header = TRUE, sep = ",")
+# ----- 1. scMAF SNV -----
+combined_sc_maf <- read.csv("1A_pan_cohort_scMAF.SNVs.csv", header = TRUE)
 # only keep SNVs with > 0.01 CCF; scale mean AF to 0-1
 combined_sc_maf <- combined_sc_maf %>%
   filter(CCF > 0.01) %>% mutate(mean_sc_AF_in_mut_filtered = (mean_sc_AF_in_mut_filtered /100) )
@@ -54,20 +53,54 @@ snv_maf_for_plotting <- snv_maf_for_plotting %>% rename(alteration_class = snv_c
 # rename alteration classes
 snv_maf_for_plotting$alteration_class <- str_replace_all(snv_maf_for_plotting$alteration_class, c("stop_gained" = "nonsense", "missense_variant" = "missense", "frameshift_truncation" = "fs_indel", "frameshift_elongation" = "fs_indel"))
 
-# ----- 2. per-case CNV MAF -----
-combined_cnv_maf <- read.xlsx("manual_stats/manual_scMAF_homdel_amps.xlsx",sheet = 1, colNames = TRUE)
+# ----- 2. scMAF CNV -----
+# -- del/amp
+combined_del_amp_maf <- read.xlsx("manual_stats/1A_pan_cohort_scMAF.homdel_amps.xlsx",sheet = 1, colNames = TRUE)
 # remove certain genes
 blacklist_genes <- c("KRAS")
+combined_del_amp_maf <- combined_del_amp_maf %>% 
+  filter(!gene_name %in% blacklist_genes) %>% 
+  rename("alteration_class" = "cnv_class", "fraction_altered"= "fraction_of_gene_affected") %>% 
+  filter(patient_name %in% unique(patient_info_table$patient_name)) %>% 
+  rename("CCF" = "CCF_manual")
+# capitalize alteration_class column
+combined_del_amp_maf$alteration_class <- toupper(combined_del_amp_maf$alteration_class)
+# -- LOH
+combined_loh_maf <- read.csv("../1B_tree_analysis/1B_pan_cohort_scMAF.LOH_events.csv")
 
-combined_cnv_maf <- combined_cnv_maf %>% filter(!gene_name %in% blacklist_genes) %>% rename("alteration_class" = "cnv_class", "fraction_altered"= "fraction_of_gene_affected") %>% filter(patient_name %in% unique(patient_info_table$patient_name)) %>% rename(CCF = CCF_manual)
-
-# ----- 3. combined SNV and CNV MAF -----
+# ----- 3. combine SNV and CNV MAF -----
 columns_of_interest = c("patient_name", "gene_name", "alteration_class", "CCF")
 composite_maf <- rbind(
   subset(snv_maf_for_plotting, select = columns_of_interest),
-  subset(combined_cnv_maf, select = columns_of_interest)
+  subset(combined_del_amp_maf, select = columns_of_interest)
 )
-
+# +++++ 4. add in germline BRCA2 variants +++++
+# M04, BPA-1, BPA-2, BPA-3, BPA-5 have germline BRCA2 variants, CCF=1
+germline_brca2_variants <- data.frame(
+  patient_name = c("M04", "BPA-1", "BPA-2", "BPA-3", "BPA-5"),
+  gene_name = "BRCA2",
+  alteration_class = "germline_mutation",
+  CCF = 1
+)
+composite_maf <- rbind(
+  composite_maf, germline_brca2_variants
+)
+# +++++ need to unify SNV and LOH +++++
+# For each patient, for each gene in composite_maf, if there is a LOH event from the loh_maf, set the LOH column to 1; delete the corresponding loh_maf row
+composite_maf$LOH <- 0
+for (patient in unique(composite_maf$patient_name)) {
+  patient_composite_maf <- subset(composite_maf, patient_name == patient)
+  for (gene in unique(patient_composite_maf$gene_name)) {
+    if (nrow(subset(combined_loh_maf, patient_name == patient & gene_name == gene)) > 0) {
+      composite_maf[composite_maf$patient_name == patient & composite_maf$gene_name == gene, "LOH"] <- 1
+      combined_loh_maf <- combined_loh_maf %>% filter(!(patient_name == patient & gene_name == gene))
+    }
+  }
+}
+combined_loh_maf$LOH <- 0
+composite_maf <- rbind(
+  composite_maf, combined_loh_maf
+)
 # ----- 5. plot -----
 # sort the mutations by CCF
 composite_maf <- composite_maf[order(composite_maf$CCF),]
@@ -84,11 +117,11 @@ composite_maf <- composite_maf %>% filter(gene_name %in% manual_gene_order)
 composite_maf$gene_name <- factor(composite_maf$gene_name, levels = manual_gene_order)
 
 # create grid of patient (x-axis) by gene names (y-axis)
-alteration_order <- c("fs_indel", "missense", "nonsense", "splice_site_variant", "amp", "homdel")
+alteration_order <- c("fs_indel", "missense", "nonsense", "splice_site_variant", "germline_mutation", "LOH", "AMP", "HOMDEL")
 
 manual_scale_colors <- setNames(
-  c("#b55e02", "#119e02", "#99082e", "#00ebd7", "#f542e9", "#000000"),
-  c("fs_indel", "missense", "nonsense", "splice_site_variant", "amp", "homdel")
+  c("#b55e02", "#119e02", "#99082e", "#00ebd7", "#ff8400", "#8d8d8d", "#f542e9", "#000000"),
+  c("fs_indel", "missense", "nonsense", "splice_site_variant", "germline_mutation", "LOH", "AMP", "HOMDEL")
 )
 
 # from the composite_maf, order the patient names by number of unqiue genes altered
@@ -108,7 +141,7 @@ fig_a <- ggplot(composite_maf, aes(
     data=composite_maf, 
     aes(
       fill=alteration_class, # height=CCF, width=CCF, 
-      size = CCF, stroke = 0.5,
+      size = CCF, stroke = LOH * 2,
       # bin the CCF into 4 groups
       # size=cut(CCF, breaks=c(0, 0.25, 0.5, 0.75, 1)),
       # alpha=fraction_altered,
@@ -126,8 +159,8 @@ fig_a <- ggplot(composite_maf, aes(
   scale_fill_manual(
     aesthetics = "fill", 
     values = manual_scale_colors, 
-    labels = alteration_order[1:4], 
-    breaks = names(manual_scale_colors)[1:4], 
+    labels = alteration_order[1:5], 
+    breaks = names(manual_scale_colors)[1:5], 
     name = "SNV", 
     guide = guide_legend(
       override.aes = list(size = 10),
@@ -147,8 +180,8 @@ fig_a <- ggplot(composite_maf, aes(
   scale_fill_manual(
     aesthetics = "fill", 
     values = manual_scale_colors, 
-    labels = alteration_order[5:6], 
-    breaks = names(manual_scale_colors)[5:6], 
+    labels = alteration_order[6:8], 
+    breaks = names(manual_scale_colors)[6:8], 
     name = "CNV", 
     guide = guide_legend(
       override.aes = list(size = 10),
