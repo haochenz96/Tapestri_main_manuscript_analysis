@@ -1,0 +1,28 @@
+master_sample_sheet: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER.xlsx
+# need the columns: case, sample, censor
+h5_dir: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/ss_h5
+# files should be ordered:
+# - {sample_1}.mpileup.h5
+# - {sample_2}.mpileup.h5
+cravat_dir: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/cravat
+falcon_dir: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions
+# this directory should be in the following structure:
+# - {patient_1}*assignment*.csv
+# - {patient_2}*assignment*.csv
+
+snv_selection_params:
+    topic: all_vars
+    func_only: False
+    mut_prev_threshold: 0.005
+    bq_prev_threshold: # <--- leave empty to disable
+    normals_occurences: 3
+    ado_threshold: 0.3 # <--- remove SNVs that have high ADO in ANY sample
+    filter_TtoC_artifact: 
+        filter: True
+        lower_thres: 0.005
+        upper_thres: 0.01
+    select_hom_germline_snps_af: 0.9 # Select homozygous SNPs from Tapestri data.disable by setting to >= 1 or None
+    rescue_1000genome_af: 0.01 # rescue popular SNPs (for phylogeny purpose). disable by setting to >= 1 or None
+    attribute: AF_MISSING
+    tumor_pon: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics/snv_blacklists/all_tumor_samples_N=69_composite_snv_sheet.csv
+    manual_blacklist: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics/snv_blacklists/manual_snv_snp_blacklists.txt
