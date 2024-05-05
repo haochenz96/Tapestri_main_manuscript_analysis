@@ -1,3 +1,5 @@
 .DS_store
 data_compiled/
 condor_pipeline/
+supp1_general_genetics/all_vars_mut_prev*
+
