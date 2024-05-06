@@ -32,21 +32,19 @@ combined_sc_maf <- read.csv("1A_pan_cohort_scMAF.SNVs.csv", header = TRUE)
 combined_sc_maf <- combined_sc_maf %>%
   filter(CCF > 0.01) %>% mutate(mean_sc_AF_in_mut_filtered = (mean_sc_AF_in_mut_filtered /100) )
 genes_of_interest <- c("KRAS", "CDKN2A", "TP53", "SMAD", "TGFB", "ACVR", "ARID", "ATM", "POL", "CREBBP", "IRF6", "PIK3CA","STK11", "FGFR1", "MYC","FBXW7", "RNF43", "BRCA1", "BRCA2", "PALB2")
-
-# +++++ blacklist +++++
-blacklist_df <- read.csv("tumor_pon/all_tumor_cases.pon_blacklist.csv", header=TRUE)
-
-# save into an array
-blacklist_snvs <- as.list(blacklist_df$X)
-
 snv_maf_for_plotting <- NULL
 for (gene in genes_of_interest) {
   snv_maf_for_plotting <- rbind(snv_maf_for_plotting, combined_sc_maf %>% filter(grepl(gene, gene_name, fixed=TRUE)) )
 }
+
+# +++++ blacklist +++++
+blacklist_df <- read.csv("../../supp1b_general_genetics/snv_black_whitelists/manual_snv_snp_blacklists.csv")
+
+# save into an array
+blacklist_snvs <- as.list(blacklist_df$condensed_format)
+
 # remove blacklist
 snv_maf_for_plotting <- snv_maf_for_plotting %>% filter(!condensed_format %in% blacklist_snvs)
-# rename RA21_17hpo to RA21_17
-# snv_maf_for_plotting$patient_name <- gsub("RA21_17hpo", "RA21_17", snv_maf_for_plotting$patient_name)
 
 # rename columns alteration_class -> snv_class
 snv_maf_for_plotting <- snv_maf_for_plotting %>% rename(alteration_class = snv_class)
@@ -105,11 +103,11 @@ composite_maf <- rbind(
 # sort the mutations by CCF
 composite_maf <- composite_maf[order(composite_maf$CCF),]
 
-genes_to_remove <- c("ARID1B", "PALB2", "PIK3CA")
+genes_to_remove <- c("ARID1B", "PALB2")
 composite_maf <- composite_maf %>% filter(!gene_name %in% genes_to_remove)
 
 # manually order genes
-manual_gene_order <- rev(c("KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "FGFR1","FBXW7", "RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"))
+manual_gene_order <- rev(c("KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "PIK3CA", "FGFR1","RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"))
 
 # which of unique gene_name is not in manual_gene_order?
 # setdiff(unique(composite_maf$gene_name), manual_gene_order)
@@ -298,7 +296,3 @@ dev.off()
 # cdkn2a_stats_count <- cdkn2a_stats %>% group_by(alteration_class) %>% summarise(freq = n())
 # # fill in WT
 # cdkn2a_stats_count <- rbind(cdkn2a_stats_count, data.frame(alteration_class = "WT", freq = 5))
-
-
-
-

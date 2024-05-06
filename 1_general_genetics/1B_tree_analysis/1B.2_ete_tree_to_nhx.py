@@ -8,7 +8,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # %% Import tree
-refined_tree_dir = Path("../../condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
+refined_tree_dir = Path("/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/1_general_genetics/1B_tree_analysis")
 output_dir = Path(".")
 output_dir = output_dir / "_NHX_trees"
 output_dir.mkdir(exist_ok=True, parents=True)
@@ -41,6 +41,7 @@ for patient_i in patient_names:
         somatic_snv_lohs = [n.somatic_snv_events[v][0] for v in n.somatic_snv_events if n.somatic_snv_events[v][1] == "LOH"]
         germline_snp_events_formatted = [v.split("-")[0] for v in n.germline_snp_events]
         n.add_features(
+            germline_snp_events_formatted = germline_snp_events_formatted,
             n_germline_snp_lohs = len(n.germline_snp_events),
             somatic_snv_gains = somatic_snv_gains,
             somatic_snv_lohs = somatic_snv_lohs,
@@ -52,7 +53,7 @@ for patient_i in patient_names:
     nhx_f = output_dir / f"{patient_i}_HZ_ETE_tree.nhx"
 
     with open(nhx_f, "w") as f:
-        f.write(ete_tree.write(format=8, features=["dist","leaf_color","clone_size","name", "n_germline_snp_lohs", "somatic_snv_gains", "somatic_snv_lohs"]))
+        f.write(ete_tree.write(format=8, features=["dist","leaf_color","clone_size","name", "germline_snp_events_formatted", "n_germline_snp_lohs", "somatic_snv_gains", "somatic_snv_lohs"]))
     
     event_table.loc[patient_i, "somatic_snv_gains"] = ",".join(snv_gains)
     event_table.loc[patient_i, "somatic_snv_lohs"] = ",".join(snv_lohs)
