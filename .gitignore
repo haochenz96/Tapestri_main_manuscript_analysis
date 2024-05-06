@@ -1,5 +1,5 @@
 .DS_store
+**.snakemake**
 data_compiled/
-0_condor_pipeline***
-supp1_general_genetics/all_vars_mut_prev*
-
+# 0_condor_pipeline***
+supp1b_general_genetics/all_vars_mut_prev***

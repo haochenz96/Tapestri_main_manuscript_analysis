@@ -1,0 +1,108 @@
+[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
+n = 4762, m = 38, p = 6
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2416028
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 121121 rows, 24472 columns and 364017 nonzeros
+Model fingerprint: 0xc2e4040c
+Variable types: 23560 continuous, 912 integer (912 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [5e-01, 5e+04]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 57208 rows and 13897 columns
+Presolve time: 0.72s
+Presolved: 63913 rows, 10575 columns, 191577 nonzeros
+Variable types: 10053 continuous, 522 integer (522 binary)
+Found heuristic solution: objective -673825.6734
+Root relaxation presolved: 10575 rows, 74488 columns, 202152 nonzeros
+
+
+Root relaxation: objective -5.692258e+05, 9511 iterations, 0.41 seconds (0.27 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    -569225.8415 -569225.84  0.00%     -    1s
+
+Explored 1 nodes (9511 simplex iterations) in 1.31 seconds (1.19 work units)
+Thread count was 1 (of 72 available processors)
+
+Solution count 2: -569226 -673826 
+No other solutions better than -569226
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -5.692258415392e+05, best bound -5.692258415392e+05, gap 0.0000%
+root
+chr15:41275014:T/G_2
+chr9:8465598:A/G_2
+chr12:25398284:C/A_1
+chr11:71940225:C/T_1
+chr17:7579472:G/C_2
+chr3:47079112:G/A_2
+chr20:9520142:G/A_3
+chr4:187538942:T/G_3
+chr18:48575671:C/A_3
+chr18:48575671:C/A_1
+chr1:6257826:T/C_3
+chr3:30713842:C/T_3
+chr17:7577427:G/A_3
+chr17:7577407:A/C_3
+chr12:25398284:C/A_3
+chr17:41245466:G/A_3
+chr17:56435046:G/A_3
+chr17:7577559:G/C_3
+chr15:89858602:T/C_3
+chr9:101908915:G/A_3
+chr17:7577559:G/C_1
+chr11:65631203:G/A_3
+chr11:65631167:C/T_2
+chr3:47079112:G/A_3
+0
+[]
+1
+[]
+2
+[]
+3
+[]
+4
+[]
+5
+[]
+cluster_id
+4    1948
+2    1127
+1     896
+3     692
+0      92
+5       7
+Name: count, dtype: int64
+subclusters [1, 2, 3]
+chr12:25398284:C/A_1 9
+chr17:7577559:G/C_1 10
+chr18:48575671:C/A_1 112
+chr11:71940225:C/T_1 2584
+Node 0: 92
+Node 1: 896
+Node 2: 1127
+Node 3: 692
+Node 4: 1948
+Node 5: 7
+Node chr12:25398284:C/A_1: 9
+Node chr17:7577559:G/C_1: 10
+Node chr18:48575671:C/A_1: 112
+Node chr11:71940225:C/T_1: 2584
+total cells 4762
+[('root', 0)]

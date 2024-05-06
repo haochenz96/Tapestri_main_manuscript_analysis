@@ -1,0 +1,33 @@
+digraph N {
+	overlap="false"
+	rankdir="TB"
+	0 [label="root", style="bold"];
+	1 [label="chr17:7579801:G/C_3", style="bold"];
+	2 [label="chr7:151944961:T/A_2", style="bold"];
+	3 [label="chr3:47079112:G/A_2", style="bold"];
+	4 [label="chr10:88635779:C/A_3", style="bold"];
+	5 [label="chr15:89858602:T/C_2", style="bold"];
+	6 [label="chr20:9560712:A/G_2", style="bold"];
+	7 [label="chr11:64572602:G/A_2", style="bold"];
+	8 [label="chr20:9560633:C/T_2", style="bold"];
+	9 [label="chr10:131506283:C/T_2", style="bold"];
+	10 [label="chr13:28883061:G/A_2", style="bold"];
+	11 [label="chr6:157528506:G/A_1", style="bold"];
+	12 [label="chr10:131506192:C/T_2", style="bold"];
+	13 [label="chr22:29130300:C/T_2", style="bold"];
+	14 [label="chr10:88635779:C/A_2", style="bold"];
+	0 -> 1 [style="bold"];
+	0 -> 5 [style="bold"];
+	1 -> 2 [style="bold"];
+	2 -> 3 [style="bold"];
+	3 -> 4 [style="bold"];
+	5 -> 6 [style="bold"];
+	5 -> 9 [style="bold"];
+	6 -> 7 [style="bold"];
+	7 -> 8 [style="bold"];
+	9 -> 10 [style="bold"];
+	10 -> 11 [style="bold"];
+	11 -> 12 [style="bold"];
+	12 -> 13 [style="bold"];
+	13 -> 14 [style="bold"];
+}

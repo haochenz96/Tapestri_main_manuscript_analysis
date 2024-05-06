@@ -109,7 +109,7 @@ snv_analysis_dir = analysis_dir / "snv-cnv-combined"
 h5_dir = Path('/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5')
 opt_nclones_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions")
 output_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/0_condor_pipeline/pre_condor_sc_heatmaps")
-
+output_dir.mkdir(exist_ok=True, parents=True)
 patient_info_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/1_general_genetics/Tapestri_all_patient_sample_map.yaml"
 with open(patient_info_f, 'r') as f:
     patient_info = yaml.safe_load(f)

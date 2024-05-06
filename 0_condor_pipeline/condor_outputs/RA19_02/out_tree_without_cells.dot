@@ -1,0 +1,53 @@
+digraph N {
+	overlap="false"
+	rankdir="TB"
+	0 [label="root", style="bold"];
+	1 [label="chr15:41275014:T/G_2", style="bold"];
+	2 [label="chr9:8465598:A/G_2", style="bold"];
+	3 [label="chr12:25398284:C/A_1", style="bold"];
+	4 [label="chr11:71940225:C/T_1", style="bold"];
+	5 [label="chr17:7579472:G/C_2", style="bold"];
+	6 [label="chr3:47079112:G/A_2", style="bold"];
+	7 [label="chr20:9520142:G/A_3", style="bold"];
+	8 [label="chr4:187538942:T/G_3", style="bold"];
+	9 [label="chr18:48575671:C/A_3", style="bold"];
+	10 [label="chr18:48575671:C/A_1", style="bold"];
+	11 [label="chr1:6257826:T/C_3", style="bold"];
+	12 [label="chr3:30713842:C/T_3", style="bold"];
+	13 [label="chr17:7577427:G/A_3", style="bold"];
+	14 [label="chr17:7577407:A/C_3", style="bold"];
+	15 [label="chr12:25398284:C/A_3", style="bold"];
+	16 [label="chr17:41245466:G/A_3", style="bold"];
+	17 [label="chr17:56435046:G/A_3", style="bold"];
+	18 [label="chr17:7577559:G/C_3", style="bold"];
+	19 [label="chr15:89858602:T/C_3", style="bold"];
+	20 [label="chr9:101908915:G/A_3", style="bold"];
+	21 [label="chr17:7577559:G/C_1", style="bold"];
+	22 [label="chr11:65631203:G/A_3", style="bold"];
+	23 [label="chr11:65631167:C/T_2", style="bold"];
+	24 [label="chr3:47079112:G/A_3", style="bold"];
+	0 -> 1 [style="bold"];
+	1 -> 2 [style="bold"];
+	1 -> 22 [style="bold"];
+	2 -> 3 [style="bold"];
+	3 -> 4 [style="bold"];
+	4 -> 5 [style="bold"];
+	5 -> 6 [style="bold"];
+	6 -> 7 [style="bold"];
+	7 -> 8 [style="bold"];
+	8 -> 9 [style="bold"];
+	9 -> 10 [style="bold"];
+	10 -> 11 [style="bold"];
+	11 -> 12 [style="bold"];
+	12 -> 13 [style="bold"];
+	13 -> 14 [style="bold"];
+	14 -> 15 [style="bold"];
+	15 -> 16 [style="bold"];
+	16 -> 17 [style="bold"];
+	17 -> 18 [style="bold"];
+	18 -> 19 [style="bold"];
+	19 -> 20 [style="bold"];
+	20 -> 21 [style="bold"];
+	22 -> 23 [style="bold"];
+	23 -> 24 [style="bold"];
+}

@@ -1,0 +1,67 @@
+             sample cell_barcode  clone_id
+0      RA17_13-34_1       cell_1         3
+1      RA17_13-34_1      cell_10         3
+2      RA17_13-34_1     cell_100         3
+3      RA17_13-34_1     cell_101         3
+4      RA17_13-34_1     cell_102         3
+...             ...          ...       ...
+10038  RA18_18-11_1     cell_995         0
+10039  RA18_18-11_1     cell_996         0
+10040  RA18_18-11_1     cell_997         0
+10041  RA18_18-11_1     cell_998         0
+10042  RA18_18-11_1     cell_999         0
+
+[10043 rows x 3 columns]
+[INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/RA17_13.patient_wide.genotyped.h5
+Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/RA17_13.patient_wide.genotyped.h5
+Loaded in 1.8s.
+(8820, 1090)
+
+    germline: 43
+    somatic: 6
+    total: 61
+(8820, 61)
+(8820, 61)
+Index(['cell_1-RA17_13-34_1', 'cell_10-RA17_13-34_1', 'cell_100-RA17_13-34_1',
+       'cell_101-RA17_13-34_1', 'cell_102-RA17_13-34_1',
+       'cell_103-RA17_13-34_1', 'cell_104-RA17_13-34_1',
+       'cell_105-RA17_13-34_1', 'cell_106-RA17_13-34_1',
+       'cell_107-RA17_13-34_1',
+       ...
+       'cell_990-RA17_13-73_4', 'cell_991-RA17_13-73_4',
+       'cell_992-RA17_13-73_4', 'cell_993-RA17_13-73_4',
+       'cell_994-RA17_13-73_4', 'cell_995-RA17_13-73_4',
+       'cell_996-RA17_13-73_4', 'cell_997-RA17_13-73_4',
+       'cell_998-RA17_13-73_4', 'cell_999-RA17_13-73_4'],
+      dtype='object', name='cell_barcode', length=8820)
+0          RA17_13-34_1:cell_1
+1         RA17_13-34_1:cell_10
+2        RA17_13-34_1:cell_100
+3        RA17_13-34_1:cell_101
+4        RA17_13-34_1:cell_102
+                 ...          
+10038    RA18_18-11_1:cell_995
+10039    RA18_18-11_1:cell_996
+10040    RA18_18-11_1:cell_997
+10041    RA18_18-11_1:cell_998
+10042    RA18_18-11_1:cell_999
+Name: cell_barcode, Length: 10043, dtype: object
+clone_id
+0    3638
+2    1795
+3    1366
+5    1218
+1     840
+4     667
+6     519
+Name: count, dtype: int64
+clone_id
+0    2432
+2    1795
+3    1365
+5    1207
+1     838
+4     664
+6     519
+Name: count, dtype: int64
+[3, 0, 5, 6, 4, 1, 2]

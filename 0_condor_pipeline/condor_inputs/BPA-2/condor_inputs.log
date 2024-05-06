@@ -1,0 +1,60 @@
+            sample cell_barcode  clone_id
+0         BPA-2-IR       cell_1         1
+1         BPA-2-IR      cell_10         3
+2         BPA-2-IR     cell_100         1
+3         BPA-2-IR     cell_101         3
+4         BPA-2-IR     cell_102         3
+...            ...          ...       ...
+1547  RA18_18-11_1     cell_995         4
+1548  RA18_18-11_1     cell_996         0
+1549  RA18_18-11_1     cell_997         0
+1550  RA18_18-11_1     cell_998         0
+1551  RA18_18-11_1     cell_999         2
+
+[1552 rows x 3 columns]
+[INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-2.patient_wide.genotyped.h5
+Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-2.patient_wide.genotyped.h5
+Loaded in 0.1s.
+(329, 353)
+
+    germline: 43
+    somatic: 2
+    total: 60
+(329, 60)
+(329, 60)
+Index(['cell_1-BPA-2-IR', 'cell_10-BPA-2-IR', 'cell_100-BPA-2-IR',
+       'cell_101-BPA-2-IR', 'cell_102-BPA-2-IR', 'cell_103-BPA-2-IR',
+       'cell_104-BPA-2-IR', 'cell_105-BPA-2-IR', 'cell_106-BPA-2-IR',
+       'cell_107-BPA-2-IR',
+       ...
+       'cell_90-BPA-2-IR', 'cell_91-BPA-2-IR', 'cell_92-BPA-2-IR',
+       'cell_93-BPA-2-IR', 'cell_94-BPA-2-IR', 'cell_95-BPA-2-IR',
+       'cell_96-BPA-2-IR', 'cell_97-BPA-2-IR', 'cell_98-BPA-2-IR',
+       'cell_99-BPA-2-IR'],
+      dtype='object', name='cell_barcode', length=329)
+0             BPA-2-IR:cell_1
+1            BPA-2-IR:cell_10
+2           BPA-2-IR:cell_100
+3           BPA-2-IR:cell_101
+4           BPA-2-IR:cell_102
+                ...          
+1547    RA18_18-11_1:cell_995
+1548    RA18_18-11_1:cell_996
+1549    RA18_18-11_1:cell_997
+1550    RA18_18-11_1:cell_998
+1551    RA18_18-11_1:cell_999
+Name: cell_barcode, Length: 1552, dtype: object
+clone_id
+0    779
+2    307
+1    163
+3    161
+4    142
+Name: count, dtype: int64
+clone_id
+1    163
+3    161
+4      3
+0      2
+Name: count, dtype: int64
+[1, 3, 0, 4]

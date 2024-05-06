@@ -1,0 +1,135 @@
+n = 2801, m = 43, p = 6
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2416028
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 155434 rows, 31132 columns and 467055 nonzeros
+Model fingerprint: 0x0e10e2de
+Variable types: 30100 continuous, 1032 integer (1032 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [7e+01, 2e+04]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 71495 rows and 17344 columns
+Presolve time: 1.02s
+Presolved: 83939 rows, 13788 columns, 251620 nonzeros
+Variable types: 13212 continuous, 576 integer (576 binary)
+Found heuristic solution: objective -432281.6100
+Root relaxation presolved: 13788 rows, 97725 columns, 265400 nonzeros
+
+
+Root relaxation: objective -4.140679e+05, 10136 iterations, 0.49 seconds (0.32 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    -414067.8571 -414067.86  0.00%     -    1s
+
+Explored 1 nodes (10136 simplex iterations) in 1.77 seconds (1.52 work units)
+Thread count was 1 (of 72 available processors)
+
+Solution count 2: -414068 -432282 
+No other solutions better than -414068
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -4.140678570885e+05, best bound -4.140678570885e+05, gap 0.0000%
+root
+chr8:30933859:C/T_3
+chr1:226578099:T/C_3
+chr1:16474839:AC/A_3
+chr6:26271232:G/C_3
+chr3:52637486:C/G_3
+chr13:32907415:T/A_1
+chr3:30686414:A/G_3
+chr12:133252796:C/G_2
+chr5:68667298:G/T_2
+chr8:38314915:G/T_3
+chr10:131506192:C/T_2
+chr8:38314915:G/T_1
+chr10:131506283:C/T_2
+0
+[]
+1
+['chr1:27105512:A/AG']
+2
+[]
+3
+[]
+4
+[]
+5
+[]
+n = 525, m = 7, p = 1
+Set parameter TimeLimit to value 1800
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 40488 rows, 7469 columns and 110383 nonzeros
+Model fingerprint: 0x61a67f93
+Variable types: 3794 continuous, 3675 integer (3675 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [7e+00, 7e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective -0.0000000
+Presolve removed 37884 rows and 7119 columns
+Presolve time: 0.13s
+Presolved: 2604 rows, 350 columns, 7812 nonzeros
+Variable types: 0 continuous, 350 integer (350 binary)
+Found heuristic solution: objective 2072.0264336
+
+Root relaxation: objective 4.109519e+03, 42 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    4109.5190933 4109.51909  0.00%     -    0s
+
+Explored 1 nodes (42 simplex iterations) in 0.15 seconds (0.11 work units)
+Thread count was 1 (of 72 available processors)
+
+Solution count 3: 4109.52 2072.03 -0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.109519093296e+03, best bound 4.109519093296e+03, gap 0.0000%
+2817, 613, 4109.519093295873
+cluster_id
+5    730
+3    707
+1    525
+2    327
+0    324
+4    188
+Name: count, dtype: int64
+Node root: 101
+Node 0: 324
+Node 2: 327
+Node 3: 707
+Node 4: 188
+Node 5: 730
+Node chr1:27105512:A/AG_4: 183
+Node chr3:30715619:C/G_4: 3
+Node chr11:71943807:A/T_4: 24
+Node chr15:67482870:C/T_4: 11
+Node chr3:30713659:CGCCAAGG/C_4: 97
+Node chr3:30715617:G/T_4: 81
+Node chr3:178936082:G/C_4: 25
+total cells 2700
+[('root', 0)]
