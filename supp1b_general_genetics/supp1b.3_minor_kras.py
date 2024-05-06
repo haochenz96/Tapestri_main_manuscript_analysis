@@ -4,7 +4,19 @@ import pandas as pd
 from pathlib import Path
 from tea.snv.me import get_exclusivity
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import seaborn as sns
+
+def config_params(font_size=7):
+
+    mpl.rcParams.update(mpl.rcParamsDefault)
+    plt.rcParams['font.sans-serif'] = ['arial']
+    plt.rcParams['font.size'] = font_size
+    plt.rcParams['font.family'] = ['sans-serif']
+    plt.rcParams['svg.fonttype'] = 'none'
+    plt.rcParams['mathtext.fontset'] = 'custom'
+    plt.rcParams['mathtext.cal'] = 'arial'
+    plt.rcParams['mathtext.rm'] = 'arial'
 
 patient="RA17_22"
 h5= "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/RA17_22.patient_wide.genotyped.h5"
@@ -43,6 +55,8 @@ E2 = get_exclusivity(
 )
 
 E2 = 1 - E2
+# %%
+config_params(font_size=8)
 fig, ax = plt.subplots(figsize=(5,5))         # Sample figsize in inches
 sns.heatmap(
     E2, annot=True, 
@@ -51,3 +65,4 @@ sns.heatmap(
     )
 
 # %%
+fig.write()

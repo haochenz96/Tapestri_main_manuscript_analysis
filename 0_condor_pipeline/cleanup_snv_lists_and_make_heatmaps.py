@@ -4,12 +4,16 @@ import pandas as pd
 import numpy as np
 
 analysis_dir = Path("/data/iacobuzc/haochen/Tapestri_batch2/analysis")
+snv_lists_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists")
 # %% FILTER BLACKLIST
-tumors_pon_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/1_general_genetics/1A_sc_oncoprint/tumor_pon/all_tumor_cases.pon_blacklist.csv"
+N=69
+PON_OCCURENCE_FREQUENCY=0.5
+threshold_sample_count = N * PON_OCCURENCE_FREQUENCY
+tumors_pon_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_blacklists/all_tumor_samples_N=69_composite_snv_sheet.csv"
 tumors_pon_df = pd.read_csv(tumors_pon_f, sep=',', header=0, index_col=0)
 
 snv_blacklist = tumors_pon_df[
-    (tumors_pon_df['num_patients'] >= 3)
+    (tumors_pon_df["all_tumor_samples_occurence"] > threshold_sample_count)
 ].index.tolist()
 # do not include KRAS
 snv_blacklist = [x for x in snv_blacklist if not x.startswith('chr12:2539828')]
@@ -60,25 +64,37 @@ snv_blacklist += manual_snv_blacklist
 snv_loci_blacklist = [x.rsplit(":", 1)[0] for x in snv_blacklist]
 
 # %% Blacklist the SNPs and SNVs
-patients_of_interest = ["BPA-5-RSX"]
-snv_analysis_dir = analysis_dir / "snv-cnv-combined"
-for p in snv_analysis_dir.glob("**/*-voi.hz.txt"):
-    if not any([x in str(p) for x in patients_of_interest]):
-        continue
+# patients_of_interest = ["BPA-5-RSX"]
+output_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/all_vars_mut_prev=0.01/sc_heatmaps")
+output_dir.mkdir(exist_ok=True, parents=True)
+for p in snv_lists_dir.glob("**/*-voi.hz_curated.txt"):
+    # if not any([x in str(p) for x in patients_of_interest]):
+    #     continue
     manual_snv = pd.read_csv(p, sep='\t', index_col=0, comment = '#')
     manual_snv.fillna({'annotation': ''}, inplace=True)
     
     # flag all loci in blacklist as "likely_artifact"
+    count = 0
+    blacklisted = []
     for locus, row in manual_snv.iterrows():
         if "germline" in row["annotation"]:
             if locus.rsplit(":", 1)[0] in snp_loci_blacklist:
-                manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
+                if not manual_snv.loc[locus, 'annotation'] == "likely_artifact":
+                    manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
+                    count += 1
+                    # blacklisted.append(manual_snv.loc[locus, 'HGVSp'])
+                    blacklisted.append(locus)
         else:
             if locus.rsplit(":", 1)[0] in snv_loci_blacklist:
-                manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
-
+                if not manual_snv.loc[locus, 'annotation'] == "likely_artifact":
+                    manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
+                    count += 1
+                    # blacklisted.append(manual_snv.loc[locus, 'HGVSp'])
+                    blacklisted.append(locus)
+    print(f"""[INFO] Blacklisted {count} SNVs/SNPs in {p.stem}: 
+          {blacklisted}""")
     # write output 
-    output_f = p.parent / (p.stem + '_curated.txt')
+    output_f = output_dir / (p.stem)
     manual_snv.to_csv(output_f, sep='\t', index=True)
 
 
@@ -90,12 +106,11 @@ from tea.plots import plot_snv_clone
 
 snv_analysis_dir = analysis_dir / "snv-cnv-combined"
 
-pipeline_output_dir = Path('/home/zhangh5/work/Tapestri_batch2/pipeline_results_custom')
-opt_nclones_dir = Path("/home/zhangh5/work/Tapestri_batch2/analysis/condor_pipeline/0-opt_nclones")
+h5_dir = Path('/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5')
+opt_nclones_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions")
+output_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/0_condor_pipeline/pre_condor_sc_heatmaps")
 
-output_dir = Path("/home/zhangh5/work/Tapestri_batch2/analysis/condor_pipeline/0-curated_sc_heatmaps")
-
-patient_info_f = "/home/zhangh5/work/Tapestri_batch2/analysis/TapBatch2_all-patient-sample-map.yaml"
+patient_info_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/1_general_genetics/Tapestri_all_patient_sample_map.yaml"
 with open(patient_info_f, 'r') as f:
     patient_info = yaml.safe_load(f)
 patient_names = patient_info.keys()
@@ -106,11 +121,15 @@ for patient_name in patient_names:
         continue
     print(f'[INFO] Processing {patient_name}.')
 
-    pt_h5 = pipeline_output_dir / patient_name / "fillout"/ f"{patient_name}.patient_wide.genotyped.h5"
+    try:
+        pt_h5 = list(h5_dir.glob(f"{patient_name}*h5"))[0]
+    except:
+        print(f'[ERROR] No H5 file found for {patient_name}.')
+        continue
     pt = mio.load(pt_h5)
 
     # Add raw FALCON results to H5
-    cn_assignment_f = list(opt_nclones_dir.glob(f"{patient_name}*assignment.updated.csv"))[0]
+    cn_assignment_f = list(opt_nclones_dir.glob(f"{patient_name}*assignment*csv"))[0]
     cn_assignment_df = pd.read_csv(cn_assignment_f, index_col = 0)
     print(f'[INFO] Loaded CN clone assignment file {cn_assignment_f}.')
 
@@ -138,8 +157,9 @@ for patient_name in patient_names:
 
 
     # read in high-quality SNVs
-    snv_f = list(snv_analysis_dir.glob(f"**/{patient_name}-patient/**/*-voi.hz_curated.txt"))[0]
+    snv_f = list(snv_lists_dir.glob(f"{patient_name}*voi*.txt"))[0]
     snv_df = pd.read_csv(snv_f, sep = '\t', index_col = 0, comment='#')
+    snv_df["annotation"].fillna("", inplace=True)
     snv_ann_map = snv_df['HGVSp'].to_dict()
 
     # ===== highlight vars with bulk annotation ====='

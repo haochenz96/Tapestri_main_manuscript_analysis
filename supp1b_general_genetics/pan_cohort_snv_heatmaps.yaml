@@ -13,7 +13,7 @@ falcon_dir: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_c
 snv_selection_params:
     topic: all_vars
     func_only: False
-    mut_prev_threshold: 0.005
+    mut_prev_threshold: 0.01
     bq_prev_threshold: # <--- leave empty to disable
     normals_occurences: 3
     ado_threshold: 0.3 # <--- remove SNVs that have high ADO in ANY sample
@@ -24,5 +24,6 @@ snv_selection_params:
     select_hom_germline_snps_af: 0.9 # Select homozygous SNPs from Tapestri data.disable by setting to >= 1 or None
     rescue_1000genome_af: 0.01 # rescue popular SNPs (for phylogeny purpose). disable by setting to >= 1 or None
     attribute: AF_MISSING
-    tumor_pon: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics/snv_blacklists/all_tumor_samples_N=69_composite_snv_sheet.csv
-    manual_blacklist: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics/snv_blacklists/manual_snv_snp_blacklists.txt
+    tumor_pon: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/all_tumor_samples_N=69_composite_snv_sheet.csv
+    manual_blacklist: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/manual_snv_snp_blacklists.txt
+    manual_whitelist: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/manual_snv_whitelist.txt

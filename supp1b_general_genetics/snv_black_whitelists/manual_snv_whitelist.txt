@@ -1,0 +1,11 @@
+condensed_format,annotation,type
+chr13:32907415:T/A,BRCA2p.Y600*,snp->snv
+chr17:7577556:C/T,TP53p.C242Y,snp->snv
+chr18:48593507:C/T,SMAD4p.R420C,snv
+chr2:25457242:C/T,DNMT3Ap.R882H,snv
+chr18:48581173:G/T,SMAD4p.K159N,snp->snv
+chr9:21974695:G/GT,CDKN2Ap.Y44*,snv
+chr12:25398284:C/A,KRASp.G12V,snp->snv
+chr1:209969821:C/T,IRF6p.R84H,snv
+chr3:178936091:G/A,PIK3CAp.E545K,snp->snv
+chr17:7578496:A/T,TP53p.L145Q,snp->snv

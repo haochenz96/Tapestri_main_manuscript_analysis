@@ -21,7 +21,7 @@ from IPython import embed
 
 	
 # ===== IO =====
-WD = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics"
+WD = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics"
 os.chdir(WD)
 WD = Path(".")
 ANALYSIS_CONFIG = "pan_cohort_snv_heatmaps.yaml"
@@ -29,7 +29,7 @@ with open(ANALYSIS_CONFIG, 'r') as f:
 	analysis_config = yaml.safe_load(f)
 
 # ===== PARAMS =====
-FILTER_SNV_ONLY = False
+FILTER_SNV_ONLY = True
 PON_OCCURENCE_FREQUENCY=0.5
 # ==================
 
@@ -95,15 +95,30 @@ manual_blacklist = pd.read_csv(analysis_config["snv_selection_params"]["manual_b
 manual_snp_blacklist = manual_blacklist.index[manual_blacklist["type"] == "snp"]
 manual_snp_loci_blacklist = [x.rsplit(":", 1)[0] for x in manual_snp_blacklist]
 manual_snv_blacklist = manual_blacklist.index[manual_blacklist["type"] == "snv"]
+manual_whitelist = pd.read_csv(analysis_config["snv_selection_params"]["manual_whitelist"], index_col=0)
+manual_snv_whitelist = set(manual_whitelist.index)
+
 
 # %% ====== technical filter SNVs, make falcon-clone clustered-sc-heatmaps ======
 n=0
-# per_patient_somatic_vars = {}
+per_patient_somatic_vars = {}
 for patient_i, sample_names in sample_map.items():
 	# if n>0:
 	# 	break
 	# n+=1
-	if not patient_i == "BPA-3":
+	# if not patient_i == "BPA-3":
+	# 	continue
+	
+	snv_selection_params = analysis_config['snv_selection_params']
+ 
+	topic = snv_selection_params['topic']
+	if not type(topic) is str: # single-value
+		raise ValueError(f"topic must be str, not {type(topic)}")
+	
+	# 1. mutational prevalence
+	MUT_PREV = snv_selection_params['mut_prev_threshold']
+	if (WD / f"{topic}_mut_prev={MUT_PREV}" / "vois" / f"{patient_i}_{topic}_mut_prev={MUT_PREV}_voi.txt").exists():
+		print(f"[INFO] {patient_i} already processed. Skipping...")
 		continue
 	sample_objs = {}
 	patient_cravat = pd.read_csv(patient_cravats[patient_i], sep="\t", index_col=0, header=[0,1])
@@ -170,11 +185,6 @@ for patient_i, sample_names in sample_map.items():
 	# ### ----- SNV selection ----- ####
 	####################################
 
-	snv_selection_params = analysis_config['snv_selection_params']
-
-	# 1. mutational prevalence
-	MUT_PREV = snv_selection_params['mut_prev_threshold']
-
 	# 2. technical artifact filters
 	bq_prev_threshold = snv_selection_params['bq_prev_threshold']
 	if bq_prev_threshold is not None and type(bq_prev_threshold) is not float: # single-value
@@ -189,9 +199,6 @@ for patient_i, sample_names in sample_map.items():
 		ado_threshold = None
 
 	# 3. functional SNVs
-	topic = snv_selection_params['topic']
-	if not type(topic) is str: # single-value
-		raise ValueError(f"topic must be str, not {type(topic)}")
 	try: 
 		func_only = snv_selection_params['func_only']
 		func_only = bool(func_only)
@@ -212,12 +219,6 @@ for patient_i, sample_names in sample_map.items():
 	attribute = snv_selection_params['attribute']
 	if not type(attribute) is list:
 		attribute = [attribute]
-
-	# whitelist snvs
-	if 'whitelist_snvs' in snv_selection_params and snv_selection_params['whitelist_snvs']:
-		whitelist_snvs = set(snv_selection_params['whitelist_snvs'])
-	else:
-		whitelist_snvs = []
 
 	# blacklist snvs
 	if 'blacklist_snvs' in snv_selection_params and snv_selection_params['blacklist_snvs']:
@@ -333,7 +334,7 @@ for patient_i, sample_names in sample_map.items():
 		voi = [ v for v in voi if v in prev_filtered_vars ]
 		print(f'{sample_i}: {len(voi)} / {len(patient_cravat)} SNVs are kept (min prev: {MUT_PREV})')
 
-		# voi = list(set(voi).union(whitelist_snvs))
+		# voi = list(set(voi).union(manual_snv_whitelist))
 		voi_mut_prev = Counter(mut_prev_series.to_dict())
 
 		# ====== save bulk annotated vars ======
@@ -389,11 +390,12 @@ for patient_i, sample_names in sample_map.items():
 	print(f"[DEBUG] {len(voi_union)} SNVs after manual blacklist filtering")
 
 	# add whitelist
-	for v in whitelist_snvs:
+	for v in manual_snv_whitelist:
 		if not v in patient_cravat.index:
-			raise ValueError(f"[ERROR] {v} from whitelist is not found in CRAVAT DF index!")
-	voi_union = list(voi_union.union(whitelist_snvs))
-
+			print(f"[WARNING] {v} from whitelist is not found in CRAVAT DF index! skipping...")
+		else:
+			voi_union.add(v)
+	voi_union = list(voi_union)
 	# remove SNV/SNPs that are manually blacklisted
 	manual_artifact_vars = [
 	 	x for x in bulk_germline_vars if x.rsplit(":", 1)[0] in manual_snp_loci_blacklist
@@ -402,6 +404,7 @@ for patient_i, sample_names in sample_map.items():
 	 	]
 
 	bulk_germline_vars = [x for x in bulk_germline_vars if x not in manual_artifact_vars]
+	bulk_germline_vars = [x for x in bulk_germline_vars if x not in manual_snv_whitelist]
 
 	# ===== annotation =====
 	ann = patient_cravat.loc[voi_union, :].index.map(
@@ -419,7 +422,7 @@ for patient_i, sample_names in sample_map.items():
 
 	voi_sorted = sorted(voi_union, key=voi_count_union.get, reverse=True)
 	# label germline and bulk somatic vars:
-	def __annotate_snvs(var, germline_hom_vars, other_bulk_germline_vars, bulk_somatic_vars, artifact_vars):
+	def __annotate_snvs(var, germline_hom_vars, other_bulk_germline_vars, bulk_somatic_vars, artifact_vars, manual_snv_whitelist):
 		if var in artifact_vars:
 			return "likely_artifact"		
 		elif var in germline_hom_vars:
@@ -428,6 +431,8 @@ for patient_i, sample_names in sample_map.items():
 			return "germline_HET"
 		elif var in bulk_somatic_vars:
 			return "bulk_somatic"
+		elif var in manual_snv_whitelist:
+			return "whitelisted_somatic"
 		else:
 			return "NA"
  
@@ -435,7 +440,7 @@ for patient_i, sample_names in sample_map.items():
 		voi_df = pd.DataFrame.from_dict(voi_count_union, orient='index', columns=['mut_prev']).loc[voi_sorted]
 		voi_df['HGVSp'] = voi_df.index.map(lambda x: ann_map_union[x])
 		voi_df['annotation'] = voi_df.index.map(
-			lambda x: __annotate_snvs(x, germline_hom_snps_from_tapestri, bulk_germline_vars, bulk_somatic_vars, all_artifacts)
+			lambda x: __annotate_snvs(x, germline_hom_snps_from_tapestri, bulk_germline_vars, bulk_somatic_vars, all_artifacts, manual_snv_whitelist)
 		)
 		voi_df.index.name = 'condensed_format'
 		f.write(f"# {timestamp}\n")
@@ -451,7 +456,7 @@ for patient_i, sample_names in sample_map.items():
 		f.write(f"# ado_threshold: {ado_threshold}\n")
 		f.write(f"# germline_attrs: {germline_attrs}\n")
 		f.write(f"# filter_TtoC_artifact: {snv_selection_params['filter_TtoC_artifact']}\n")
-		f.write(f"# whitelist_snvs: {whitelist_snvs}\n")
+		f.write(f"# manual_snv_whitelist: {manual_snv_whitelist}\n")
 		if 'blacklist_snvs' in snv_selection_params:
 			f.write(f"# blacklist_snvs: {snv_selection_params['blacklist_snvs']}\n")
 		else:
@@ -488,7 +493,7 @@ for patient_i, sample_names in sample_map.items():
 			ann_map_union[var_i] = f'<span style="color:{germline_hom_var_col};">' + ann_map_union[var_i] + '</span>'
 		elif var_i in bulk_germline_vars:
 			ann_map_union[var_i] = f'<span style="color:{germline_het_var_col};">' + ann_map_union[var_i] + '</span>'
-		elif var_i in bulk_somatic_vars:
+		elif "somatic" in ann_map_union[var_i]:
 			ann_map_union[var_i] = f'<span style="color:{somatic_var_col};">' + ann_map_union[var_i] + '</span>'
 		else:
 			pass
@@ -518,7 +523,7 @@ DATA_DIR = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/d
 PATIENT_SAMPLE_MAP_F = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/1_general_genetics/Tapestri_all_patient_sample_map.yaml"
 with open(PATIENT_SAMPLE_MAP_F, "r") as f:
 	patient_sample_map = yaml.safe_load(f)
-MASTER_CRAVAT_F="/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics/master_cravat.csv"
+MASTER_CRAVAT_F="/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/master_cravat.csv"
 master_cravat_df = pd.read_csv(MASTER_CRAVAT_F, index_col=0, header=[0,1])
 
 # manual tuning:
@@ -530,7 +535,6 @@ per_patient_somatic_vars["RA17_13"] = set(per_patient_somatic_vars["RA17_13"]) |
 per_patient_somatic_vars["RA19_02"] = set(per_patient_somatic_vars["RA19_02"]) |{"chr12:25398284:C/A"}
 per_patient_somatic_vars["RA19_10"] = set(per_patient_somatic_vars["RA19_10"]) |{"chr12:25398284:C/A"}
 per_patient_somatic_vars["RA19_21"] = set(per_patient_somatic_vars["RA19_21"]) |{"chr1:209969821:C/T", "chr3:178936091:G/A"}
-
 per_patient_somatic_vars["RA20_05"] = set(per_patient_somatic_vars["RA20_05"]) |{"chr12:25398284:C/A", "chr17:7578496:A/T"}
 
 
