@@ -1,0 +1,4 @@
+WARNING:root:original NGT layer not found.
+WARNING:root:GQ layer not found. Using all zeros.
+/data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/scripts/generate_condor_input.py:179: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  ].applymap(lambda x: -1 if pd.isna(x) else 0 if x < bin_thres else 1)

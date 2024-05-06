@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/scripts/generate_condor_input.py", line 246, in <module>
+    main(args)
+  File "/data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/scripts/generate_condor_input.py", line 202, in main
+    ) = generate_condor_input(dataset, cn_assignment_df, args)
+  File "/data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/scripts/generate_condor_input.py", line 65, in generate_condor_input
+    for file in (Path(args.l)).iterdir():
+AttributeError: 'Namespace' object has no attribute 'l'

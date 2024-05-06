@@ -1,0 +1,84 @@
+[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
+n = 7737, m = 43, p = 5
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2416028
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352Y CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 130885 rows, 30874 columns and 393271 nonzeros
+Model fingerprint: 0xad646c16
+Variable types: 30014 continuous, 860 integer (860 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e+01, 5e+04]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 58694 rows and 16863 columns
+Presolve time: 0.56s
+Presolved: 72191 rows, 14011 columns, 216456 nonzeros
+Variable types: 13491 continuous, 520 integer (520 binary)
+Found heuristic solution: objective -1478895.578
+Root relaxation presolved: 14011 rows, 86202 columns, 230467 nonzeros
+
+
+Root relaxation: objective -1.286385e+06, 9619 iterations, 0.25 seconds (0.24 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    -1286384.589 -1286384.6  0.00%     -    0s
+
+Explored 1 nodes (9619 simplex iterations) in 0.96 seconds (1.26 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 2: -1.28638e+06 -1.4789e+06 
+No other solutions better than -1.28638e+06
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -1.286384588956e+06, best bound -1.286384588956e+06, gap 0.0000%
+root
+chr12:25398284:C/A_1
+chr17:7578190:T/C_1
+chr17:7578190:T/C_3
+chr12:49420016:C/CT_1
+chr17:56438217:C/T_1
+chr2:203384776:CT/C_2
+0
+['chr17:56438217:C/T']
+1
+[]
+2
+[]
+3
+[]
+4
+[]
+cluster_id
+4    2413
+3    1922
+0    1522
+1    1147
+2     733
+Name: count, dtype: int64
+subclusters [0, 1, 2, 4, 3]
+chr17:7578190:T/C_1 12
+chr12:49420016:C/CT_1 698
+chr12:25398284:C/A_1 7027
+Node 0: 1522
+Node 1: 1147
+Node 2: 733
+Node 3: 1922
+Node 4: 2413
+Node chr17:7578190:T/C_1: 12
+Node chr12:49420016:C/CT_1: 698
+Node chr12:25398284:C/A_1: 7027
+total cells 7737
+[('root', 0)]
