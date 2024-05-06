@@ -1,6 +1,0 @@
-/lila/data/iacobuzc/haochen/Tapestri_project/TapVarCallSmk/resources/mosaic/src/mosaic/assay.py:218: UserWarning: Multiple samples detected. Appending the sample name to the barcodes to avoid duplicate barcodes. The original barcodes are stored in the original_barcode row attribute
-  warnings.warn(msg)
-WARNING:root:original NGT layer not found.
-WARNING:root:GQ layer not found. Using all zeros.
-/data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/scripts/generate_condor_input.py:180: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
-  ].applymap(lambda x: -1 if pd.isna(x) else 0 if x < bin_thres else 1)
