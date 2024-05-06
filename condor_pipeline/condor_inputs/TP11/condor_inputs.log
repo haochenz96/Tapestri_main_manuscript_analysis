@@ -1,0 +1,67 @@
+               sample cell_barcode  clone_id
+0          TP11-IR-0T       cell_1         3
+1          TP11-IR-0T      cell_10         7
+2          TP11-IR-0T     cell_100         7
+3          TP11-IR-0T     cell_101         7
+4          TP11-IR-0T     cell_102         3
+...               ...          ...       ...
+3591  RA18_18-11_1-v3     cell_995         0
+3592  RA18_18-11_1-v3     cell_996         2
+3593  RA18_18-11_1-v3     cell_997         0
+3594  RA18_18-11_1-v3     cell_998         0
+3595  RA18_18-11_1-v3     cell_999         0
+
+[3596 rows x 3 columns]
+Found H5: TP11.patient_wide.genotyped.h5
+Loading, /data/iacobuzc/haochen/Tapestri_batch3/batch3_data_compiled/SNV_FILLOUT_results/TP11/TP11.patient_wide.genotyped.h5
+Loaded in 0.2s.
+(1047, 476)
+
+    germline: 27
+    somatic: 2
+    total: 102
+(1047, 102)
+(1047, 102)
+Index(['cell_1-TP11-IR-0T', 'cell_10-TP11-IR-0T', 'cell_100-TP11-IR-0T',
+       'cell_101-TP11-IR-0T', 'cell_102-TP11-IR-0T', 'cell_103-TP11-IR-0T',
+       'cell_104-TP11-IR-0T', 'cell_105-TP11-IR-0T', 'cell_106-TP11-IR-0T',
+       'cell_107-TP11-IR-0T',
+       ...
+       'cell_90-TP11-IR-2T', 'cell_91-TP11-IR-2T', 'cell_92-TP11-IR-2T',
+       'cell_93-TP11-IR-2T', 'cell_94-TP11-IR-2T', 'cell_95-TP11-IR-2T',
+       'cell_96-TP11-IR-2T', 'cell_97-TP11-IR-2T', 'cell_98-TP11-IR-2T',
+       'cell_99-TP11-IR-2T'],
+      dtype='object', name='cell_barcode', length=1047)
+0              TP11-IR-0T:cell_1
+1             TP11-IR-0T:cell_10
+2            TP11-IR-0T:cell_100
+3            TP11-IR-0T:cell_101
+4            TP11-IR-0T:cell_102
+                  ...           
+3591    RA18_18-11_1-v3:cell_995
+3592    RA18_18-11_1-v3:cell_996
+3593    RA18_18-11_1-v3:cell_997
+3594    RA18_18-11_1-v3:cell_998
+3595    RA18_18-11_1-v3:cell_999
+Name: cell_barcode, Length: 3596, dtype: object
+clone_id
+0    1261
+1     580
+5     480
+2     385
+4     343
+6     255
+7     156
+3     136
+Name: count, dtype: int64
+clone_id
+5    479
+6    252
+7    156
+3    136
+2     15
+0      4
+4      3
+1      2
+Name: count, dtype: int64
+[3, 7, 0, 2, 4, 1, 5, 6]

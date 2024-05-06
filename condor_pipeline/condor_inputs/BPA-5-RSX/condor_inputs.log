@@ -1,0 +1,63 @@
+            sample cell_barcode  clone_id
+0        BPA-5-RSX       cell_1         4
+1        BPA-5-RSX      cell_10         4
+2        BPA-5-RSX     cell_100         2
+3        BPA-5-RSX     cell_101         4
+4        BPA-5-RSX     cell_102         2
+...            ...          ...       ...
+1761  RA18_18-11_1     cell_995         0
+1762  RA18_18-11_1     cell_996         0
+1763  RA18_18-11_1     cell_997         0
+1764  RA18_18-11_1     cell_998         0
+1765  RA18_18-11_1     cell_999         1
+
+[1766 rows x 3 columns]
+Found H5: BPA-5-RSX.mpileup.renamed.h5
+Loading, /data/iacobuzc/haochen/Tapestri_batch2/batch2_data_BRCA_compiled/SNV_FILLOUT_results/BPA-5-RSX/BPA-5-RSX.mpileup.renamed.h5
+Loaded in 0.2s.
+(543, 993)
+
+    germline: 29
+    somatic: 2
+    total: 37
+(543, 37)
+(543, 37)
+Index(['cell_1-BPA-5-RSX', 'cell_10-BPA-5-RSX', 'cell_100-BPA-5-RSX',
+       'cell_101-BPA-5-RSX', 'cell_102-BPA-5-RSX', 'cell_103-BPA-5-RSX',
+       'cell_104-BPA-5-RSX', 'cell_105-BPA-5-RSX', 'cell_106-BPA-5-RSX',
+       'cell_107-BPA-5-RSX',
+       ...
+       'cell_90-BPA-5-RSX', 'cell_91-BPA-5-RSX', 'cell_92-BPA-5-RSX',
+       'cell_93-BPA-5-RSX', 'cell_94-BPA-5-RSX', 'cell_95-BPA-5-RSX',
+       'cell_96-BPA-5-RSX', 'cell_97-BPA-5-RSX', 'cell_98-BPA-5-RSX',
+       'cell_99-BPA-5-RSX'],
+      dtype='object', name='cell_barcode', length=543)
+0            BPA-5-RSX:cell_1
+1           BPA-5-RSX:cell_10
+2          BPA-5-RSX:cell_100
+3          BPA-5-RSX:cell_101
+4          BPA-5-RSX:cell_102
+                ...          
+1761    RA18_18-11_1:cell_995
+1762    RA18_18-11_1:cell_996
+1763    RA18_18-11_1:cell_997
+1764    RA18_18-11_1:cell_998
+1765    RA18_18-11_1:cell_999
+Name: cell_barcode, Length: 1766, dtype: object
+clone_id
+0    883
+1    401
+4    213
+3    118
+2    107
+5     44
+Name: count, dtype: int64
+clone_id
+4    213
+3    118
+2    107
+0     60
+5     44
+1      1
+Name: count, dtype: int64
+[4, 2, 3, 0, 5, 1]
