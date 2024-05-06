@@ -1,0 +1,76 @@
+# [US/Eastern]] Mon 05 06 01:07:55 EDT 2024
+# patient_name: M12# sample_names: ['M12-3']# ======  [snv_selection_params] ======
+# attribute: ['AF_MISSING']
+# mut_prev_threshold: 0.01
+# bq_prev_threshold: None
+# topic: all_vars
+# func_only: False
+# normals_occurences: 3
+# ado_threshold: 0.3
+# germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
+# filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
+# manual_snv_whitelist: {'chr9:21974695:G/GT', 'chr3:178936091:G/A', 'chr12:25398284:C/A', 'chr2:25457242:C/T', 'chr1:209969821:C/T', 'chr13:32907415:T/A', 'chr18:48581173:G/T', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr18:48593507:C/T'}
+# blacklist_snvs: None
+# =====================================
+condensed_format	mut_prev	HGVSp	annotation
+chr11:107879887:G/C	2277	CUL5 5_prime_UTR_variant	germline_HOM
+chr1:46521517:G/A	2274	PIK3R3 p.Ser297=	germline_HOM
+chr1:46521559:A/T	2273	PIK3R3 p.Asn283Lys	germline_HOM
+chr4:187538942:T/G	2272	FAT1 p.Gln2933Pro	likely_artifact
+chr2:148657117:G/A	2262	ACVR2A p.Pro118=	germline_HOM
+chr15:89858602:T/C	2260	FANCI p.Gly1302=	germline_HOM
+chr17:7578115:T/C	2246	TP53 intron_variant	germline_HOM
+chr12:25368462:C/T	2242	KRAS p.Arg161=	germline_HOM
+chr1:16246018:C/T	2123	SPEN intron_variant	germline_HET
+chr1:6257826:T/C	2108	RPL22 intron_variant	germline_HET
+chr6:31860118:G/A	2092	EHMT2 intron_variant	germline_HET
+chr9:8465598:A/G	2078	PTPRD p.Ala1194=	germline_HET
+chr12:49434074:C/A	2072	KMT2D p.Gly2493=	germline_HOM
+chr20:31387954:C/G	2054	DNMT3B intron_variant	germline_HET
+chr1:11288758:G/A	2032	MTOR p.Asn999=	germline_HET
+chr17:73627565:A/G	2030	RECQL5 p.Tyr471=	germline_HOM
+chr13:28883061:G/A	1937	FLT1 p.Tyr1213=	germline_HET
+chr5:38953665:G/GA	1888	RICTOR intron_variant	likely_artifact
+chr16:89858759:C/T	1886	FANCA intron_variant	germline_HET
+chr3:178935943:C/T	1837	PIK3CA intron_variant	germline_HET
+chr6:80751780:G/A	1798	TTK intron_variant	germline_HET
+chr22:29130300:C/T	1796	CHEK2 intron_variant	germline_HET
+chr1:226578099:T/C	1730	PARP1 intron_variant	germline_HET
+chr7:2962753:G/A	1728	CARD11 intron_variant	germline_HET
+chr1:163298548:T/C	1715	NUF2 intron_variant	germline_HET
+chr16:347184:A/G	1714	AXIN1 p.Ala609=	germline_HET
+chr16:347257:G/T	1708	AXIN1 intron_variant	germline_HET
+chr1:91859795:T/C	1654	HFM1 p.Ile117Val	germline_HOM
+chr11:65631167:C/T	1611	MUS81 p.Ala312=	germline_HOM
+chr1:158612236:A/G	1488	SPTA1 p.Cys1568Arg	germline_HET
+chr8:30933859:C/T	1451	WRN intron_variant	germline_HET
+chr18:48584855:AT/A	1427	SMAD4 intron_variant	likely_artifact
+chr18:48604701:G/A	1368	SMAD4 p.Gly508Asp	bulk_somatic
+chr11:64572557:A/G	1261	MEN1 p.His433=	likely_artifact
+chr1:11205058:C/T	1195	MTOR p.Ala1577=	germline_HET
+chr12:25362777:A/G	1177	KRAS 3_prime_UTR_variant	germline_HET
+chr12:25398284:C/T	1095	KRAS p.Gly12Asp	bulk_somatic
+chr17:7576501:G/A	1075	TP53 intron_variant	germline_HET
+chr11:64572602:G/A	1074	MEN1 p.Asp418=	germline_HOM
+chr15:41275014:T/G	1046	INO80 intron_variant	germline_HOM
+chr7:151935730:T/C	1042	KMT2C intron_variant	NA
+chr14:105242966:T/C	839	AKT1 intron_variant	likely_artifact
+chr13:32913055:A/G	789	BRCA2 p.Leu1521=	germline_HOM
+chr22:50727921:T/C	784	PLXNB2 intron_variant	germline_HOM
+chr22:50728062:T/C	782	PLXNB2 p.Lys318Glu	germline_HOM
+chr1:91859801:A/G	715	HFM1 p.Ser115Pro	germline_HET
+chr17:7579472:G/C	655	TP53 p.Pro72Arg	germline_HET
+chr15:67457698:A/G	587	SMAD3 p.Ile170Val	germline_HET
+chr4:96035796:GAC/G	313	BMPR1B intron_variant	likely_artifact
+chr6:31860156:C/T	175	EHMT2 intron_variant	germline_HET
+chr18:48584804:G/T	155	SMAD4 p.Met294Ile	likely_artifact
+chr9:101911436:A/AT	129	TGFBR1 intron_variant	likely_artifact
+chr5:68667298:G/T	71	RAD17 5_prime_UTR_variant	likely_artifact
+chr5:38953665:G/GAA	60	RICTOR intron_variant	NA
+chr18:48584855:ATT/A	60	SMAD4 intron_variant	NA
+chr11:92577070:T/C	43	FAT3 intron_variant	likely_artifact
+chr14:75508280:GA/G	37	MLH3 intron_variant	likely_artifact
+chr1:11308054:A/G	33	MTOR p.Ile313Thr	NA
+chr20:46279895:A/G	27	NCOA3 p.Gln1274Arg	NA
+chr6:33287439:T/C	27	DAXX p.Glu553Gly	NA
+chr20:46279839:G/A	24	NCOA3 p.Gln1255=	NA

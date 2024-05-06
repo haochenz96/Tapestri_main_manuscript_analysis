@@ -29,7 +29,7 @@ raw_data_directory: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/dat
 # this directory should be in the following structure:
 #  - {patient_1}.*.h5
 #  - {patient_2}.*.h5
-annotated_mutations: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists
+annotated_mutations: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists
 # this directory should be in the following structure:
 #  - {patient_1}*voi.hz_curated.txt
 #  - {patient_2}*voi.hz_curated.txt
