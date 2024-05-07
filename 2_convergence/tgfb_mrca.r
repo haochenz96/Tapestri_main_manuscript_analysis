@@ -3,15 +3,13 @@ library(dplyr)
 library(ggplot2)
 library(ggpubr)
 library(ggrepel)
-library(maftools)
+# library(maftools)
 
 # excel
 library(readxl)
 
-setwd("/Users/haochenzhang/Iacobuzio_lab/")
-
 # ----- read and process snDNA-seq MAF -----
-maf_f <- "Publication/Tapestri_main_manuscript/Figure1/B-oncoprint/composite_maf.FINAL.manually_annotated.xlsx"
+maf_f <- "1B_tree_analysis/1B_pan_cohort_phylogeny_scMAF.csv"
 maf <- read_excel(maf_f)
 
 # ----- plot oncoprint -----

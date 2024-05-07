@@ -64,7 +64,9 @@ combined_del_amp_maf <- combined_del_amp_maf %>%
 # capitalize alteration_class column
 combined_del_amp_maf$alteration_class <- toupper(combined_del_amp_maf$alteration_class)
 # -- LOH
-combined_loh_maf <- read.csv("../1B_tree_analysis/1B_pan_cohort_scMAF.LOH_events.csv")
+combined_loh_maf <- read.csv("../1B_tree_analysis/1B_pan_cohort_phylogeny_scMAF.csv")
+# we don't need the GAIN events, which are used for truncal status determination
+combined_loh_maf %>% filter(alteration_class == "LOH") -> combined_loh_maf
 
 # ----- 3. combine SNV and CNV MAF -----
 columns_of_interest = c("patient_name", "gene_name", "alteration_class", "CCF")
@@ -91,17 +93,20 @@ for (patient in unique(composite_maf$patient_name)) {
   for (gene in unique(patient_composite_maf$gene_name)) {
     if (nrow(subset(combined_loh_maf, patient_name == patient & gene_name == gene)) > 0) {
       composite_maf[composite_maf$patient_name == patient & composite_maf$gene_name == gene, "LOH"] <- 1
+      # pop the row from combined_loh_maf
       combined_loh_maf <- combined_loh_maf %>% filter(!(patient_name == patient & gene_name == gene))
     }
   }
 }
+subset(combined_loh_maf, select = columns_of_interest) -> combined_loh_maf
 combined_loh_maf$LOH <- 0
 composite_maf <- rbind(
-  composite_maf, combined_loh_maf
+  composite_maf, 
+  combined_loh_maf
 )
 # ----- 5. plot -----
 # sort the mutations by CCF
-composite_maf <- composite_maf[order(composite_maf$CCF),]
+composite_maf <- composite_maf[order(composite_maf$CCF, decreasing=TRUE),]
 
 genes_to_remove <- c("ARID1B", "PALB2")
 composite_maf <- composite_maf %>% filter(!gene_name %in% genes_to_remove)
@@ -130,6 +135,9 @@ ordered_case_names <- unique(ordered_case_names$patient_name)
 composite_maf$patient_name <- factor(composite_maf$patient_name, levels = ordered_case_names)
 patient_info_table$patient_name <- factor(patient_info_table$patient_name, levels = ordered_case_names)
 
+# # make LOH a binary variable
+composite_maf$LOH_factor <- as.factor(composite_maf$LOH)
+
 fig_a <- ggplot(composite_maf, aes(
   x=patient_name, y=gene_name, 
   # size=as.factor(cut(CCF, breaks=c(0, 0.25, 0.5, 0.75, 1))),
@@ -139,7 +147,7 @@ fig_a <- ggplot(composite_maf, aes(
     data=composite_maf, 
     aes(
       fill=alteration_class, # height=CCF, width=CCF, 
-      size = CCF, stroke = LOH * 2,
+      size = CCF, stroke = LOH*1.5, color = LOH_factor
       # bin the CCF into 4 groups
       # size=cut(CCF, breaks=c(0, 0.25, 0.5, 0.75, 1)),
       # alpha=fraction_altered,
@@ -161,8 +169,18 @@ fig_a <- ggplot(composite_maf, aes(
     breaks = names(manual_scale_colors)[1:5], 
     name = "SNV", 
     guide = guide_legend(
-      override.aes = list(size = 10),
+      override.aes = list(size = 8),
       title.position = "top", byrow = TRUE, order=1)
+    ) +
+  scale_color_manual(
+    aesthetics = "color",
+    values = c("black", "white"),
+    labels = c("LOH", ""),
+    breaks = c(1, 0),
+    name = "LOH",
+    guide = guide_legend(
+      override.aes = list(size = 8),
+      title.position = "top", byrow = TRUE, order=2)
     ) +
   new_scale_fill() +
   geom_point(
@@ -170,7 +188,7 @@ fig_a <- ggplot(composite_maf, aes(
     data=composite_maf, 
     aes(
       fill=alteration_class, # height=CCF, width=CCF, 
-      size = CCF, stroke = 0.5,
+      size = CCF, stroke = 0.01
       # alpha=fraction_altered,
       ), 
     # colour="grey"
@@ -182,8 +200,8 @@ fig_a <- ggplot(composite_maf, aes(
     breaks = names(manual_scale_colors)[6:8], 
     name = "CNV", 
     guide = guide_legend(
-      override.aes = list(size = 10),
-      title.position = "top", byrow = TRUE, order=2)
+      override.aes = list(size = 8),
+      title.position = "top", byrow = TRUE, order=3)
     ) +
   theme(panel.background = element_blank()) +
   geom_hline(yintercept = seq(1, nlevels(composite_maf$patient_name)) - 0.5, alpha = 0.3) +
@@ -280,6 +298,12 @@ png("Figure_1B_sc_oncoprint.png", height=9, width=11, units = "in", res = 400)
 grid.draw(combined.plot)
 dev.off()
 
+# save final composite_maf
+write.csv(composite_maf, "1A_composite_maf.FINAL.csv", row.names = FALSE)
+# subset to TGFb genes
+tgfb_genes <- c("SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2")
+tgfb_maf <- composite_maf %>% filter(gene_name %in% tgfb_genes)
+write.csv(tgfb_maf, "1A_composite_maf.TGFB.csv", row.names = FALSE)
 # # ----- get stats on SMAD4 and CDKN2A genes -----
 # cdkn2a_stats <- composite_maf %>% filter(gene_name %in% c("CDKN2A")) %>% group_by(gene_name, alteration_class, CCF, fraction_altered) %>% summarise(freq = n())
 
