@@ -1,0 +1,63 @@
+condensed_format	mut_prev	HGVSp	annotation
+chr1:46521517:G/A	6292	PIK3R3 p.Ser297=	germline_HOM
+chr1:46521559:A/T	6291	PIK3R3 p.Asn283Lys	germline_HOM
+chr17:7578115:T/C	6264	TP53 intron_variant	germline_HOM
+chr11:107879887:G/C	6264	CUL5 5_prime_UTR_variant	germline_HOM
+chr4:187538942:T/G	6236	FAT1 p.Gln2933Pro	germline_HOM
+chr2:148657117:G/A	6205	ACVR2A p.Pro118=	germline_HOM
+chr12:49434074:C/A	6018	KMT2D p.Gly2493=	germline_HOM
+chr12:25368462:C/T	6017	KRAS p.Arg161=	germline_HOM
+chr1:16246018:C/T	5649	SPEN intron_variant	germline_HET
+chr15:89858602:T/C	5617	FANCI p.Gly1302=	germline_HOM
+chr20:31387954:C/G	5473	DNMT3B intron_variant	germline_HET
+chr6:31860118:G/A	5432	EHMT2 intron_variant	germline_HET
+chr17:73627565:A/G	5429	RECQL5 p.Tyr471=	germline_HOM
+chr1:6257826:T/C	5387	RPL22 intron_variant	germline_HET
+chr9:8465598:A/G	5215	PTPRD p.Ala1194=	germline_HET
+chr1:11288758:G/A	5118	MTOR p.Asn999=	germline_HET
+chr1:91859795:T/C	4981	HFM1 p.Ile117Val	germline_HOM
+chr13:28883061:G/A	4953	FLT1 p.Tyr1213=	germline_HET
+chr16:89858759:C/T	4792	FANCA intron_variant	germline_HET
+chr6:80751780:G/A	4663	TTK intron_variant	germline_HET
+chr3:178935943:C/T	4610	PIK3CA intron_variant	germline_HET
+chr7:2962753:G/A	4598	CARD11 intron_variant	germline_HET
+chr16:347184:A/G	4565	AXIN1 p.Ala609=	germline_HET
+chr16:347257:G/T	4542	AXIN1 intron_variant	germline_HET
+chr22:29130300:C/T	4410	CHEK2 intron_variant	germline_HET
+chr1:226578099:T/C	4381	PARP1 intron_variant	germline_HET
+chr1:163298548:T/C	4357	NUF2 intron_variant	germline_HET
+chr5:38953665:G/GA	4334	RICTOR intron_variant	germline_HET
+chr17:7576501:G/A	4316	TP53 intron_variant	germline_HET
+chr11:65631167:C/T	4162	MUS81 p.Ala312=	germline_HOM
+chr1:158612236:A/G	3850	SPTA1 p.Cys1568Arg	germline_HET
+chr8:30933859:C/T	3785	WRN intron_variant	germline_HET
+chr12:25362777:A/G	3596	KRAS 3_prime_UTR_variant	germline_HET
+chr15:41275014:T/G	3522	INO80 intron_variant	germline_HOM
+chr18:48584855:AT/A	3373	SMAD4 intron_variant	likely_artifact
+chr1:11205058:C/T	3276	MTOR p.Ala1577=	germline_HET
+chr1:91859801:A/G	3121	HFM1 p.Ser115Pro	germline_HET
+chr7:151935730:T/C	2660	KMT2C intron_variant	likely_artifact
+chr17:7579472:G/C	2635	TP53 p.Pro72Arg	germline_HET
+chr22:50727921:T/C	2005	PLXNB2 intron_variant	germline_HOM
+chr22:50728062:T/C	1999	PLXNB2 p.Lys318Glu	germline_HOM
+chr14:105242966:T/C	1581	AKT1 intron_variant	likely_artifact
+chr18:48604701:G/A	1377	SMAD4 p.Gly508Asp	bulk_somatic
+chr12:25398284:C/T	1109	KRAS p.Gly12Asp	bulk_somatic
+chr4:96035796:GAC/G	1054	BMPR1B intron_variant	likely_artifact
+chr17:56448321:A/G	826	RNF43 p.Leu109Pro	bulk_somatic
+chr5:68667298:G/T	623	RAD17 5_prime_UTR_variant	likely_artifact
+chr9:101911436:A/AT	386	TGFBR1 intron_variant	likely_artifact
+chr18:48584804:G/T	223	SMAD4 p.Met294Ile	likely_artifact
+chr11:92577070:T/C	194	FAT3 intron_variant	likely_artifact
+chr5:38953665:G/GAA	194	RICTOR intron_variant	likely_artifact
+chr18:48584855:ATT/A	135	SMAD4 intron_variant	likely_artifact
+chr20:46279895:A/G	93	NCOA3 p.Gln1274Arg	likely_artifact
+chr20:46279839:G/A	89	NCOA3 p.Gln1255=	likely_artifact
+chr2:25463236:A/C	79	DNMT3A p.Trp753Gly	
+chr14:75508280:GA/G	79	MLH3 intron_variant	likely_artifact
+chr1:11308054:A/G	76	MTOR p.Ile313Thr	
+chr17:8049758:TAGG/T	72	PER1 p.Ser656del	likely_artifact
+chr19:36222968:A/C	57	KMT2B p.Lys1866Thr	
+chr3:10085351:C/T	49	FANCD2 intron_variant	likely_artifact
+chr15:67473662:T/G	49	SMAD3 p.Phe248Val	likely_artifact
+chr15:59322941:T/A	43	RNF111 intron_variant	
