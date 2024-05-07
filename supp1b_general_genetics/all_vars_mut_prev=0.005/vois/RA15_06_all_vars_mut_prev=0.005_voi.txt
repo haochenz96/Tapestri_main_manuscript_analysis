@@ -1,4 +1,4 @@
-# [US/Eastern]] Sat 05 04 17:58:59 EDT 2024
+# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
 # patient_name: RA15_06# sample_names: ['RA15_06-3_1', 'RA15_06-13_4', 'RA15_06-14_1']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,17 +9,17 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# whitelist_snvs: []
+# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
-chr1:46521559:A/T	4630	PIK3R3 p.Asn283Lys	germline_HOM
 chr1:46521517:G/A	4630	PIK3R3 p.Ser297=	germline_HOM
+chr1:46521559:A/T	4630	PIK3R3 p.Asn283Lys	germline_HOM
 chr11:65481166:T/C	4621	KAT5 intron_variant	germline_HOM
 chr11:107879887:G/C	4616	CUL5 5_prime_UTR_variant	germline_HOM
 chr4:187538942:T/G	4588	FAT1 p.Gln2933Pro	likely_artifact
-chr1:226578099:T/C	4533	PARP1 intron_variant	germline_HOM
 chr15:89858602:T/C	4533	FANCI p.Gly1302=	germline_HOM
+chr1:226578099:T/C	4533	PARP1 intron_variant	germline_HOM
 chr1:11288758:G/A	4523	MTOR p.Asn999=	germline_HOM
 chr3:189604149:T/G	4507	TP63 intron_variant	germline_HOM
 chr7:2962753:G/A	4495	CARD11 intron_variant	germline_HOM
@@ -69,16 +69,17 @@ chr18:48584855:A/AT	2087	SMAD4 intron_variant	likely_artifact
 chr2:215609693:G/A	1856	BARD1 intron_variant	germline_HET
 chr12:25398284:C/A	1789	KRAS p.Gly12Val	bulk_somatic
 chr13:32913055:A/G	1598	BRCA2 p.Leu1521=	germline_HOM
+chr18:48593507:C/T	1298	SMAD4 p.Arg420Cys	bulk_somatic
 chr4:96035796:GAC/G	1285	BMPR1B intron_variant	likely_artifact
 chr17:7577427:G/A	1079	TP53 intron_variant	germline_HET
 chr17:7577407:A/C	1074	TP53 intron_variant	germline_HET
-chr1:115256535:G/C	920	NRAS p.Ala59Gly	NA
-chr7:151935730:T/C	878	KMT2C intron_variant	NA
+chr1:115256535:G/C	920	NRAS p.Ala59Gly	likely_artifact
+chr7:151935730:T/C	878	KMT2C intron_variant	likely_artifact
 chr6:157528197:C/T	876	ARID1B p.Ile2014=	germline_HET
 chr12:133252796:C/G	835	POLE intron_variant	germline_HET
 chr3:52637486:C/G	800	PBRM1 intron_variant	germline_HET
 chr2:203384776:CT/C	388	BMPR2 intron_variant	NA
-chr17:7579896:G/A	262	TP53 p.Ser6Leu	NA
+chr17:7579896:G/A	262	TP53 p.Ser6Leu	likely_artifact
 chr7:154760669:GTGC/G	132	PAXIP1 p.Gln413del	NA
 chr18:48584804:G/T	99	SMAD4 p.Met294Ile	likely_artifact
 chr14:75508280:GA/G	64	MLH3 intron_variant	NA
@@ -90,70 +91,70 @@ chr11:108204733:AT/A	38	ATM intron_variant	NA
 chr16:68857181:A/G	33	CDH1 intron_variant	NA
 chr2:100055101:AT/A	29	REV1 p.Met392Ter	NA
 chr13:23904744:G/A	17	SACS p.Ala4424Val	NA
-chr10:89711833:A/AT	17	PTEN intron_variant	NA
 chr12:49434009:G/A	17	KMT2D p.Pro2515Leu	NA
+chr10:89711833:A/AT	17	PTEN intron_variant	NA
 chr3:38522975:C/A	15	ACVR2B intron_variant	NA
 chr13:28883017:A/G	14	FLT1 p.Phe1228Ser	NA
 chr13:32911401:A/G	14	BRCA2 p.Asp970Gly	NA
 chr1:91843996:A/G	13	HFM1 p.Ser400=	NA
 chr12:133252783:A/G	12	POLE p.Leu306Pro	NA
 chr6:7230547:A/G	12	RREB1 p.Ser739Gly	NA
+chr6:7230439:A/G	11	RREB1 p.Ile703Val	NA
 chr11:108099935:A/G	11	ATM p.Thr72=	NA
 chr10:88671974:A/G	11	BMPR1A intron_variant	NA
-chr6:7230439:A/G	11	RREB1 p.Ile703Val	NA
-chr6:157521839:A/G	10	ARID1B p.Asn1411Asp	NA
 chr10:89717596:A/G	10	PTEN intron_variant	NA
-chr12:25368433:AT/A	10	KRAS p.Ile171SerfsTer11	NA
 chr18:48602991:A/G	10	SMAD4 intron_variant	NA
 chr13:32913810:A/G	10	BRCA2 p.Glu1773Gly	NA
+chr6:157521839:A/G	10	ARID1B p.Asn1411Asp	NA
 chr12:118457458:A/G	10	RFC5 p.Asp51Gly	NA
+chr12:25368433:AT/A	10	KRAS p.Ile171SerfsTer11	NA
 chr19:5219999:C/T	9	PTPRS p.Gly1239Asp	NA
 chr6:80715538:A/G	9	TTK intron_variant	NA
-chr19:11097005:A/G	8	SMARCA4 p.Asn166Asp	NA
-chr8:128752924:C/G	8	MYC p.Ser362Cys	NA
-chr9:101909904:A/G	8	TGFBR1 intron_variant	NA
+chr20:40739053:A/G	8	PTPRT p.Tyr1080=	NA
+chr8:128748796:A/G	8	MYC p.Arg169Gly	NA
 chr2:148672904:G/A	8	ACVR2A splice_site_variant	NA
 chr6:157510769:C/T	8	ARID1B intron_variant	NA
-chr20:40739053:A/G	8	PTPRT p.Tyr1080=	NA
 chr14:20818778:C/T	8	PARP2 p.Arg153Ter	NA
-chr8:128748796:A/G	8	MYC p.Arg169Gly	NA
 chr12:49440064:A/G	8	KMT2D p.Ile1521Thr	NA
+chr9:101909904:A/G	8	TGFBR1 intron_variant	NA
+chr8:128752924:C/G	8	MYC p.Ser362Cys	NA
+chr19:11097005:A/G	8	SMARCA4 p.Asn166Asp	NA
 chr3:52637483:A/G	8	PBRM1 intron_variant	NA
-chr10:89717601:A/G	7	PTEN intron_variant	NA
+chr2:148676021:A/G	7	ACVR2A p.Ser274=	NA
+chr2:25457221:A/G	7	DNMT3A p.Leu889Pro	NA
 chr4:95972871:A/G	7	BMPR1B intron_variant	NA
 chr1:11298021:A/G	7	MTOR p.Leu696Ser	NA
 chr12:133252599:G/A	7	POLE intron_variant	NA
-chr1:27089494:C/T	7	ARID1A p.Ala817Val	NA
 chr9:101908722:A/G	7	TGFBR1 intron_variant	NA
-chr2:25457221:A/G	7	DNMT3A p.Leu889Pro	NA
-chr2:148676021:A/G	7	ACVR2A p.Ser274=	NA
-chr2:203329556:G/A	6	BMPR2 p.Cys34Tyr	NA
+chr10:89717601:A/G	7	PTEN intron_variant	NA
+chr1:27089494:C/T	7	ARID1A p.Ala817Val	NA
 chr11:108206529:A/G	6	ATM intron_variant	NA
-chr4:153249413:G/A	6	FBXW7 p.His455=	NA
-chr14:20818707:A/G	6	PARP2 p.Asn129Ser	NA
-chr8:69027979:A/G	6	PREX2 intron_variant	NA
-chr12:133252696:A/G	6	POLE p.Phe335Ser	NA
-chr11:65632160:C/T	6	MUS81 intron_variant	NA
-chr3:41274919:A/G	6	CTNNB1 p.Asp390Gly	NA
-chr10:88676945:C/T	6	BMPR1A p.Arg244Ter	NA
-chr4:95972737:A/T	6	BMPR1B intron_variant	NA
-chr13:32913775:A/G	6	BRCA2 p.Gly1761=	NA
+chr2:203329556:G/A	6	BMPR2 p.Cys34Tyr	NA
 chr7:151962153:C/T	6	KMT2C p.Cys385Tyr	NA
+chr12:133252696:A/G	6	POLE p.Phe335Ser	NA
+chr14:20818707:A/G	6	PARP2 p.Asn129Ser	NA
+chr11:65632160:C/T	6	MUS81 intron_variant	NA
 chr22:41548329:G/A	6	EP300 p.Pro1039=	NA
-chr4:96046108:A/G	5	BMPR1B intron_variant	NA
-chr14:31077143:T/C	5	G2E3 p.Ser456=	NA
-chr4:55151577:A/G	5	PDGFRA p.Glu788Gly	NA
+chr4:95972737:A/T	6	BMPR1B intron_variant	NA
+chr4:153249413:G/A	6	FBXW7 p.His455=	NA
+chr3:41274919:A/G	6	CTNNB1 p.Asp390Gly	NA
+chr8:69027979:A/G	6	PREX2 intron_variant	NA
+chr10:88676945:C/T	6	BMPR1A p.Arg244Ter	NA
+chr13:32913775:A/G	6	BRCA2 p.Gly1761=	NA
 chr17:7579890:G/A	5	TP53 p.Pro8Leu	NA
-chr1:27089466:G/A	5	ARID1A p.Gly808Ser	NA
-chr12:25362710:A/G	5	KRAS 3_prime_UTR_variant	NA
 chr1:209969704:A/G	5	IRF6 p.Ile123Thr	NA
 chr2:128037939:C/T	5	ERCC3 intron_variant	NA
+chr1:27089466:G/A	5	ARID1A p.Gly808Ser	NA
+chr4:55151577:A/G	5	PDGFRA p.Glu788Gly	NA
+chr4:96046108:A/G	5	BMPR1B intron_variant	NA
 chr2:80085302:A/G	5	CTNNA2 p.Lys154=	NA
-chr6:157505569:G/A	4	ARID1B p.Ala1224Thr	NA
-chr13:32971062:G/A	4	BRCA2 p.Glu3177Lys	NA
-chr18:48586175:A/G	4	SMAD4 intron_variant	NA
+chr14:31077143:T/C	5	G2E3 p.Ser456=	NA
+chr12:25362710:A/G	5	KRAS 3_prime_UTR_variant	NA
 chr11:67198829:G/A	4	RPS6KB2 intron_variant	NA
-chr17:63526212:A/G	4	AXIN2 p.Phe805Ser	NA
-chr19:36222880:C/T	4	KMT2B p.Pro1837Ser	NA
+chr18:48586175:A/G	4	SMAD4 intron_variant	NA
+chr13:32971062:G/A	4	BRCA2 p.Glu3177Lys	NA
 chr18:19762979:C/T	4	GATA6 p.Pro532Leu	NA
+chr6:157505569:G/A	4	ARID1B p.Ala1224Thr	NA
+chr19:36222880:C/T	4	KMT2B p.Pro1837Ser	NA
+chr17:63526212:A/G	4	AXIN2 p.Phe805Ser	NA
 chr3:30714071:G/A	3	TGFBR2 intron_variant	NA

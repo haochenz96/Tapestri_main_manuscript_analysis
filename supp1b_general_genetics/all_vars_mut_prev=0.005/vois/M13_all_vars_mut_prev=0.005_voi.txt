@@ -1,4 +1,4 @@
-# [US/Eastern]] Sat 05 04 17:58:59 EDT 2024
+# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
 # patient_name: M13# sample_names: ['M13-1', 'M13-5']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# whitelist_snvs: []
+# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -73,6 +73,7 @@ chr1:27099479:G/A	720	ARID1A splice_site_variant	bulk_somatic
 chr2:203384776:CT/C	346	BMPR2 intron_variant	NA
 chr9:101911436:A/AT	245	TGFBR1 intron_variant	likely_artifact
 chr17:7576651:T/C	145	TP53 intron_variant	NA
+chr2:25457242:C/T	142	DNMT3A p.Arg882His	whitelisted_somatic
 chr18:48584804:G/T	123	SMAD4 p.Met294Ile	likely_artifact
 chr2:203384776:C/CTTT	109	BMPR2 intron_variant	NA
 chr20:46279857:GCAGCAGCAA/G	93	NCOA3 p.Gln1274_Gln1276del	NA

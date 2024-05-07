@@ -9,7 +9,7 @@ snv_lists_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analy
 N=69
 PON_OCCURENCE_FREQUENCY=0.5
 threshold_sample_count = N * PON_OCCURENCE_FREQUENCY
-tumors_pon_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_blacklists/all_tumor_samples_N=69_composite_snv_sheet.csv"
+tumors_pon_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/all_tumor_samples_N=69_composite_snv_sheet.csv"
 tumors_pon_df = pd.read_csv(tumors_pon_f, sep=',', header=0, index_col=0)
 
 snv_blacklist = tumors_pon_df[
@@ -63,39 +63,39 @@ manual_snv_blacklist = [
 snv_blacklist += manual_snv_blacklist
 snv_loci_blacklist = [x.rsplit(":", 1)[0] for x in snv_blacklist]
 
-# %% Blacklist the SNPs and SNVs
-# patients_of_interest = ["BPA-5-RSX"]
-output_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/all_vars_mut_prev=0.01/sc_heatmaps")
-output_dir.mkdir(exist_ok=True, parents=True)
-for p in snv_lists_dir.glob("**/*-voi.hz_curated.txt"):
-    # if not any([x in str(p) for x in patients_of_interest]):
-    #     continue
-    manual_snv = pd.read_csv(p, sep='\t', index_col=0, comment = '#')
-    manual_snv.fillna({'annotation': ''}, inplace=True)
+# # %% Blacklist the SNPs and SNVs
+# # patients_of_interest = ["BPA-5-RSX"]
+# output_dir = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/all_vars_mut_prev=0.01/sc_heatmaps")
+# output_dir.mkdir(exist_ok=True, parents=True)
+# for p in snv_lists_dir.glob("**/*-voi.hz_curated.txt"):
+#     # if not any([x in str(p) for x in patients_of_interest]):
+#     #     continue
+#     manual_snv = pd.read_csv(p, sep='\t', index_col=0, comment = '#')
+#     manual_snv.fillna({'annotation': ''}, inplace=True)
     
-    # flag all loci in blacklist as "likely_artifact"
-    count = 0
-    blacklisted = []
-    for locus, row in manual_snv.iterrows():
-        if "germline" in row["annotation"]:
-            if locus.rsplit(":", 1)[0] in snp_loci_blacklist:
-                if not manual_snv.loc[locus, 'annotation'] == "likely_artifact":
-                    manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
-                    count += 1
-                    # blacklisted.append(manual_snv.loc[locus, 'HGVSp'])
-                    blacklisted.append(locus)
-        else:
-            if locus.rsplit(":", 1)[0] in snv_loci_blacklist:
-                if not manual_snv.loc[locus, 'annotation'] == "likely_artifact":
-                    manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
-                    count += 1
-                    # blacklisted.append(manual_snv.loc[locus, 'HGVSp'])
-                    blacklisted.append(locus)
-    print(f"""[INFO] Blacklisted {count} SNVs/SNPs in {p.stem}: 
-          {blacklisted}""")
-    # write output 
-    output_f = output_dir / (p.stem)
-    manual_snv.to_csv(output_f, sep='\t', index=True)
+#     # flag all loci in blacklist as "likely_artifact"
+#     count = 0
+#     blacklisted = []
+#     for locus, row in manual_snv.iterrows():
+#         if "germline" in row["annotation"]:
+#             if locus.rsplit(":", 1)[0] in snp_loci_blacklist:
+#                 if not manual_snv.loc[locus, 'annotation'] == "likely_artifact":
+#                     manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
+#                     count += 1
+#                     # blacklisted.append(manual_snv.loc[locus, 'HGVSp'])
+#                     blacklisted.append(locus)
+#         else:
+#             if locus.rsplit(":", 1)[0] in snv_loci_blacklist:
+#                 if not manual_snv.loc[locus, 'annotation'] == "likely_artifact":
+#                     manual_snv.loc[locus, 'annotation'] = 'likely_artifact'
+#                     count += 1
+#                     # blacklisted.append(manual_snv.loc[locus, 'HGVSp'])
+#                     blacklisted.append(locus)
+#     print(f"""[INFO] Blacklisted {count} SNVs/SNPs in {p.stem}: 
+#           {blacklisted}""")
+#     # write output 
+#     output_f = output_dir / (p.stem)
+#     manual_snv.to_csv(output_f, sep='\t', index=True)
 
 
 # %% Load data and plot heatmaps
@@ -114,11 +114,11 @@ patient_info_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/
 with open(patient_info_f, 'r') as f:
     patient_info = yaml.safe_load(f)
 patient_names = patient_info.keys()
-
+patient_names = ["M13", "BPA-3"]
 for patient_name in patient_names:
-    if (output_dir / f"{patient_name}-DNA-heatmap.pdf").is_file():
-        print(f'[INFO] Skipping {patient_name}.')
-        continue
+    # if (output_dir / f"{patient_name}-DNA-heatmap.pdf").is_file():
+    #     print(f'[INFO] Skipping {patient_name}.')
+    #     continue
     print(f'[INFO] Processing {patient_name}.')
 
     try:

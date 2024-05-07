@@ -1,4 +1,4 @@
-# [US/Eastern]] Sat 05 04 17:58:59 EDT 2024
+# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
 # patient_name: M07# sample_names: ['M07-1', 'M07-3']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# whitelist_snvs: []
+# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -64,8 +64,8 @@ chr19:1220321:T/C	1975	STK11 intron_variant	germline_HET
 chr17:73627539:T/C	1897	RECQL5 p.Asp480Gly	germline_HET
 chr13:32913055:A/G	1884	BRCA2 p.Leu1521=	germline_HOM
 chr15:38545294:C/T	1834	SPRED1 5_prime_UTR_variant	germline_HET
-chr17:7577556:C/T	1435	TP53 p.Cys242Tyr	germline_HET
-chr7:151935730:T/C	1323	KMT2C intron_variant	NA
+chr17:7577556:C/T	1435	TP53 p.Cys242Tyr	whitelisted_somatic
+chr7:151935730:T/C	1323	KMT2C intron_variant	likely_artifact
 chr12:25398284:C/T	1009	KRAS p.Gly12Asp	bulk_somatic
 chr18:48584855:A/ATT	838	SMAD4 intron_variant	likely_artifact
 chr18:48584855:A/AT	687	SMAD4 intron_variant	likely_artifact
@@ -80,8 +80,8 @@ chr1:27099486:A/T	25	ARID1A intron_variant	NA
 chr15:28422146:A/T	22	HERC2 p.Tyr3128Asn	NA
 chr19:40741681:G/C	20	AKT2 intron_variant	NA
 chr3:41265953:C/CT	19	CTNNB1 intron_variant	NA
-chr3:10085406:G/T	19	FANCD2 intron_variant	NA
 chr8:38275683:T/A	19	FGFR1 intron_variant	NA
+chr3:10085406:G/T	19	FANCD2 intron_variant	NA
 chr5:68667301:C/A	18	RAD17 5_prime_UTR_variant	NA
 chr20:46279895:A/G	17	NCOA3 p.Gln1274Arg	NA
 chr11:108114717:T/A	16	ATM p.Pro178=	NA

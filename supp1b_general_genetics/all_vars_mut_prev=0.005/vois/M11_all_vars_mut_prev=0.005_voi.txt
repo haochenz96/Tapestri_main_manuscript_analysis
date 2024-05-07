@@ -1,4 +1,4 @@
-# [US/Eastern]] Sat 05 04 17:58:59 EDT 2024
+# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
 # patient_name: M11# sample_names: ['M11-1', 'M11-2']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# whitelist_snvs: []
+# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -82,7 +82,7 @@ chr18:48584804:G/T	477	SMAD4 p.Met294Ile	likely_artifact
 chr18:48584855:A/ATT	471	SMAD4 intron_variant	likely_artifact
 chr17:7579806:T/G	447	TP53 intron_variant	NA
 chr18:48584855:ATT/A	118	SMAD4 intron_variant	NA
-chr15:28422129:A/C	103	HERC2 p.His3133Gln	NA
+chr15:28422129:A/C	103	HERC2 p.His3133Gln	likely_artifact
 chr3:10085406:G/T	99	FANCD2 intron_variant	NA
 chr14:75508280:GA/G	98	MLH3 intron_variant	likely_artifact
 chrX:70356195:C/T	51	MED12 p.Ser1697Leu	NA

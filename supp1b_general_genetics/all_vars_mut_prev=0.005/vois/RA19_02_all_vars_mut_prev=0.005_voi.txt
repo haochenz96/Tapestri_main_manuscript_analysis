@@ -1,4 +1,4 @@
-# [US/Eastern]] Sat 05 04 17:58:59 EDT 2024
+# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
 # patient_name: RA19_02# sample_names: ['RA19_02-42_3', 'RA19_02-37_1']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# whitelist_snvs: []
+# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -56,22 +56,22 @@ chr16:347184:A/G	3400	AXIN1 p.Ala609=	germline_HET
 chr6:7229346:T/C	3379	RREB1 p.His338=	germline_HET
 chr1:158612236:A/G	2981	SPTA1 p.Cys1568Arg	germline_HET
 chr17:7577559:G/C	2695	TP53 p.Ser241Cys	bulk_somatic
-chr12:25398284:C/A	2646	KRAS p.Gly12Val	germline_HET
+chr12:25398284:C/A	2646	KRAS p.Gly12Val	bulk_somatic
 chr11:65631203:G/A	2615	MUS81 intron_variant	germline_HET
 chr11:65631167:C/T	2591	MUS81 p.Ala312=	germline_HET
 chr18:48575671:C/A	2485	SMAD4 p.Ser144Ter	bulk_somatic
 chr22:50728062:T/C	2222	PLXNB2 p.Lys318Glu	germline_HOM
 chr22:50727921:T/C	2221	PLXNB2 intron_variant	germline_HOM
 chr14:105242966:T/C	2198	AKT1 intron_variant	likely_artifact
-chr11:71940225:C/T	1959	INPPL1 p.Leu204=	bulk_somatic
 chr18:48584855:A/ATT	1959	SMAD4 intron_variant	likely_artifact
+chr11:71940225:C/T	1959	INPPL1 p.Leu204=	bulk_somatic
 chr6:7229619:G/A	1948	RREB1 p.Ala429=	germline_HET
 chr13:32913055:A/G	1848	BRCA2 p.Leu1521=	germline_HOM
 chr9:8465598:A/G	1701	PTPRD p.Ala1194=	germline_HET
 chr18:48584855:A/AT	1478	SMAD4 intron_variant	likely_artifact
 chr17:7579472:G/C	1431	TP53 p.Pro72Arg	germline_HET
 chr15:41275014:T/G	810	INO80 intron_variant	germline_HET
-chr1:115256535:G/C	734	NRAS p.Ala59Gly	NA
+chr1:115256535:G/C	734	NRAS p.Ala59Gly	likely_artifact
 chr6:31860156:C/T	674	EHMT2 intron_variant	germline_HET
 chr3:47079112:G/A	351	SETD2 intron_variant	germline_HET
 chr9:101911436:A/AT	279	TGFBR1 intron_variant	likely_artifact
@@ -99,6 +99,6 @@ chr15:90631736:T/A	22	IDH2 splice_site_variant	NA
 chr1:27100978:G/A	21	ARID1A p.Gln1420=	NA
 chr1:206653314:A/G	20	IKBKE intron_variant	NA
 chr16:23647213:T/A	19	PALB2 p.Glu218Asp	NA
-chr1:27058079:G/C	17	ARID1A p.Arg596Pro	NA
 chr3:178951866:T/A	17	PIK3CA intron_variant	NA
+chr1:27058079:G/C	17	ARID1A p.Arg596Pro	NA
 chr20:9519936:G/A	16	PAK5 3_prime_UTR_variant	NA

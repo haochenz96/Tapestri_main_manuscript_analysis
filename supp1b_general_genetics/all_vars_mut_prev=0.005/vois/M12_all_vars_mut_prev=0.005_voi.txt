@@ -1,4 +1,4 @@
-# [US/Eastern]] Sat 05 04 17:58:59 EDT 2024
+# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
 # patient_name: M12# sample_names: ['M12-3']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# whitelist_snvs: []
+# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -53,7 +53,7 @@ chr12:25398284:C/T	1095	KRAS p.Gly12Asp	bulk_somatic
 chr17:7576501:G/A	1075	TP53 intron_variant	germline_HET
 chr11:64572602:G/A	1074	MEN1 p.Asp418=	germline_HOM
 chr15:41275014:T/G	1046	INO80 intron_variant	germline_HOM
-chr7:151935730:T/C	1042	KMT2C intron_variant	NA
+chr7:151935730:T/C	1042	KMT2C intron_variant	likely_artifact
 chr14:105242966:T/C	839	AKT1 intron_variant	likely_artifact
 chr13:32913055:A/G	789	BRCA2 p.Leu1521=	germline_HOM
 chr22:50727921:T/C	784	PLXNB2 intron_variant	germline_HOM
@@ -74,11 +74,11 @@ chr1:11308054:A/G	33	MTOR p.Ile313Thr	NA
 chr6:33287439:T/C	27	DAXX p.Glu553Gly	NA
 chr20:46279895:A/G	27	NCOA3 p.Gln1274Arg	NA
 chr20:46279839:G/A	24	NCOA3 p.Gln1255=	NA
+chr1:27100978:G/A	19	ARID1A p.Gln1420=	NA
 chr4:96035825:TCA/T	19	BMPR1B intron_variant	NA
 chr2:25463236:A/C	19	DNMT3A p.Trp753Gly	NA
-chr1:27100978:G/A	19	ARID1A p.Gln1420=	NA
 chr18:19756927:G/T	17	GATA6 p.Asp383Tyr	NA
 chr15:59322823:C/T	16	RNF111 intron_variant	NA
-chr11:108204733:AT/A	15	ATM intron_variant	NA
 chr17:8049758:TAGG/T	15	PER1 p.Ser656del	NA
+chr11:108204733:AT/A	15	ATM intron_variant	NA
 chr9:101909915:AT/A	14	TGFBR1 intron_variant	NA

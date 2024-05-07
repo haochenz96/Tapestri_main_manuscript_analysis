@@ -13,7 +13,7 @@ falcon_dir: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_c
 snv_selection_params:
     topic: all_vars
     func_only: False
-    mut_prev_threshold: 0.01
+    mut_prev_threshold: 0.005
     bq_prev_threshold: # <--- leave empty to disable
     normals_occurences: 3
     ado_threshold: 0.3 # <--- remove SNVs that have high ADO in ANY sample

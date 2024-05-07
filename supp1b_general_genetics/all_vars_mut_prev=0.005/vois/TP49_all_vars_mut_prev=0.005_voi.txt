@@ -1,4 +1,4 @@
-# [US/Eastern]] Sat 05 04 17:58:59 EDT 2024
+# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
 # patient_name: TP49# sample_names: ['TP49-IR-0T', 'TP49-IR-1T']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# whitelist_snvs: []
+# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -35,8 +35,8 @@ chr17:56448297:C/T	1986	RNF43 p.Arg117His	germline_HET
 chr16:3634746:C/A	1974	SLX4 intron_variant	germline_HET
 chr2:148657117:G/A	1952	ACVR2A p.Pro118=	germline_HET
 chr16:89858759:C/T	1936	FANCA intron_variant	germline_HET
-chr10:131506283:C/T	1933	MGMT p.Leu84Phe	germline_HET
 chr2:209113192:G/A	1933	IDH1 p.Gly105=	germline_HET
+chr10:131506283:C/T	1933	MGMT p.Leu84Phe	germline_HET
 chr10:131506192:C/T	1932	MGMT p.Leu53=	germline_HET
 chr13:32953971:C/T	1916	BRCA2 p.Thr3013Ile	germline_HET
 chr20:62303794:G/A	1907	RTEL1 intron_variant	germline_HET
@@ -81,6 +81,6 @@ chr8:6289098:T/TA	25	MCPH1 p.Arg108ThrfsTer2	NA
 chr12:49424233:G/A	19	KMT2D intron_variant	NA
 chr16:23647212:C/T	14	PALB2 p.Asp219Asn	NA
 chr20:46279895:A/G	14	NCOA3 p.Gln1274Arg	NA
-chr13:32944616:G/A	13	BRCA2 p.Leu2803=	NA
 chr12:133252620:A/G	13	POLE intron_variant	NA
+chr13:32944616:G/A	13	BRCA2 p.Leu2803=	NA
 chr1:209969818:C/T	12	IRF6 p.Cys85Tyr	NA
