@@ -14,14 +14,14 @@
 [4752 rows x 3 columns]
 [INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/M13.patient_wide.genotyped.h5
 Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/M13.patient_wide.genotyped.h5
-Loaded in 0.6s.
+Loaded in 0.4s.
 (3529, 375)
 
     germline: 34
-    somatic: 4
-    total: 40
-(3529, 40)
-(3529, 40)
+    somatic: 5
+    total: 41
+(3529, 41)
+(3529, 41)
 Index(['cell_1-M13-1', 'cell_10-M13-1', 'cell_100-M13-1', 'cell_1000-M13-1',
        'cell_1001-M13-1', 'cell_1002-M13-1', 'cell_1003-M13-1',
        'cell_1004-M13-1', 'cell_1005-M13-1', 'cell_1006-M13-1',
