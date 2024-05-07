@@ -9,6 +9,7 @@ library(dplyr)
 library(ggrepel)
 library(stringr)
 library(patchwork)
+library(Cairo)
 
 # change directory into the same folder as the script
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -168,22 +169,22 @@ tree_objs <- tree_objs[order(unlist(tree_max_depths), decreasing=FALSE)]
 # 
 class(tree_objs) = "multiPhylo"
 # add yscale which is the number of clones
-
+N_trees <- length(tree_objs)
 ggtree(tree_objs, layout = "roundrect", branch.length = "dist", ladderize = FALSE, ) +
-  facet_wrap(~.id, scales="free_y", nrow=24, strip.position = "right") + 
+  facet_wrap(~.id, scales="free_y", nrow=N_trees, strip.position = "right") + 
   geom_tippoint(aes(size=clone_size*100), color="#7e7e7e") + 
   geom_nodepoint(aes(size=clone_size*100), color="#7e7e7e") + guides(colour=FALSE, size=FALSE) + 
   geom_label(
     aes(x=branch, label=str_replace_all(n_somatic_snv_gains_geom, paste0("(.{8})"), "\\1\n")), 
-    color="#ff0000", vjust=0, size=5, label.size=NA, fill=NA, lineheight = .5) + # need to reduce the space between lines
+    color="#ff0000", vjust=0, size=8, label.size=NA, fill=NA, lineheight = .5) + # need to reduce the space between lines
   geom_label(
     aes(x=branch, label=str_replace_all(n_somatic_snv_lohs_geom, paste0("(.{8})"), "\\1\n")), 
-    color="#9500ffff", vjust=0.5, size=5, label.size=NA, fill=NA, lineheight = .5) + 
+    color="#9500ffff", vjust=0.5, size=8, label.size=NA, fill=NA, lineheight = .5) + 
   geom_label(
     aes(x=branch, label=str_replace_all(n_germline_snp_lohs_geom, paste0("(.{8})"), "\\1\n")), 
     color="#008000", vjust=1.2, size=5, label.size=NA, fill=NA, lineheight = .5) + 
   theme_tree2() + 
-  scale_size_area(max_size=10) + 
+  scale_size_area(max_size=15) + 
   scale_x_reverse() + 
   # scale_y_continuous(expand = expansion(mult = c(0.3, 0.3))) + 
   # layout_dendrogram() + # to make the trees vertical
@@ -191,25 +192,26 @@ ggtree(tree_objs, layout = "roundrect", branch.length = "dist", ladderize = FALS
     axis.text.x=element_blank(), axis.ticks.x=element_blank(),
     # disable x axis lines
     axis.line.x = element_blank(),
-    plot.margin = margin(0, 0, 0, 0),
+    plot.margin = unit(c(2, 1, 2, 1), "cm"),
     strip.text.y = element_text(angle = 0, hjust = 0.5, vjust = 0.5),
     strip.background = element_blank(),
     legend.position = "none",
-    panel.spacing = unit(0, "lines")
+    panel.spacing = unit(0.2, "lines"),
     ) -> all_trees_plot
 
 
-# # save to PDF # @HZ: have issue! might have to use CairoPDF
-# ggsave(
-#   paste0(OUTPUT_DIR, "/all_trees_plot.pdf"),
-#   all_trees_plot, 
-#   device=pdf, 
-#   # family="Arial Unicode MS",
-#   width = 15, height = 20)
+# save to PDF # @HZ: have issue! might have to use CairoPDF
+ggsave(
+  paste0(OUTPUT_DIR, "/1B_all_trees_plot.pdf"),
+  all_trees_plot, 
+  device=cairo_pdf, 
+  family="Arial Unicode MS",
+  width = 20, height = 36,
+  )
 
 # save a PNG with dpi=400
 ggsave(
-  paste0(OUTPUT_DIR, "/all_trees_plot.png"),
+  paste0(OUTPUT_DIR, "/1B_all_trees_plot.png"),
   all_trees_plot, 
   width = 15, height = 24, dpi=400)
 

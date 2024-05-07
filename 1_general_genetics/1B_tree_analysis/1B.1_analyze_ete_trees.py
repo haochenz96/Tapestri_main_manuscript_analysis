@@ -5,15 +5,15 @@ import pickle
 from pathlib import Path
 from collections import Counter
 
-pickle_dir = Path("../../condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
-goi = ["KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "FGFR1","FBXW7", "RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"]
+pickle_dir = Path("../../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
+goi = ["KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "PIK3CA", "FGFR1","RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"]
 sample_sheet = pd.read_excel("../../Tapestri_batch2_samples_MASTER.xlsx", sheet_name="all_case_genetics", index_col=0, skiprows=1)
 sample_sheet = sample_sheet[sample_sheet["censor"] == 0]
 poi = sample_sheet.index
 # rename:
 # BPA-2 -> BPA-2-IR
 # BPA-5 -> BPA-5-RSX
-poi = [x if x not in ["BPA-2", "BPA-5"] else f"{x}-IR" if x == "BPA-2" else f"{x}-RSX" for x in poi]
+# poi = [x if x not in ["BPA-2", "BPA-5"] else f"{x}-IR" if x == "BPA-2" else f"{x}-RSX" for x in poi]
 
 # for f in pickle_dir.glob("*solT_cell"):
 #     print(f"Processing {f.stem}")
@@ -101,8 +101,15 @@ tree_log_df["truncal_snv_density"] = tree_log_df["truncal_snvs"] / tree_log_df["
 tree_log_df["truncal_snp_density"] = tree_log_df["truncal_cnvs"] / tree_log_df["total_cnvs"]
 mean_truncal_snv_density = tree_log_df["truncal_snv_density"].mean()
 print(f"mean truncal SNV density: {mean_truncal_snv_density}")
+# median
+median_truncal_snv_density = tree_log_df["truncal_snv_density"].median()
+print(f"median truncal SNV density: {median_truncal_snv_density}")
+
 mean_truncal_snp_density = tree_log_df["truncal_snp_density"].mean()
 print(f"mean truncal SNP density: {mean_truncal_snp_density}")
+# median
+median_truncal_snp_density = tree_log_df["truncal_snp_density"].median()
+print(f"median truncal SNP density: {median_truncal_snp_density}")
 
 # %% t-test, if the two means are significantly different
 from scipy.stats import ttest_ind
