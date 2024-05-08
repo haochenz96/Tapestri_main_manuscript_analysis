@@ -6,7 +6,9 @@ from pathlib import Path
 from collections import Counter
 
 pickle_dir = Path("../../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
-goi = ["KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "PIK3CA", "FGFR1","RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"]
+GOI = ["KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "PIK3CA", "FGFR1","RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"]
+TGFB_GENES = ["SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2"]
+
 sample_sheet = pd.read_excel("../../Tapestri_batch2_samples_MASTER.xlsx", sheet_name="all_case_genetics", index_col=0, skiprows=1)
 sample_sheet = sample_sheet[sample_sheet["censor"] == 0]
 poi = sample_sheet.index
@@ -20,15 +22,53 @@ poi = sample_sheet.index
 
 # %%
 master_maf_dict = {}
-tree_log_df = pd.DataFrame(columns=["patient_name","truncal_snvs","total_snvs","truncal_cnvs","total_cnvs"])
+# initiate a df that logs tree stats:
+# - number of truncal SNVs (immediately following root) against total SNVs
+# - number of truncal SNPs (immediately following root) against total SNPs
+tree_log_df = pd.DataFrame(columns=["truncal_snvs","total_snvs","truncal_cnvs","total_cnvs"])
 
+def _get_node_maf(node, patient_name, ccf, trunk=False):
+	"""_description_
+	Given a node with germline snp/somatic snv events, return a MAF dataframe
+	"""
+	node_maf = pd.DataFrame(columns=["patient_name","gene_name","alteration_class","CCF", "truncal"])
+	for _, snp_i in node.germline_snp_events.items():
+		gene_name = snp_i[0].split(" ")[0]
+		if gene_name in GOI:
+			if gene_name in node_maf.gene_name.values:
+				old_ccf = node_maf.loc[node_maf.gene_name == gene_name, "CCF"].values[0]
+				if ccf <= old_ccf:
+					print(f"for patient {patient_name} node {node.name}, found LOH event in {gene_name} with CCF {ccf} but lower than previous CCF {old_ccf}! Skipping...")
+					continue		
+			print(f"for patient {patient_name} node {node.name}, found LOH event in {gene_name} with CCF {ccf}")
+			node_maf = pd.concat(
+				[node_maf, pd.DataFrame({"patient_name":patient_name,"gene_name":gene_name,"alteration_class":"LOH","CCF":[ccf], "truncal":trunk})],
+				ignore_index=True
+			)
+	for _, snv_i in node.somatic_snv_events.items():
+		gene_name = snv_i[0].split(" ")[0]
+		if gene_name in GOI:
+			if gene_name in node_maf.gene_name.values:
+				old_ccf = node_maf.loc[node_maf.gene_name == gene_name, "CCF"].values[0]
+				if ccf <= old_ccf:
+					print(f"for patient {patient_name} node {node.name}, found SNV event in {gene_name} with CCF {ccf} but lower than previous CCF {old_ccf}! Skipping...")
+					continue					
+			if snv_i[1] == "GAIN":
+				print(f"for patient {patient_name} node {node.name}, found SNV GAIN event in {gene_name} with CCF {ccf}")
+				node_maf = pd.concat(
+					[node_maf, pd.DataFrame({"patient_name":patient_name,"gene_name":gene_name,"alteration_class":"GAIN","CCF":[ccf], "truncal":trunk})],
+					ignore_index=True
+				)
+			else:
+				print(f"for patient {patient_name} node {node.name}, found SNV LOH event in {gene_name} with CCF {ccf}")
+				node_maf = pd.concat(
+					[node_maf, pd.DataFrame({"patient_name":patient_name,"gene_name":gene_name,"alteration_class":"LOH","CCF":[ccf], "truncal":trunk})],
+					ignore_index=True
+				)
+	return node_maf
+
+# %%
 for patient_name in poi:
-	# initiate a df in MAF format to log LOH events of genes of interest
-	maf = pd.DataFrame(columns=["patient_name","gene_name","alteration_class","CCF"])
-	# initiate a df that logs tree stats:
-	# - number of truncal SNVs (immediately following root) against total SNVs
-	# - number of truncal SNPs (immediately following root) against total SNPs
-
 	# patient_name = "RA19_10"
 	f = pickle_dir / f"{patient_name}/{patient_name}_HZ_ETE_tree.refined.subclonal_snvs.pkl"
 	if patient_name in ["BPA-2-IR", "BPA-5-RSX"]:
@@ -39,7 +79,7 @@ for patient_name in poi:
 	# 2. in some cases (e.g. RA19_21), the root has two children; then a selection needs to be made
 	with open(f, "rb") as f:
 		tree = pickle.load(f)
-		# 1. find trunk
+		# ===== 1. find trunk =====
 		trunk = tree.get_children()[0]
 		if len(tree.get_children()) > 1:
 			# if the root has two children, we need to select the one that has the most events
@@ -60,7 +100,8 @@ for patient_name in poi:
 						print(f"for patient {patient_name}, moved down to {node.name} with somatic snvs: {node.somatic_snv_events}")
 						trunk = node
 						break
-		# total tumor size is sum of all clones' clone_sizes after the trunk
+		# ===== 2. get truncal events =====
+  		# total tumor size is sum of all clones' clone_sizes after the trunk
 		total_tumor_size = sum([d.clone_size for d in trunk.traverse("preorder") if "clone_size" in d.__dict__])
 		# need to isolate somatic SNV GAIN events
 		truncal_snv_events = trunk.somatic_snv_events.values()
@@ -68,22 +109,25 @@ for patient_name in poi:
 		n_truncal_cnv_events = len(trunk.germline_snp_events) + len(truncal_snv_events) - n_truncal_snv_GAINS
 		tree_log_df.loc[patient_name, ["truncal_snvs", "truncal_cnvs"]] = [n_truncal_snv_GAINS, n_truncal_cnv_events]
 		c = Counter()
-		# 2. count events
+		c["total_snvs"] = n_truncal_snv_GAINS
+		c["total_cnvs"] = n_truncal_cnv_events
+  
+		# initiate a df in MAF format to log SNV/LOH events of genes of interest
+		maf = pd.DataFrame(columns=["patient_name","gene_name","alteration_class","CCF", "truncal"])
+		trunk_maf = _get_node_maf(trunk, patient_name, ccf=1, trunk=True)
+		maf = pd.concat([maf, trunk_maf], ignore_index=True)
+		# ===== 3. get sub-truncal events =====
 		for node in trunk.traverse("preorder"):
+			if node == trunk:
+				continue
 			# print(node.germline_snp_events)
 			# print(node.somatic_snv_events)
 			descendants_size = sum([d.clone_size for d in node.traverse("preorder") if "clone_size" in d.__dict__])
 			ccf = descendants_size / total_tumor_size
-			# A. log the SNP events
-			for _, snp_i in node.germline_snp_events.items():
-				gene_name = snp_i[0].split(" ")[0]
-				if gene_name in goi and gene_name not in maf.gene_name.values:
-					print(f"for patient {patient_name}, found LOH event in {gene_name} with CCF {ccf}")
-					maf = pd.concat(
-						[maf, pd.DataFrame({"patient_name":patient_name,"gene_name":gene_name,"alteration_class":"LOH","CCF":[ccf]})],
-						ignore_index=True
-					)
-			# B. log the events
+			# A. log the SNP and SNV LOH events
+			node_maf = _get_node_maf(node, patient_name, ccf)
+			maf = pd.concat([maf, node_maf], ignore_index=True)
+			# B. log the NUMBER of events
 			# need to isolate somatic SNV GAIN events
 			somatic_snv_events = node.somatic_snv_events.values()
 			n_somatic_snv_GAINS = len([i for i in somatic_snv_events if i[1] == "GAIN"])
@@ -111,7 +155,9 @@ print(f"mean truncal SNP density: {mean_truncal_snp_density}")
 median_truncal_snp_density = tree_log_df["truncal_snp_density"].median()
 print(f"median truncal SNP density: {median_truncal_snp_density}")
 
-# %% t-test, if the two means are significantly different
-from scipy.stats import ttest_ind
-ttest_ind(tree_log_df["truncal_snv_density"].values, tree_log_df["truncal_snp_density"].values)
+# # %% t-test, if the two means are significantly different
+# from scipy.stats import ttest_ind
+# ttest_ind(tree_log_df["truncal_snv_density"].values, tree_log_df["truncal_snp_density"].values)
+# # %%
+
 # %%
