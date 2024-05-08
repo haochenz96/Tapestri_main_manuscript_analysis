@@ -61,7 +61,6 @@ E2 = get_exclusivity(
 )
 
 E2 = 1 - E2
-<<<<<<<< HEAD:supp1b_general_genetics/supp1b.2_minor_kras.py
 
 # %%
 config_params(font_size=8)
@@ -69,11 +68,9 @@ config_params(font_size=8)
 E2.columns = [ann_map[i] for i in E2.columns]
 E2.index = [ann_map[i] for i in E2.index]
 fig, ax = plt.subplots(figsize=(3,3))         # Sample figsize in inches
-========
 # %%
 config_params(font_size=8)
 fig, ax = plt.subplots(figsize=(5,5))         # Sample figsize in inches
->>>>>>>> a375bcd71c01471628d58fa77ad5e29ce33a8bd0:supp1b_general_genetics/supp1b.3_minor_kras.py
 sns.heatmap(
     E2, annot=True, 
     cmap='Blues', fmt='.2f', # vmin=0, vmax=1,
@@ -81,10 +78,4 @@ sns.heatmap(
     )
 
 # %%
-<<<<<<<< HEAD:supp1b_general_genetics/supp1b.2_minor_kras.py
 fig.savefig("supp1b.2_minor_kras.pdf", bbox_inches='tight')
-
-# %%
-========
-fig.write()
->>>>>>>> a375bcd71c01471628d58fa77ad5e29ce33a8bd0:supp1b_general_genetics/supp1b.3_minor_kras.py
