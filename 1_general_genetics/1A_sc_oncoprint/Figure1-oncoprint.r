@@ -304,6 +304,7 @@ write.csv(composite_maf, "1A_composite_maf.FINAL.csv", row.names = FALSE)
 tgfb_genes <- c("SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2")
 tgfb_maf <- composite_maf %>% filter(gene_name %in% tgfb_genes)
 write.csv(tgfb_maf, "1A_composite_maf.TGFB.csv", row.names = FALSE)
+
 # # ----- get stats on SMAD4 and CDKN2A genes -----
 # cdkn2a_stats <- composite_maf %>% filter(gene_name %in% c("CDKN2A")) %>% group_by(gene_name, alteration_class, CCF, fraction_altered) %>% summarise(freq = n())
 
@@ -320,3 +321,10 @@ write.csv(tgfb_maf, "1A_composite_maf.TGFB.csv", row.names = FALSE)
 # cdkn2a_stats_count <- cdkn2a_stats %>% group_by(alteration_class) %>% summarise(freq = n())
 # # fill in WT
 # cdkn2a_stats_count <- rbind(cdkn2a_stats_count, data.frame(alteration_class = "WT", freq = 5))
+
+# ----- get CCF stats -----
+composite_maf %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n()) %>% arrange(desc(mean_CCF)) -> CCF_stats
+View(CCF_stats)
+
+# for ARID1A, don't count LOH
+composite_maf %>% filter(gene_name == "ARID1A" & alteration_class != "LOH") %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n()) %>% arrange(desc(mean_CCF))
