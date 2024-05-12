@@ -45,7 +45,7 @@ chr6:101099555:A/C	214	ASCC3 intron_variant	germline_HET
 chr9:21968199:C/G	211	CDKN2A 3_prime_UTR_variant	germline_HET
 chr12:49434074:C/A	206	KMT2D p.Gly2493=	germline_HET
 chr17:7578115:T/C	204	TP53 intron_variant	germline_HET
-chr12:49424235:G/A	200	KMT2D intron_variant	germline_HET
+chr12:49424235:G/A	200	KMT2D intron_variant	likely_artifact
 chr1:163298548:T/C	198	NUF2 intron_variant	germline_HET
 chr13:32929232:A/G	195	BRCA2 p.Ser2414=	germline_HET
 chr20:31387954:C/G	194	DNMT3B intron_variant	germline_HET

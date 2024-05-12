@@ -1,5 +1,5 @@
-[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
-n = 329, m = 60, p = 7
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
+n = 329, m = 59, p = 7
 Set parameter WLSAccessID
 Set parameter WLSSecret
 Set parameter LicenseID to value 2416028
@@ -13,89 +13,80 @@ CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|
 Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
-Optimize a model with 352081 rows, 60120 columns and 1057561 nonzeros
-Model fingerprint: 0xe73fff1e
-Variable types: 58440 continuous, 1680 integer (1680 binary)
+Optimize a model with 340370 rows, 58174 columns and 1022410 nonzeros
+Model fingerprint: 0x20494a94
+Variable types: 56522 continuous, 1652 integer (1652 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
   Objective range  [2e-01, 3e+03]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Presolve removed 148767 rows and 31479 columns
-Presolve time: 4.28s
-Presolved: 203314 rows, 28641 columns, 609659 nonzeros
-Variable types: 27666 continuous, 975 integer (975 binary)
-Root relaxation presolved: 28641 rows, 231955 columns, 638300 nonzeros
+Presolve removed 143003 rows and 30357 columns
+Presolve time: 2.28s
+Presolved: 197367 rows, 27817 columns, 591825 nonzeros
+Variable types: 26856 continuous, 961 integer (961 binary)
+Root relaxation presolved: 27817 rows, 225184 columns, 619642 nonzeros
 
 
-Root simplex log...
-
-Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0      handle free variables                          6s
-   29050   -7.2029034e+04   0.000000e+00   0.000000e+00      8s
-   29050   -7.2029034e+04   0.000000e+00   0.000000e+00      8s
-
-Root relaxation: objective -7.202903e+04, 29050 iterations, 3.00 seconds (1.39 work units)
+Root relaxation: objective -7.109161e+04, 27415 iterations, 1.67 seconds (1.25 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0    -72029.03438 -72029.034  0.00%     -    7s
+*    0     0               0    -71091.60933 -71091.609  0.00%     -    4s
 
-Explored 1 nodes (29050 simplex iterations) in 8.01 seconds (4.10 work units)
+Explored 1 nodes (27415 simplex iterations) in 4.37 seconds (3.87 work units)
 Thread count was 1 (of 72 available processors)
 
-Solution count 1: -72029 
-No other solutions better than -72029
+Solution count 1: -71091.6 
+No other solutions better than -71091.6
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective -7.202903438407e+04, best bound -7.202903438407e+04, gap 0.0000%
+Best objective -7.109160932985e+04, best bound -7.109160932985e+04, gap 0.0000%
 root
-chr19:5219803:T/C_3
+chr3:52637486:C/G_2
+chr19:5219829:T/G_3
+chr6:7229346:T/C_3
+chr6:7229619:G/A_3
 chr3:9793343:T/G_3
 chr3:189604149:T/G_3
 chr3:30686414:A/G_2
-chr1:11288758:G/A_3
-chr17:7801776:C/T_3
-chr12:49424235:G/A_2
-chr3:52637486:C/G_2
-chr6:101099555:A/C_2
-chr6:7229346:T/C_3
-chr19:5219829:T/G_3
 chr12:133252796:C/G_3
-chr6:7229619:G/A_3
+chr6:101099555:A/C_2
+chr19:5219803:T/C_3
+chr17:7801776:C/T_3
+chr1:11288758:G/A_3
 chr12:133252796:C/G_2
-chr17:7573996:A/T_1
 chr12:25398284:C/T_1
-chr6:7229619:G/A_2
 chr9:137293761:G/A_3
 chr13:32914437:GT/G_3
-chr15:41275014:T/G_2
-chr20:31387954:C/G_2
-chr22:29130458:T/C_2
-chr3:9793343:T/G_2
-chr3:30686414:A/G_3
-chr20:62303794:G/A_3
-chr17:7801776:C/T_2
-chr1:120458924:G/A_3
-chr22:29130347:G/GT_3
-chr9:21968199:C/G_2
-chr17:8051922:C/T_3
-chr6:7229346:T/C_2
-chr17:7573996:A/T_3
-chr17:7579472:G/C_2
-chr13:32929232:A/G_2
-chr1:91859801:A/G_3
-chr17:7578115:T/C_2
+chr17:7573996:A/T_1
+chr6:7229619:G/A_2
 chr12:49434074:C/A_2
+chr17:7578115:T/C_2
+chr20:62303794:G/A_3
 chr17:7579801:G/C_2
-chr6:101099555:A/C_3
+chr3:9793343:T/G_2
 chr3:52637486:C/G_3
+chr22:29130458:T/C_2
+chr15:41275014:T/G_2
+chr13:32929232:A/G_2
+chr17:7579472:G/C_2
+chr17:7801776:C/T_2
+chr22:29130347:G/GT_3
+chr3:30686414:A/G_3
+chr1:120458924:G/A_3
+chr9:21968199:C/G_3
+chr1:91859801:A/G_3
+chr17:8051922:C/T_3
+chr17:7573996:A/T_3
+chr6:7229346:T/C_2
+chr6:101099555:A/C_3
+chr20:31387954:C/G_2
 chr10:88683122:T/C_2
-chr4:2210065:C/A_3
-chr16:68857289:T/C_2
 chr17:56492800:T/C_2
-chr12:49424235:G/A_3
+chr16:68857289:T/C_2
+chr4:2210065:C/A_3
 chr9:137293761:G/A_2
 0
 []
