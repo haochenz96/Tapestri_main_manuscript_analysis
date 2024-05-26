@@ -14,14 +14,14 @@
 [329 rows x 3 columns]
 [INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-2.patient_wide.genotyped.h5
 Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-2.patient_wide.genotyped.h5
-Loaded in 0.2s.
+Loaded in 0.1s.
 (329, 353)
 
-    germline: 42
+    germline: 40
     somatic: 2
-    total: 59
-(329, 59)
-(329, 59)
+    total: 57
+(329, 57)
+(329, 57)
 Index(['cell_1-BPA-2-IR', 'cell_10-BPA-2-IR', 'cell_100-BPA-2-IR',
        'cell_101-BPA-2-IR', 'cell_102-BPA-2-IR', 'cell_103-BPA-2-IR',
        'cell_104-BPA-2-IR', 'cell_105-BPA-2-IR', 'cell_106-BPA-2-IR',

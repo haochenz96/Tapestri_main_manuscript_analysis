@@ -10,7 +10,7 @@ if [ -f ~/.bashrc ] ; then
     . ~/.bashrc
 fi
 
-mamba activate condor
+conda activate condor
 
 snakemake -s /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/condor_pipeline.smk \
     --configfile /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/0_condor_pipeline/condor_config_MSK.yaml \

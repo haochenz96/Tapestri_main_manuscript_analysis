@@ -20,8 +20,8 @@ datasets:
   # - TP12
   # - TP49
   # - BPA-1
-  - BPA-2
-  # - BPA-3
+  # - BPA-2
+  - BPA-3
   # - BPA-5
 
 # ===== centralized data directory =====

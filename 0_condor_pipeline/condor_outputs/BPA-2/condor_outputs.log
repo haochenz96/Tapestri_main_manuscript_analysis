@@ -1,5 +1,5 @@
 [WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
-n = 329, m = 59, p = 7
+n = 329, m = 57, p = 7
 Set parameter WLSAccessID
 Set parameter WLSSecret
 Set parameter LicenseID to value 2416028
@@ -13,81 +13,82 @@ CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|
 Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
-Optimize a model with 340370 rows, 58174 columns and 1022410 nonzeros
-Model fingerprint: 0x20494a94
-Variable types: 56522 continuous, 1652 integer (1652 binary)
+Optimize a model with 317542 rows, 54378 columns and 953890 nonzeros
+Model fingerprint: 0x8012c2f5
+Variable types: 52782 continuous, 1596 integer (1596 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
   Objective range  [2e-01, 3e+03]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Presolve removed 143003 rows and 30357 columns
-Presolve time: 2.28s
-Presolved: 197367 rows, 27817 columns, 591825 nonzeros
-Variable types: 26856 continuous, 961 integer (961 binary)
-Root relaxation presolved: 27817 rows, 225184 columns, 619642 nonzeros
+Presolve removed 131805 rows and 28173 columns
+Presolve time: 2.42s
+Presolved: 185737 rows, 26205 columns, 556949 nonzeros
+Variable types: 25272 continuous, 933 integer (933 binary)
+Root relaxation presolved: 26205 rows, 211942 columns, 583154 nonzeros
 
 
-Root relaxation: objective -7.109161e+04, 27415 iterations, 1.67 seconds (1.25 work units)
+Root relaxation: objective -7.047315e+04, 25261 iterations, 1.66 seconds (1.13 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0    -71091.60933 -71091.609  0.00%     -    4s
+     0     0 -70473.150    0    9          - -70473.150      -     -    4s
+H    0     0                    -70515.90628 -70473.150  0.06%     -    4s
+*    0     0               0    -70476.00476 -70476.005  0.00%     -    5s
 
-Explored 1 nodes (27415 simplex iterations) in 4.37 seconds (3.87 work units)
+Cutting planes:
+  Gomory: 1
+
+Explored 1 nodes (26538 simplex iterations) in 5.75 seconds (4.17 work units)
 Thread count was 1 (of 72 available processors)
 
-Solution count 1: -71091.6 
-No other solutions better than -71091.6
+Solution count 2: -70476 -70515.9 
+No other solutions better than -70476
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective -7.109160932985e+04, best bound -7.109160932985e+04, gap 0.0000%
+Best objective -7.047600476370e+04, best bound -7.047600476370e+04, gap 0.0000%
 root
-chr3:52637486:C/G_2
-chr19:5219829:T/G_3
-chr6:7229346:T/C_3
-chr6:7229619:G/A_3
-chr3:9793343:T/G_3
-chr3:189604149:T/G_3
-chr3:30686414:A/G_2
-chr12:133252796:C/G_3
-chr6:101099555:A/C_2
-chr19:5219803:T/C_3
-chr17:7801776:C/T_3
-chr1:11288758:G/A_3
-chr12:133252796:C/G_2
-chr12:25398284:C/T_1
-chr9:137293761:G/A_3
 chr13:32914437:GT/G_3
-chr17:7573996:A/T_1
-chr6:7229619:G/A_2
-chr12:49434074:C/A_2
-chr17:7578115:T/C_2
-chr20:62303794:G/A_3
-chr17:7579801:G/C_2
-chr3:9793343:T/G_2
-chr3:52637486:C/G_3
-chr22:29130458:T/C_2
-chr15:41275014:T/G_2
-chr13:32929232:A/G_2
-chr17:7579472:G/C_2
-chr17:7801776:C/T_2
-chr22:29130347:G/GT_3
-chr3:30686414:A/G_3
-chr1:120458924:G/A_3
-chr9:21968199:C/G_3
 chr1:91859801:A/G_3
-chr17:8051922:C/T_3
+chr19:5219829:T/G_3
+chr3:30686414:A/G_2
+chr19:5219803:T/C_3
+chr1:11288758:G/A_3
+chr6:101099555:A/C_2
+chr17:7801776:C/T_3
+chr3:9793343:T/G_3
+chr3:52637486:C/G_2
+chr6:7229346:T/C_3
+chr3:189604149:T/G_3
+chr22:29130458:T/C_2
+chr17:7573996:A/T_1
+chr3:9793343:T/G_2
 chr17:7573996:A/T_3
-chr6:7229346:T/C_2
+chr22:29130347:G/GT_3
 chr6:101099555:A/C_3
+chr3:30686414:A/G_3
+chr9:21968199:C/G_2
+chr20:62303794:G/A_3
+chr13:32929232:A/G_2
+chr17:7579801:G/C_2
+chr12:25398284:C/T_1
+chr6:7229619:G/A_2
+chr15:41275014:T/G_2
+chr12:49434074:C/A_2
+chr6:7229346:T/C_2
+chr17:7578115:T/C_2
+chr3:52637486:C/G_3
+chr17:8051922:C/T_3
+chr17:7579472:G/C_2
+chr1:120458924:G/A_3
 chr20:31387954:C/G_2
-chr10:88683122:T/C_2
+chr17:7801776:C/T_2
+chr4:2210065:C/A_3
 chr17:56492800:T/C_2
 chr16:68857289:T/C_2
-chr4:2210065:C/A_3
-chr9:137293761:G/A_2
+chr10:88683122:T/C_2
+chr6:7229619:G/A_3
 0
 []
 1
@@ -95,7 +96,7 @@ chr9:137293761:G/A_2
 2
 []
 3
-[]
+['chr17:7573996:A/T', 'chr12:25398284:C/T']
 4
 []
 5
@@ -111,9 +112,9 @@ cluster_id
 2     6
 0     5
 Name: count, dtype: int64
-subclusters [2, 4, 6, 3]
-chr17:7573996:A/T_1 5
-chr12:25398284:C/T_1 161
+subclusters [2, 4, 6]
+chr17:7573996:A/T_1 4
+chr12:25398284:C/T_1 106
 Node 0: 5
 Node 1: 86
 Node 2: 6
@@ -121,7 +122,7 @@ Node 3: 56
 Node 4: 52
 Node 5: 72
 Node 6: 52
-Node chr17:7573996:A/T_1: 5
-Node chr12:25398284:C/T_1: 161
+Node chr17:7573996:A/T_1: 4
+Node chr12:25398284:C/T_1: 106
 total cells 329
 [('root', 0)]

@@ -33,18 +33,18 @@ mkdir -p ${COMPILED_DATA_DIR}/cravat
 # done
 
 
-# # ===== BRCA cases =====
-# BRCA_CASES=(BPA-1 BPA-2 BPA-3 BPA-5)
-# BRCA_snv_pipeline_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch2/batch2_data_BRCA_compiled/fillout_h5/
-# BRCA_falcon_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch2/batch2_data_BRCA_compiled/falcon_solutions/
-# BRCA_annotated_snv_lists_dir=/lila/data/iacobuzc/haochen/Tapestri_batch2/batch2_data_BRCA_compiled/manual_annotated_snv_lists/
+# ===== BRCA cases =====
+BRCA_CASES=(BPA-1 BPA-2 BPA-3 BPA-5)
+BRCA_snv_pipeline_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch2/batch2_data_BRCA_compiled/fillout_h5/
+BRCA_falcon_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch2/batch2_data_BRCA_compiled/falcon_solutions/
+BRCA_annotated_snv_lists_dir=/lila/data/iacobuzc/haochen/Tapestri_batch2/batch2_data_BRCA_compiled/manual_annotated_snv_lists/
 
-# for case_i in ${BRCA_CASES[@]}
-# do
-# 	# rsync -avzu -L ${BRCA_snv_pipeline_output_dir} ${COMPILED_DATA_DIR}/fillout_h5/
-# 	rsync -avzu -L ${BRCA_falcon_output_dir} ${COMPILED_DATA_DIR}/falcon_solutions/
-# 	# rsync -avzu -L ${BRCA_annotated_snv_lists_dir} ${COMPILED_DATA_DIR}/manual_annotated_snv_lists/
-# done
+for case_i in ${BRCA_CASES[@]}
+do
+	# rsync -avzu -L ${BRCA_snv_pipeline_output_dir} ${COMPILED_DATA_DIR}/fillout_h5/
+	# rsync -avzu -L ${BRCA_falcon_output_dir} ${COMPILED_DATA_DIR}/falcon_solutions/
+	rsync -avzu -L ${BRCA_annotated_snv_lists_dir} ${COMPILED_DATA_DIR}/manual_annotated_snv_lists/
+done
 
 # # rename BPA-2 and BPA-5's names
 # cd /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled
@@ -54,15 +54,15 @@ mkdir -p ${COMPILED_DATA_DIR}/cravat
 # mv fillout_h5/BPA-2.mpileup.renamed.h5 fillout_h5/BPA-2.patient_wide.genotyped.h5
 # mv fillout_h5/BPA-5.mpileup.renamed.h5 fillout_h5/BPA-5.patient_wide.genotyped.h5
 
-# ===== TOPCOAT cases =====
-TOPCOAT_CASES=(TP11 TP12 TP49)
-TOPCOAT_snv_pipeline_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch3/batch3_data_compiled/fillout_h5/
-TOPCOAT_falcon_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch3/batch3_data_compiled/falcon_solutions/
-TOPCOAT_annotated_snv_lists_dir=/lila/data/iacobuzc/haochen/Tapestri_batch3/batch3_data_compiled/manual_annotated_snv_lists/
+# # ===== TOPCOAT cases =====
+# TOPCOAT_CASES=(TP11 TP12 TP49)
+# TOPCOAT_snv_pipeline_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch3/batch3_data_compiled/fillout_h5/
+# TOPCOAT_falcon_output_dir=/lila/data/iacobuzc/haochen/Tapestri_batch3/batch3_data_compiled/falcon_solutions/
+# TOPCOAT_annotated_snv_lists_dir=/lila/data/iacobuzc/haochen/Tapestri_batch3/batch3_data_compiled/manual_annotated_snv_lists/
 
-for case_i in ${TOPCOAT_CASES[@]}
-do
-	# rsync -avzu -L ${TOPCOAT_snv_pipeline_output_dir} ${COMPILED_DATA_DIR}/fillout_h5/
-	rsync -avzu -L ${TOPCOAT_falcon_output_dir} ${COMPILED_DATA_DIR}/falcon_solutions/
-	# rsync -avzu -L ${TOPCOAT_annotated_snv_lists_dir} ${COMPILED_DATA_DIR}/manual_annotated_snv_lists/
-done
+# for case_i in ${TOPCOAT_CASES[@]}
+# do
+# 	# rsync -avzu -L ${TOPCOAT_snv_pipeline_output_dir} ${COMPILED_DATA_DIR}/fillout_h5/
+# 	rsync -avzu -L ${TOPCOAT_falcon_output_dir} ${COMPILED_DATA_DIR}/falcon_solutions/
+# 	# rsync -avzu -L ${TOPCOAT_annotated_snv_lists_dir} ${COMPILED_DATA_DIR}/manual_annotated_snv_lists/
+# done

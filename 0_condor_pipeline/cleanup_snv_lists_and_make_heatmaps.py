@@ -112,7 +112,7 @@ patient_info_f = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/
 with open(patient_info_f, 'r') as f:
     patient_info = yaml.safe_load(f)
 patient_names = patient_info.keys()
-patient_names = ["BPA-2", "BPA-3"]
+patient_names = ["M13", "RA16_08"]
 for patient_name in patient_names:
     if (output_dir / f"{patient_name}-DNA-heatmap.pdf").is_file():
         print(f'[INFO] Skipping {patient_name}.')
