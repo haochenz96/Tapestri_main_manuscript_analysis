@@ -13,16 +13,17 @@ import os
 from tea.utils import rgb_string_to_hex
 
 os.chdir(Path(__file__).parent)
-patient_name = "RA15_06"
+patient_name = "BPA-2"
 
-pt_h5 = f"../data_compiled/fillout_h5/{patient_name}.patient_wide.genotyped.h5"
+pt_h5 = list(Path("../data_compiled/fillout_h5").glob(f"{patient_name}*.h5"))[0]
 pt = mio.load(pt_h5)
 
-snv_f = f"../data_compiled/manual_annotated_snv_lists/{patient_name}-patient-all_vars-voi.hz_curated.txt"
+snv_f = list(Path("../data_compiled/manual_annotated_snv_lists").glob(f"{patient_name}*voi*.txt"))[0]
 output_dir = Path(".")
 condor_downstream_dir = Path("../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
 
-amplicon_params = Path('/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_project/tap_cn_calling/train-normals/train-combined_8_normals/NB_train-combined_8_normals-results.gene_added.csv')
+# need to use the params for Tapestri V3
+amplicon_params = Path('/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_project/tap_cn_calling/train-normals/v3_chem_RA18_18-11_1/NB_train-v3_chem_RA18_18-11_1-results.csv')
 amp_params_df = pd.read_csv(
     amplicon_params,
     index_col= 0,
@@ -30,9 +31,7 @@ amp_params_df = pd.read_csv(
 
 COLOR_SEQUENCE= [rgb_string_to_hex(x) for x in px.colors.qualitative.Pastel]
 
-# %%
-
-# Add raw FALCON results to H5
+# %% Add raw FALCON results to H5
 cn_assignment_f = list(condor_downstream_dir.glob(f"{patient_name}/{patient_name}*assignment*csv"))[0]
 cn_assignment_df = pd.read_csv(cn_assignment_f, index_col = 0)
 print(f'[INFO] Loaded CN clone assignment file {cn_assignment_f}.')
@@ -76,12 +75,14 @@ snv_df = pd.read_csv(snv_f, sep = '\t', index_col = 0, comment='#')
 snv_df["annotation"].fillna("", inplace=True)
 # filter out artifact
 snv_df = snv_df[~snv_df['annotation'].str.contains("artifact")]
+# filter out germline HOM
+snv_df = snv_df[~snv_df['annotation'].str.contains("germline_HOM")]
+snv_df.sort_values(by=["mut_prev", "HGVSp"], ascending=False)
 snv_ann_map = snv_df['HGVSp'].to_dict()
 
-# RA15_06
-GOI=["PBRM1", "TP53", "ARID1B", "WRN", "TGFBR2", "RTEL1", "ARID1A", "SMAD4", "KRAS", "PARP4"]
-# RA17_22
-# GOI=["CHEK2", "PTPRS", "PARP4", "TP53", "AXIN1", "ACVR2A", "PBRM1", "TGFBR2", "RBM10", "TTK", "KRAS", "SMAD4", "PIK3CA"]
+# BPA-2
+GOI=["INO80", "CDKN2A", "RREB1", "TP53", "PBRM1", "OGG1", "BRCA2", "ASCC3", "PER1", "KMT2D", "RXRA", "CHEK2", "DNMT3B", "RTEL1", "TGFBR2", "NOTCH2", "CHD3", "POLE", "KRAS"]
+
 voi = snv_df[snv_df['HGVSp'].str.split().str[0].isin(GOI)].index.tolist()
 
 # ===== highlight vars with bulk annotation ====='
@@ -121,7 +122,7 @@ fig = plot_snv_clone(
 # write to PDF, with width proportion to the number of SNVs
 fig.write_image(
 	str(output_dir / f"{patient_name}_sc_heatmap_DNA.pdf"), 
-	width = 10 * len(snv_df.index.tolist())
+	width = 100 + 10 * len(snv_df.index.tolist())
 )
 print(f'[INFO] Saved heatmap for {patient_name} to {output_dir / f"{patient_name}-DNA-heatmap.pdf"}.')
 # %%
@@ -135,11 +136,13 @@ sorted_bars = sort_for_var(
     method = "stringsort"
     )
 
+# %% Fix barcode names
+pt.cnv.row_attrs["barcode"] = pt.cnv.row_attrs["barcode"] + "-" + pt.cnv.row_attrs["sample_name"]
 
 # %% CNV heatmap
 sc_cnv_heatmap = pt.cnv.heatmap(
     'normalized_read_counts_binary[zero/nonzero]',
-    features = ["TGFBR2", "CDKN2A", "SMAD4"],
+    features = ["CDKN2A", "BRCA2"],
     bars_order = sorted_bars,
 )
 
@@ -166,6 +169,27 @@ sc_cnv_heatmap.show()
 
 sc_cnv_heatmap.write_image(
     output_dir / f"{patient_name}_sc_heatmap_cnv_binarized_select_genes.pdf",
+    width=500
     )
+
+# %% ===== mutual colocalization test for BRCA2 homdel and other voi =====
+from tea.snv.me import *
+
+# calculate presence prob of TP53 HET and BRCA2 HOMDEL
+pp = pt.dna.get_attribute("AF_MISSING", constraint = "row", features = ["chr17:7573996:A/T", "chr13:32914437:GT/G"])
+
+# for TP53 HET, get binary indicator for AF within [20, 80]
+p53_pp = ((pp["chr17:7573996:A/T"] >= 20) & (pp["chr17:7573996:A/T"] <= 80)).astype(int)
+# for BRCA2, get binary indicator for AF = -50 (DP=0)
+brca2_pp = (pp["chr13:32914437:GT/G"] == -50).astype(int)
+
+me_inv_pval = __compute_mutual_correlation_pval(
+    brca2_pp, p53_pp, 
+    # null_prob_mut_1, null_prob_mut_2, 
+    gametes = [(1,0), (0,1)],
+    rm_irrelevant_cells = True
+    )
+
+print("BRCA2 HOMDEL and TP53 HET mutual colocalization p-value: ", me_inv_pval)
 
 # %%
