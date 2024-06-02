@@ -1,0 +1,265 @@
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
+n = 2666, m = 94, p = 5
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2416028
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 631148 rows, 144196 columns and 1895072 nonzeros
+Model fingerprint: 0x8f1059fb
+Variable types: 142316 continuous, 1880 integer (1880 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e-02, 3e+04]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 182435 rows and 58824 columns
+Presolve time: 3.77s
+Presolved: 448713 rows, 85372 columns, 1346097 nonzeros
+Variable types: 84027 continuous, 1345 integer (1345 binary)
+Root relaxation presolved: 85372 rows, 534080 columns, 1431449 nonzeros
+
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -6.6956407e+05   0.000000e+00   2.870200e+04      6s
+   39565   -6.7473271e+05   0.000000e+00   0.000000e+00      7s
+   39565   -6.7473271e+05   0.000000e+00   0.000000e+00      7s
+   39565   -6.7473271e+05   0.000000e+00   0.000000e+00      8s
+
+Root relaxation: objective -6.747327e+05, 39565 iterations, 3.14 seconds (4.44 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -674732.71    0   28          - -674732.71      -     -   10s
+H    0     0                    -675799.4225 -674732.71  0.16%     -   10s
+H    0     0                    -675429.7801 -674732.71  0.10%     -   11s
+H    0     0                    -675429.0582 -674732.71  0.10%     -   11s
+     0     0 -674732.71    0   20 -675429.06 -674732.71  0.10%     -   13s
+H    0     0                    -674866.7426 -674732.71  0.02%     -   14s
+H    0     0                    -674737.8095 -674732.71  0.00%     -   14s
+
+Cutting planes:
+  RLT: 2
+
+Explored 1 nodes (41870 simplex iterations) in 14.74 seconds (19.64 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 5: -674738 -674867 -675429 ... -675799
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -6.747378095146e+05, best bound -6.747327067362e+05, gap 0.0008%
+root
+chr2:47672757:G/T_1
+chr16:56782100:C/A_1
+chr2:203384804:A/C_1
+chr11:107880048:G/T_1
+chrX:53565730:A/C_1
+chr7:140453025:C/T_1
+chr17:56438184:G/T_1
+chr2:47672713:G/T_1
+chr6:7230504:G/T_1
+chr6:7229619:G/A_2
+chr6:157505610:G/T_1
+chr4:1807101:C/A_1
+chr3:52437206:G/T_1
+chr2:148602752:G/T_1
+chr18:48573563:G/A_1
+chr12:133235831:G/T_1
+chr9:21974624:G/T_1
+chr1:11205058:C/T_3
+chr13:32929232:A/G_3
+chr1:11288758:G/A_3
+chr1:91859801:A/G_3
+chr13:25052420:T/A_3
+chr13:32911463:A/G_2
+chr16:89858759:C/T_3
+chr13:25052261:C/T_3
+chrX:53565685:A/ACACT_1
+chr1:46521559:A/T_3
+chr1:46521517:G/A_3
+chr16:68857289:T/C_2
+chrX:47041701:G/A_1
+chr6:157505610:G/T_2
+chr2:148602752:G/T_2
+chr18:48573563:G/A_2
+chr2:203384804:A/C_2
+chr16:3778893:C/T_3
+chr16:3778893:C/T_1
+chr3:178935943:C/T_2
+chr19:1220321:T/C_2
+chr13:25052420:T/A_2
+0
+['chr10:88659496:C/A', 'chr3:52437206:G/T', 'chrX:47041701:G/A', 'chr4:1807101:C/A', 'chr18:48573563:G/A', 'chr12:133235831:G/T']
+1
+['chr2:148602768:G/T']
+2
+['chr16:3778893:C/T', 'chr16:3778841:G/T', 'chr9:21974624:G/T']
+3
+['chr17:7579896:G/A']
+4
+['chrX:53565685:A/ACACT', 'chr6:157505610:G/T', 'chr6:35425692:G/T', 'chr2:148602752:G/T']
+n = 30, m = 3, p = 1
+Set parameter TimeLimit to value 1800
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 651 rows, 207 columns and 1659 nonzeros
+Model fingerprint: 0x70fda51a
+Variable types: 117 continuous, 90 integer (90 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [7e+00, 7e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Found heuristic solution: objective -0.0000000
+Presolve removed 282 rows and 105 columns
+Presolve time: 0.00s
+Presolved: 369 rows, 102 columns, 1182 nonzeros
+Variable types: 0 continuous, 102 integer (102 binary)
+Found heuristic solution: objective 6.9067548
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds (0.01 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 2: 6.90675 -0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 6.906754778649e+00, best bound 6.906754778649e+00, gap 0.0000%
+88, 1, 6.906754778648553
+n = 1180, m = 3, p = 1
+Set parameter TimeLimit to value 1800
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 17721 rows, 7107 columns and 42519 nonzeros
+Model fingerprint: 0x3460db7c
+Variable types: 3567 continuous, 3540 integer (3540 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [7e+00, 7e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective -0.0000000
+Presolve removed 17556 rows and 7044 columns
+Presolve time: 0.02s
+Presolved: 165 rows, 63 columns, 495 nonzeros
+Variable types: 0 continuous, 63 integer (63 binary)
+Found heuristic solution: objective 2002.9588858
+
+Root relaxation: objective 4.088799e+03, 26 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    4088.7988290 4088.79883  0.00%     -    0s
+
+Explored 1 nodes (26 simplex iterations) in 0.03 seconds (0.03 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 3: 4088.8 2002.96 -0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.088798828960e+03, best bound 4.088798828960e+03, gap 0.0000%
+2280, 674, 4088.7988289599266
+n = 2, m = 3, p = 1
+Set parameter TimeLimit to value 1800
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 51 rows, 39 columns and 111 nonzeros
+Model fingerprint: 0xe6c39a71
+Variable types: 33 continuous, 6 integer (6 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [7e+00, 7e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Found heuristic solution: objective -0.0000000
+Presolve removed 30 rows and 24 columns
+Presolve time: 0.00s
+Presolved: 21 rows, 15 columns, 63 nonzeros
+Variable types: 0 continuous, 15 integer (15 binary)
+Found heuristic solution: objective 6.9067548
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds (0.00 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 2: 6.90675 -0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 6.906754778649e+00, best bound 6.906754778649e+00, gap 0.0000%
+5, 1, 6.906754778648553
+cluster_id
+2    1180
+3     861
+1     593
+0      30
+4       2
+Name: count, dtype: int64
+subclusters [0, 4, 2, 3, 1]
+chr16:56782100:C/A_1 107
+chr11:107880048:G/T_1 453
+chr2:47672757:G/T_1 49
+chrX:53565730:A/C_1 526
+chr6:7230504:G/T_1 297
+chr17:56438184:G/T_1 747
+chr2:47672713:G/T_1 40
+chr7:140453025:C/T_1 35
+chr2:203384804:A/C_1 412
+subclusters [2, 3, 1]
+chr12:133235831:G/T_1 948
+chr3:52437206:G/T_1 264
+chr4:1807101:C/A_1 1422
+Node root: 1
+Node 1: 380
+Node 3: 467
+Node chr18:48573563:G/A_4: 1
+Node chr2:148602768:G/T_4: 213
+Node chr9:21974624:G/T_4: 428
+Node chr16:3778893:C/T_4: 49
+Node chr16:3778841:G/T_4: 65
+Node chr17:7579896:G/A_4: 394
+Node chr2:148602752:G/T_4: 1
+Node chr16:56782100:C/A_1: 107
+Node chr11:107880048:G/T_1: 453
+Node chr2:47672757:G/T_1: 49
+Node chrX:53565730:A/C_1: 526
+Node chr6:7230504:G/T_1: 297
+Node chr17:56438184:G/T_1: 747
+Node chr2:47672713:G/T_1: 40
+Node chr7:140453025:C/T_1: 35
+Node chr2:203384804:A/C_1: 412
+Node chr12:133235831:G/T_1: 948
+Node chr3:52437206:G/T_1: 264
+Node chr4:1807101:C/A_1: 1422
+total cells 1998
+[('root', 0)]

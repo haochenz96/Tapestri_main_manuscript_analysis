@@ -1,0 +1,61 @@
+            sample cell_barcode  clone_id
+0        BPA-4-RSX       cell_1         2
+1        BPA-4-RSX      cell_10         2
+2        BPA-4-RSX     cell_100         3
+3        BPA-4-RSX    cell_1000         3
+4        BPA-4-RSX    cell_1001         2
+...            ...          ...       ...
+3884  RA18_18-11_1     cell_995         0
+3885  RA18_18-11_1     cell_996         0
+3886  RA18_18-11_1     cell_997         0
+3887  RA18_18-11_1     cell_998         0
+3888  RA18_18-11_1     cell_999         4
+
+[3889 rows x 3 columns]
+[INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-4.patient_wide.genotyped.h5
+Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-4.patient_wide.genotyped.h5
+Loaded in 4.8s.
+(2666, 19560)
+
+    germline: 44
+    somatic: 0
+    total: 94
+(2666, 94)
+(2666, 94)
+Index(['cell_1-BPA-4-RSX', 'cell_10-BPA-4-RSX', 'cell_100-BPA-4-RSX',
+       'cell_1000-BPA-4-RSX', 'cell_1001-BPA-4-RSX', 'cell_1002-BPA-4-RSX',
+       'cell_1003-BPA-4-RSX', 'cell_1004-BPA-4-RSX', 'cell_1005-BPA-4-RSX',
+       'cell_1006-BPA-4-RSX',
+       ...
+       'cell_990-BPA-4-RSX', 'cell_991-BPA-4-RSX', 'cell_992-BPA-4-RSX',
+       'cell_993-BPA-4-RSX', 'cell_994-BPA-4-RSX', 'cell_995-BPA-4-RSX',
+       'cell_996-BPA-4-RSX', 'cell_997-BPA-4-RSX', 'cell_998-BPA-4-RSX',
+       'cell_999-BPA-4-RSX'],
+      dtype='object', name='cell_barcode', length=2666)
+0            BPA-4-RSX:cell_1
+1           BPA-4-RSX:cell_10
+2          BPA-4-RSX:cell_100
+3         BPA-4-RSX:cell_1000
+4         BPA-4-RSX:cell_1001
+                ...          
+3884    RA18_18-11_1:cell_995
+3885    RA18_18-11_1:cell_996
+3886    RA18_18-11_1:cell_997
+3887    RA18_18-11_1:cell_998
+3888    RA18_18-11_1:cell_999
+Name: cell_barcode, Length: 3889, dtype: object
+clone_id
+2    1180
+3     861
+0     856
+1     593
+4     399
+Name: count, dtype: int64
+clone_id
+2    1180
+3     861
+1     593
+0      30
+4       2
+Name: count, dtype: int64
+[2, 3, 1, 0, 4]

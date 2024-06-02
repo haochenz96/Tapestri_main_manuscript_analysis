@@ -21,7 +21,8 @@ datasets:
   # - TP49
   # - BPA-1
   # - BPA-2
-  - BPA-3
+  # - BPA-3
+  - BPA-4
   # - BPA-5
 
 # ===== centralized data directory =====
@@ -47,14 +48,3 @@ subclonal_mutations: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/da
 amplicon_coordinates_file: /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/amplicon_panel.csv
 condor_pipeline_scripts_dir: /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/scripts
 fast_condor_script: /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/fast-ConDoR/src/fast-condor.py
-
-# nclones:
-#     - 2
-#     - 3
-#     - 4
-#     - 5
-#     - 6
-#     - 7
-#     - 8
-#     - 9
-#     - 10

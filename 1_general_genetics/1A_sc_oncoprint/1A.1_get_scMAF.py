@@ -177,7 +177,7 @@ for patient_i in patient_sample_map:
     ].divide(sample_maf["total_num_cells"], axis=0)
 
     # # %%
-    # case BPA-3 needs to be considered specifically, as we need to define cancer cells by CN calling result (CN clone 3 from the final ETE tree)
+    # case BPA-3 needs to be considered specifically, as we need to define cancer cells by CN calling result (CN clone NOT 3 from the final ETE tree)
     if patient_i == "BPA-3":
         # need to use FALCON clone to define cancer cells
         cn_assignment_f = list(Path(".").glob(f"{patient_i}*assignment*csv"))
@@ -186,10 +186,11 @@ for patient_i in patient_sample_map:
         cn_assignment_df = pd.read_csv(cn_assignment_f[0]).sort_values(["sample_name", "cell_barcode"])
         # cn_assignment_df["sample_name"] = cn_assignment_df["sample_name"].map({"BPA-3-RSX": "BPA-3-T", "BPA-3-N": "RSX640_N"})
         cn_assignment_df["barcode-sample"] = cn_assignment_df["cell_barcode"] + "-" + cn_assignment_df["sample_name"]
-        tumor_cells = cn_assignment_df.loc[cn_assignment_df["final_clone_id"] == 3, "barcode-sample"].values
+        tumor_cells = cn_assignment_df.loc[cn_assignment_df["final_clone_id"] != 3, "barcode-sample"].values
         tumor_cells_bool = mut_filtered_layer.index.isin(tumor_cells)
         sample_maf["driver_snv"] = "refined_tree_clone3"
         # embed()
+    # case BPA-4 needs to be considered specifically, as we need to define cancer cells by CN calling result (CN clone not 3 from the final ETE tree)
     elif "driver_snv" in patient_sample_map[patient_i]:
         driver_snv = patient_sample_map[patient_i]["driver_snv"]
         sample_maf["driver_snv"] = driver_snv
