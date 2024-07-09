@@ -115,4 +115,9 @@ panel_wide_dS = pan_cohort_scMAF[
 
 print(f"Panel-wide dN/dS: {panel_wide_dN/panel_wide_dS}")
 
+with open("dnds.log", "w") as f:
+    f.write(f"GOI dN/dS: {GOI_dN/GOI_dS}")
+    f.write("\n")
+    f.write(f"Panel-wide dN/dS: {panel_wide_dN/panel_wide_dS}")
+
 # %%

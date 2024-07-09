@@ -7,29 +7,33 @@ import seaborn as sns
 import plotly.express as px
 from tea.plots import plot_snv_clone
 import os
-
+from tea.utils import rgb_string_to_hex
+COLOR_SEQUENCE= [rgb_string_to_hex(x) for x in px.colors.qualitative.Pastel]
 # change to script directory
 # get script dir
 os.chdir(Path(os.path.realpath(__file__)).parent)
 
 data_dir = Path('/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/data_compiled')
+condor_downstream_dir = Path("../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
 amplicon_params = Path('../../Tapestri_project/tap_cn_calling/train-normals/train-combined_8_normals/NB_train-combined_8_normals-results.gene_added.csv')
 
 amp_params_df = pd.read_csv(
     amplicon_params,
     index_col= 0,
 )
+SNV_GOI=["TP53", "KRAS", "SMAD4", "BRCA2"]
+CNV_GOI=[]
 
 
-# %%
+# %% Read H5
 # sample_objs = {}
 
 # for sample_i in sample_names:
 #     h5_f = data_dir / f"{patient_name}-patient" / 'cn_clone_added_h5s' / f"{sample_i}_cn_clone_added.h5"
 #     sample_objs[sample_i] = mio.load(h5_f)
 
-patient_name = "BPA-3"
-pt_h5 = data_dir / "fillout_h5" / f"{patient_name}.patient_wide.genotyped.h5"
+patient_name = "BPA-2"
+pt_h5 = data_dir / "fillout_h5" / "BPA-2-iR.mpileup.renamed.h5"
 # pt_h5 = "/lila/data/iacobuzc/haochen/Tapestri_batch2/pipeline_results/BPA-2/BPA-2-IR/OUTPUTS_from_mpileup/BPA-2-IR.mpileup.h5"
 pt = mio.load(pt_h5)
 
@@ -44,7 +48,7 @@ for sample_i in samples:
 
 # %% Add raw FALCON results to H5
 # HZ refined
-cn_assignment_f = "/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs/BPA-3/BPA-3_final_sc_clone_assignment.csv"
+cn_assignment_f = list(condor_downstream_dir.glob(f"{patient_name}/{patient_name}*assignment*csv"))[0]
 cn_assignment_df = pd.read_csv(cn_assignment_f, index_col = 0)
 print(f'[INFO] Loaded CN clone assignment file {cn_assignment_f}.')
 # add cn_clone info
@@ -57,7 +61,7 @@ cn_assignment_df = cn_assignment_df.reindex(pt.dna.barcodes(), fill_value=0)
 
 cn_clone_palette = dict(zip(
     np.sort(cn_assignment_df['final_clone_id'].unique()), 
-    np.array(px.colors.qualitative.Set3)[np.sort(cn_assignment_df['final_clone_id'].unique())]
+    np.array(COLOR_SEQUENCE)[np.sort(cn_assignment_df['final_clone_id'].unique())]
     ))
 # rename the keys
 cn_clone_palette = {f"CN_clone-{k}": v for k, v in cn_clone_palette.items()}
@@ -86,6 +90,12 @@ pt.cnv.add_layer('normalized_read_counts_binary[zero/nonzero]', normalized_rc_bi
 snv_f = data_dir / "manual_annotated_snv_lists" / f"{patient_name}-all_vars-voi.hz_curated.txt"
 snv_df = pd.read_csv(snv_f, sep = '\t', index_col = 0, comment='#')
 snv_df = snv_df[snv_df["annotation"].notna()]
+
+# ----- filter -----
+snv_df = snv_df[~snv_df['annotation'].str.contains("artifact")]
+# filter out germline HOM
+snv_df = snv_df[~snv_df['annotation'].str.contains("germline_HOM")]
+
 snv_ann_map = snv_df['HGVSp'].to_dict()
 
 # ===== highlight vars with bulk annotation ====='
@@ -98,7 +108,7 @@ highlight_color = '#f700ff'
 
 for var_i in snv_ann_map:
     # germline
-    if var_i == "chr13:32914288:TAACC/T":
+    if var_i == "chr13:32914437:GT/G":
         snv_ann_map[var_i] = f'<span style="color:{highlight_color};">' + snv_ann_map[var_i] + '</span>'
         continue
     if snv_df.loc[var_i, 'annotation'] == 'germline_HOM':
@@ -112,7 +122,7 @@ for var_i in snv_ann_map:
     else:
         pass
 
-# %% plot heatmap
+# %% plot DNA heatmap
 # del pt.dna.__dict__["_Assay__heatmap"]
 fig = plot_snv_clone(
     pt,
@@ -128,15 +138,33 @@ fig = plot_snv_clone(
 # %% save the figure
 # write to PDF, with width proportion to the number of SNVs
 fig.write_image(
-    f"{patient_name}-DNA-heatmap.pdf", 
+    f"{patient_name}_DNA_heatmap.pdf", 
     width = 500 + 10 * len(snv_df.index.tolist()),
     engine="kaleido"
     )
-# %%
+
+# %% DNA heatmap, focused on select vars
+voi = snv_df[snv_df['HGVSp'].str.split().str[0].isin(SNV_GOI)].index.tolist()
+fig_focused = plot_snv_clone(
+    pt,
+    sample_name=patient_name,
+    story_topic = f'{patient_name}-high_conf_snvs',
+    voi = voi,
+    attribute = "AF_MISSING",
+    ann_map = snv_ann_map
+)
+
+fig_focused.write_image(
+    f"{patient_name}_DNA_heatmap_focused.pdf", 
+    width = 500 + 10 * len(snv_df.index.tolist()),
+    engine="kaleido"
+    )
+# %% Sort for vars
 from tea.utils import sort_for_var
 attribute="AF_MISSING"
 # also make sure to retrieve the sorted_bars 
-del pt.dna.__dict__["_Assay__heatmap"]
+# del pt.dna.__dict__["_Assay__heatmap"]
+
 sorted_bars = sort_for_var(
     dna = pt.dna,
     vars = snv_df.index.tolist(),
@@ -148,7 +176,7 @@ sorted_bars = sort_for_var(
 # %% CNV heatmap
 sc_cnv_heatmap = pt.cnv.heatmap(
     'normalized_read_counts_binary[zero/nonzero]',
-    features = ['CDKN2A', 'KRAS', 'BRCA2', 'TP53', 'SMAD4'],
+    features = CNV_GOI,
     bars_order = sorted_bars,
 )
 

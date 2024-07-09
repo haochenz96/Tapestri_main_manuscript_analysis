@@ -1,4 +1,4 @@
-# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
+# [US/Eastern]] Tue 07 09 12:15:44 EDT 2024
 # patient_name: M07# sample_names: ['M07-1', 'M07-3']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
+# manual_snv_whitelist: {'chr17:7577556:C/T', 'chr18:48593507:C/T', 'chr1:209969821:C/T', 'chr9:21974695:G/GT', 'chr13:32907415:T/A', 'chr2:25457242:C/T', 'chr3:178936091:G/A', 'chr17:7578496:A/T', 'chr12:25398284:C/A', 'chr18:48581173:G/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -79,8 +79,8 @@ chr20:31375137:T/A	28	DNMT3B p.His178Gln	NA
 chr1:27099486:A/T	25	ARID1A intron_variant	NA
 chr15:28422146:A/T	22	HERC2 p.Tyr3128Asn	NA
 chr19:40741681:G/C	20	AKT2 intron_variant	NA
-chr3:41265953:C/CT	19	CTNNB1 intron_variant	NA
 chr8:38275683:T/A	19	FGFR1 intron_variant	NA
+chr3:41265953:C/CT	19	CTNNB1 intron_variant	NA
 chr3:10085406:G/T	19	FANCD2 intron_variant	NA
 chr5:68667301:C/A	18	RAD17 5_prime_UTR_variant	NA
 chr20:46279895:A/G	17	NCOA3 p.Gln1274Arg	NA

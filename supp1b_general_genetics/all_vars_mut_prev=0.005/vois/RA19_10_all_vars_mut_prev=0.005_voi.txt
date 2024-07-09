@@ -1,4 +1,4 @@
-# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
+# [US/Eastern]] Tue 07 09 12:15:44 EDT 2024
 # patient_name: RA19_10# sample_names: ['RA19_10-53_1', 'RA19_10-51_1']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
+# manual_snv_whitelist: {'chr17:7577556:C/T', 'chr18:48593507:C/T', 'chr1:209969821:C/T', 'chr9:21974695:G/GT', 'chr13:32907415:T/A', 'chr2:25457242:C/T', 'chr3:178936091:G/A', 'chr17:7578496:A/T', 'chr12:25398284:C/A', 'chr18:48581173:G/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -101,8 +101,8 @@ chr20:9519936:G/A	35	PAK5 3_prime_UTR_variant	NA
 chr20:31375137:T/A	33	DNMT3B p.His178Gln	NA
 chr5:68667299:T/G	32	RAD17 5_prime_UTR_variant	NA
 chr15:90631734:A/T	32	IDH2 p.Tyr179Asn	NA
-chr12:14589079:T/A	29	ATF7IP p.Met570Lys	NA
 chr1:27105675:GGAA/G	29	ARID1A p.Glu1767del	NA
+chr12:14589079:T/A	29	ATF7IP p.Met570Lys	NA
 chr2:203329570:C/A	29	BMPR2 p.Pro39Thr	NA
 chr16:23647214:T/A	28	PALB2 p.Glu218Val	NA
 chr8:30933849:AT/A	27	WRN intron_variant	NA

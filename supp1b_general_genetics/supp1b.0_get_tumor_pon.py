@@ -9,7 +9,7 @@ from pathlib import Path
 # %% 
 MASTER_SAMPLE_SHEET = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER.xlsx"
 H5_DIR = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/ss_h5")
-OUTDIR=Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics/snv_blacklists")
+OUTDIR=Path("/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists")
 # ----- patient-sample map -----
 master_sample_df = pd.read_excel(
 	MASTER_SAMPLE_SHEET, 
@@ -28,6 +28,7 @@ for patient_i in master_sample_df['case'].unique():
 		sample_h5s[sample_i] = h5[0]
 
 sample_names = master_sample_df["sample"].unique()
+# %%
 sample_objs = {}
 for sample_i in sample_names:
     h5 = str(sample_h5s[sample_i])

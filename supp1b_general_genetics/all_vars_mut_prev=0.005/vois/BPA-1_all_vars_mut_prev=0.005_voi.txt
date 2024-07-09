@@ -1,4 +1,4 @@
-# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
+# [US/Eastern]] Tue 07 09 12:15:44 EDT 2024
 # patient_name: BPA-1# sample_names: ['BPA-1-RSX', 'BPA-1-IR']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,7 +9,7 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
+# manual_snv_whitelist: {'chr17:7577556:C/T', 'chr18:48593507:C/T', 'chr1:209969821:C/T', 'chr9:21974695:G/GT', 'chr13:32907415:T/A', 'chr2:25457242:C/T', 'chr3:178936091:G/A', 'chr17:7578496:A/T', 'chr12:25398284:C/A', 'chr18:48581173:G/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
@@ -92,28 +92,28 @@ chr12:49424232:G/A	22	KMT2D intron_variant	NA
 chr1:11734709:C/T	20	MAD2L2 3_prime_UTR_variant	NA
 chrX:153581502:G/A	14	FLNA p.Ala2031=	NA
 chr1:39781300:A/G	12	MACF1 p.Glu1166Gly	NA
-chr8:128752924:C/G	11	MYC p.Ser362Cys	NA
 chr12:52379005:A/G	11	ACVR1B p.Lys337Glu	NA
+chr8:128752924:C/G	11	MYC p.Ser362Cys	NA
+chr18:45396857:A/G	10	SMAD2 p.Ser105=	NA
 chr15:67430430:G/A	10	SMAD3 intron_variant	NA
 chr17:7572792:A/G	10	TP53 3_prime_UTR_variant	NA
-chr18:45396857:A/G	10	SMAD2 p.Ser105=	NA
 chr1:11308037:A/G	9	MTOR p.Phe319Leu	NA
-chr17:7572802:A/G	9	TP53 3_prime_UTR_variant	NA
 chr2:48028098:A/G	9	MSH6 p.Glu992=	NA
+chr17:7572802:A/G	9	TP53 3_prime_UTR_variant	NA
 chr12:133252783:A/G	8	POLE p.Leu306Pro	NA
-chr2:48028100:A/G	8	MSH6 p.Glu993Gly	NA
 chr1:27056234:A/G	8	ARID1A p.Gly410=	NA
+chr2:48028100:A/G	8	MSH6 p.Glu993Gly	NA
 chr7:44157261:A/G	7	POLD2 p.Arg176=	NA
 chr3:47161949:A/G	7	SETD2 p.Leu1393=	NA
 chr19:15298640:C/T	7	NOTCH3 intron_variant	NA
-chrX:153581493:G/A	6	FLNA p.Pro2034=	NA
-chr1:115256479:A/G	6	NRAS p.Phe78Leu	NA
 chr14:36989268:C/T	6	NKX2-1 p.Gly23Ser	NA
 chr18:48573583:C/T	6	SMAD4 p.Ser56Phe	NA
-chr3:30732916:T/A	5	TGFBR2 p.Ile510Asn	NA
-chr15:67459006:A/G	5	SMAD3 intron_variant	NA
+chrX:153581493:G/A	6	FLNA p.Pro2034=	NA
+chr1:115256479:A/G	6	NRAS p.Phe78Leu	NA
+chr17:41245905:A/T	5	BRCA1 p.Ile548Asn	NA
 chr18:19751140:A/C	5	GATA6 p.Lys12Thr	NA
 chr11:107920789:G/T	5	CUL5 p.Arg136Leu	NA
-chr17:41245905:A/T	5	BRCA1 p.Ile548Asn	NA
-chr1:16474799:C/T	4	EPHA2 intron_variant	NA
+chr15:67459006:A/G	5	SMAD3 intron_variant	NA
+chr3:30732916:T/A	5	TGFBR2 p.Ile510Asn	NA
 chr17:7579481:G/A	4	TP53 p.Ala69Val	NA
+chr1:16474799:C/T	4	EPHA2 intron_variant	NA
