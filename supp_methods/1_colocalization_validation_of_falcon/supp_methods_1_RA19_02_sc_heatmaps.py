@@ -13,14 +13,20 @@ import os
 from tea.utils import rgb_string_to_hex
 
 os.chdir(Path(__file__).parent.parent)
-patient_name = "RA19_02"
 
+######
+patient_name = "RA17_22"
+######
+
+# ----- config -----
 # RA19_02
 SNV_GOI=["TP53", "KRAS", "SMAD4", "BRCA1", "TGFBR1" "TGFBR2", "RNF43"]
 # # 16_29
 # SNV_GOI=["TP53", "KRAS", "ARID2", "CTNNB1", "CDKN2A", "STK11"]
+# RA17_22
+SNV_GOI=["KRAS", "TP53"]
 
-CNV_GOI = ["KRAS", "CDKN2A"]
+CNV_GOI = ["KRAS", "SMAD4"]
 
 pt_h5 = f"../data_compiled/fillout_h5/{patient_name}.patient_wide.genotyped.h5"
 pt = mio.load(pt_h5)
@@ -136,7 +142,7 @@ sorted_bars = sort_for_var(
     dna = pt.dna,
     vars = voi,
     attribute = attribute,
-    method = "stringsort"
+    method = "stringsort",
     )
 
 
