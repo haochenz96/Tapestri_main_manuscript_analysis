@@ -526,7 +526,7 @@ with open(PATIENT_SAMPLE_MAP_F, "r") as f:
 MASTER_CRAVAT_F="/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/master_cravat.csv"
 master_cravat_df = pd.read_csv(MASTER_CRAVAT_F, index_col=0, header=[0,1])
 
-# manual tuning:
+# manual tuning (mostly because some of these somatic vars are mislabeled as germline due to contamination in normal samples):
 per_patient_somatic_vars["M04"] = set(per_patient_somatic_vars["M04"]) | {"chr13:32907415:T/A"}
 per_patient_somatic_vars["M07"] = set(per_patient_somatic_vars["M07"]) | {"chr17:7577556:C/T"}
 per_patient_somatic_vars["RA15_06"] = set(per_patient_somatic_vars["RA15_06"]) |{"chr18:48593507:C/T"}
@@ -648,9 +648,22 @@ for patient_i in master_sample_df['case'].unique():
 		if len(cn_assignment_f) != 1:
 			raise ValueError(f"[ERROR] for patient {patient_i}, CN assignment file not found")
 		cn_assignment_df = pd.read_csv(cn_assignment_f[0]).sort_values(["sample_name", "cell_barcode"])
-		# cn_assignment_df["sample_name"] = cn_assignment_df["sample_name"].map({"BPA-3-RSX": "BPA-3-T", "BPA-3-N": "RSX640_N"})
 		cn_assignment_df["barcode-sample"] = cn_assignment_df["cell_barcode"] + "-" + cn_assignment_df["sample_name"]
 		tumor_cells = cn_assignment_df.loc[cn_assignment_df["final_clone_id"] == 3, "barcode-sample"].values
+		tumor_cells_bool = mut_filtered_layer.index.isin(tumor_cells)
+		sample_maf["driver_snv"] = "refined_tree_clone3"
+	# case BPA-4 needs to be considered specifically, as we need to define cancer cells by CN calling result (CN clones 1&2 from the final ETE tree)
+	elif patient_i == "BPA-4":
+		# need to use FALCON clone to define cancer cells
+		cn_assignment_f = list(Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/1_general_genetics/1A_sc_oncoprint").glob(f"{patient_i}*assignment*csv"))
+		if len(cn_assignment_f) != 1:
+			raise ValueError(f"[ERROR] for patient {patient_i}, CN assignment file not found")
+		cn_assignment_df = pd.read_csv(cn_assignment_f[0]).sort_values(["sample_name", "cell_barcode"])
+		cn_assignment_df["barcode-sample"] = cn_assignment_df["cell_barcode"] + "-" + cn_assignment_df["sample_name"]
+		tumor_cells = cn_assignment_df.loc[
+      		((cn_assignment_df["final_clone_id"] == 1) | (cn_assignment_df["final_clone_id"] == 2)), 
+        	"barcode-sample"
+         ].values
 		tumor_cells_bool = mut_filtered_layer.index.isin(tumor_cells)
 		sample_maf["driver_snv"] = "refined_tree_clone3"
 		# embed()
@@ -692,3 +705,4 @@ for patient_i in master_sample_df['case'].unique():
 # %%
 pan_cohort_scMAF = pd.concat(sample_mafs, ignore_index=True)
 pan_cohort_scMAF.to_csv(WD / f"pan_cohort_somatic_scMAF_mut_prev={MUT_PREV}.csv", index=False, header=True)
+# %%

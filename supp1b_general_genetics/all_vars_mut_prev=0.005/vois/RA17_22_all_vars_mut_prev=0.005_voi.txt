@@ -1,4 +1,4 @@
-# [US/Eastern]] Tue 05 07 13:04:23 EDT 2024
+# [US/Eastern]] Tue 07 09 12:15:44 EDT 2024
 # patient_name: RA17_22# sample_names: ['RA17_22-04_1', 'RA17_22-06_2', 'RA17_22-11_1', 'RA17_22-27_2', 'RA17_22-32_1', 'RA17_22-33_2', 'RA17_22-35_1', 'RA17_22-39_6', 'RA17_22-42_2']# ======  [snv_selection_params] ======
 # attribute: ['AF_MISSING']
 # mut_prev_threshold: 0.005
@@ -9,12 +9,12 @@
 # ado_threshold: 0.3
 # germline_attrs: {'select_hom_germline_snps_af': 0.9, 'rescue_1000genome_af': 0.01}
 # filter_TtoC_artifact: {'filter': True, 'lower_thres': 0.005, 'upper_thres': 0.01}
-# manual_snv_whitelist: {'chr2:25457242:C/T', 'chr18:48581173:G/T', 'chr12:25398284:C/A', 'chr17:7577556:C/T', 'chr17:7578496:A/T', 'chr13:32907415:T/A', 'chr9:21974695:G/GT', 'chr1:209969821:C/T', 'chr3:178936091:G/A', 'chr18:48593507:C/T'}
+# manual_snv_whitelist: {'chr17:7577556:C/T', 'chr18:48593507:C/T', 'chr1:209969821:C/T', 'chr9:21974695:G/GT', 'chr13:32907415:T/A', 'chr2:25457242:C/T', 'chr3:178936091:G/A', 'chr17:7578496:A/T', 'chr12:25398284:C/A', 'chr18:48581173:G/T'}
 # blacklist_snvs: None
 # =====================================
 condensed_format	mut_prev	HGVSp	annotation
-chr1:46521517:G/A	16028	PIK3R3 p.Ser297=	germline_HOM
 chr1:46521559:A/T	16028	PIK3R3 p.Asn283Lys	germline_HOM
+chr1:46521517:G/A	16028	PIK3R3 p.Ser297=	germline_HOM
 chr9:21968199:C/G	15958	CDKN2A 3_prime_UTR_variant	germline_HOM
 chr11:107879887:G/C	15944	CUL5 5_prime_UTR_variant	germline_HOM
 chr11:65481166:T/C	15918	KAT5 intron_variant	germline_HOM
@@ -61,8 +61,8 @@ chr11:65631167:C/T	10713	MUS81 p.Ala312=	germline_HET
 chrX:47041666:G/C	9894	RBM10 p.Ala631Pro	germline_HET
 chr5:38953665:G/GA	9768	RICTOR intron_variant	likely_artifact
 chr11:65631361:C/T	8335	MUS81 p.Arg350Trp	germline_HET
-chr13:32913055:A/G	7961	BRCA2 p.Leu1521=	germline_HOM
 chr22:29130300:C/T	7961	CHEK2 intron_variant	germline_HET
+chr13:32913055:A/G	7961	BRCA2 p.Leu1521=	germline_HOM
 chr13:25052420:T/A	7917	PARP4 intron_variant	germline_HET
 chr14:105242966:T/C	7343	AKT1 intron_variant	likely_artifact
 chr19:5219803:T/C	6586	PTPRS intron_variant	germline_HET
@@ -106,66 +106,66 @@ chr3:178936082:G/A	61	PIK3CA p.Glu542Lys	bulk_somatic
 chr6:52149468:G/GATGA	60	MCM3 p.Ala2ValfsTer42	NA
 chrX:70356195:C/T	52	MED12 p.Ser1697Leu	NA
 chr16:23646823:T/G	47	PALB2 p.Gln348His	NA
-chr15:67482798:A/G	38	SMAD3 p.Asn401Ser	NA
 chr6:31710517:A/T	38	MSH5 intron_variant	NA
-chr20:9519936:G/A	36	PAK5 3_prime_UTR_variant	NA
+chr15:67482798:A/G	38	SMAD3 p.Asn401Ser	NA
 chr16:23647213:T/A	36	PALB2 p.Glu218Asp	NA
 chr19:40741681:G/C	36	AKT2 intron_variant	NA
+chr20:9519936:G/A	36	PAK5 3_prime_UTR_variant	NA
 chrX:47430368:A/T	35	ARAF p.Asp548Val	NA
 chr16:89858753:A/G	34	FANCA intron_variant	NA
 chr2:100055295:A/G	32	REV1 p.Ser327=	NA
 chr6:35425759:C/T	30	FANCE p.Gln323Ter	NA
+chr7:151962199:A/G	28	KMT2C p.Cys370Arg	NA
 chr7:104731689:A/G	28	KMT2E p.Glu550=	NA
 chr14:20818769:A/G	28	PARP2 p.Arg150Gly	NA
-chr7:151962199:A/G	28	KMT2C p.Cys370Arg	NA
 chr3:178936040:A/G	28	PIK3CA p.Lys528Glu	NA
 chr1:27101344:A/G	27	ARID1A p.Glu1542=	NA
 chr6:157505600:G/A	27	ARID1B intron_variant	NA
 chr3:30713583:A/G	26	TGFBR2 p.Asn303Ser	NA
 chr12:52379078:A/G	25	ACVR1B p.Asp361Gly	NA
 chr2:25457135:GC/G	25	DNMT3A 3_prime_UTR_variant	NA
-chr2:148654011:A/G	24	ACVR2A p.Asn66Ser	NA
-chr6:101099617:T/C	24	ASCC3 intron_variant	NA
-chr12:25398284:C/T	24	KRAS p.Gly12Asp	NA
 chr17:63526033:A/G	24	AXIN2 3_prime_UTR_variant	NA
-chr19:11121148:A/G	23	SMARCA4 p.Thr739Ala	NA
+chr12:25398284:C/T	24	KRAS p.Gly12Asp	NA
+chr6:101099617:T/C	24	ASCC3 intron_variant	NA
+chr2:148654011:A/G	24	ACVR2A p.Asn66Ser	NA
 chr2:203397284:A/G	23	BMPR2 intron_variant	NA
+chr19:11121148:A/G	23	SMARCA4 p.Thr739Ala	NA
 chr1:209969682:T/A	23	IRF6 intron_variant	NA
-chr16:23646745:A/G	22	PALB2 p.Ile374=	NA
 chr13:28626833:A/G	22	FLT3 intron_variant	NA
-chr20:31375079:C/T	21	DNMT3B p.Pro159Leu	NA
+chr16:23646745:A/G	22	PALB2 p.Ile374=	NA
 chr2:203384890:A/G	21	BMPR2 p.Gly311=	NA
+chr20:31375079:C/T	21	DNMT3B p.Pro159Leu	NA
 chr4:126327987:A/G	20	FAT4 intron_variant	NA
-chr3:38523841:C/T	19	ACVR2B intron_variant	NA
 chr1:155234316:A/G	19	CLK2 p.Asp363=	NA
+chr3:38523841:C/T	19	ACVR2B intron_variant	NA
 chr3:52637483:A/G	19	PBRM1 intron_variant	NA
-chr1:155234027:A/G	18	CLK2 p.Met404Thr	NA
-chr20:50140549:A/G	18	NFATC2 p.Ser77=	NA
-chr16:3781497:G/A	18	CREBBP intron_variant	NA
 chr20:40738905:TG/T	18	PTPRT intron_variant	NA
-chr2:198266543:A/G	17	SF3B1 p.Tyr765His	NA
+chr20:50140549:A/G	18	NFATC2 p.Ser77=	NA
+chr1:155234027:A/G	18	CLK2 p.Met404Thr	NA
+chr16:3781497:G/A	18	CREBBP intron_variant	NA
 chr20:50140523:A/G	17	NFATC2 p.Phe86Ser	NA
+chr2:198266543:A/G	17	SF3B1 p.Tyr765His	NA
 chr8:38275729:A/G	17	FGFR1 intron_variant	NA
 chr18:46448267:A/G	16	SMAD7 p.Leu252=	NA
-chr3:38524497:A/G	16	ACVR2B intron_variant	NA
 chr5:98207875:A/G	16	CHD1 p.Ala1247=	NA
+chr3:38524497:A/G	16	ACVR2B intron_variant	NA
 chr18:48573520:T/A	15	SMAD4 p.Phe35Tyr	NA
 chr3:10085540:G/A	15	FANCD2 p.Glu376Lys	NA
-chr18:45377723:A/G	14	SMAD2 intron_variant	NA
 chr12:49444746:G/A	14	KMT2D p.Pro907Leu	NA
-chr8:128748694:C/T	13	MYC p.Arg135Trp	NA
+chr18:45377723:A/G	14	SMAD2 intron_variant	NA
 chr10:68280328:TA/T	13	CTNNA3 intron_variant	NA
-chr1:11734714:G/A	12	MAD2L2 3_prime_UTR_variant	NA
+chr8:128748694:C/T	13	MYC p.Arg135Trp	NA
 chr20:39801365:C/T	12	PLCG1 intron_variant	NA
 chr8:38314936:C/T	12	FGFR1 p.Trp10Ter	NA
+chr1:11734714:G/A	12	MAD2L2 3_prime_UTR_variant	NA
 chr15:67457638:T/G	11	SMAD3 p.Phe150Val	NA
 chr7:40172651:A/G	11	MPLKIP 3_prime_UTR_variant	NA
-chr3:52637541:T/A	10	PBRM1 p.Lys925Asn	NA
 chr17:7576936:A/T	10	TP53 intron_variant	NA
+chr3:52637541:T/A	10	PBRM1 p.Lys925Asn	NA
 chr6:7229360:A/T	9	RREB1 p.Gln343Leu	NA
-chr6:101037774:C/G	7	ASCC3 intron_variant	NA
+chr11:107920667:T/A	7	CUL5 p.Val95=	NA
 chr16:23646790:A/T	7	PALB2 p.Ser359Arg	NA
 chr1:27056200:A/T	7	ARID1A p.Asn399Ile	NA
-chr11:107920667:T/A	7	CUL5 p.Val95=	NA
-chr3:52442608:A/T	6	BAP1 p.Phe46Tyr	NA
+chr6:101037774:C/G	7	ASCC3 intron_variant	NA
 chr1:27107070:T/A	6	ARID1A p.Ser2227Arg	NA
+chr3:52442608:A/T	6	BAP1 p.Phe46Tyr	NA

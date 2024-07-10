@@ -24,6 +24,6 @@ snv_selection_params:
     select_hom_germline_snps_af: 0.9 # Select homozygous SNPs from Tapestri data.disable by setting to >= 1 or None
     rescue_1000genome_af: 0.01 # rescue popular SNPs (for phylogeny purpose). disable by setting to >= 1 or None
     attribute: AF_MISSING
-    tumor_pon: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/all_tumor_samples_N=69_composite_snv_sheet.csv
+    tumor_pon: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/all_tumor_samples_N=74_composite_snv_sheet.csv
     manual_blacklist: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/manual_snv_snp_blacklists.csv
     manual_whitelist: /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists/manual_snv_whitelist.csv

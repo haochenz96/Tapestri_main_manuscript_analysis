@@ -75,6 +75,9 @@ BPA-2:
 BPA-3:
   samples: [BP3-RSX]
   driver_snv: # no SNV. Should use the biggest nondiploid clone
+BPA-4:
+  samples: [BP4-RSX]
+  driver_snv: # no SNV. Should use the biggest nondiploid clone
 BPA-5:
   samples: [BPA5-RSX]
   driver_snv: chr12:25398284:C/T

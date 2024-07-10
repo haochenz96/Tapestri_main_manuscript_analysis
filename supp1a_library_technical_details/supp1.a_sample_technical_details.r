@@ -1,3 +1,11 @@
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+if (!requireNamespace("readxl", quietly = TRUE)) {
+  install.packages("readxl")
+}
+
+
 library(ggplot2)
 library(ggpubr)
 library(dplyr)
