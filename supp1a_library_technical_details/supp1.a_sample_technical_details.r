@@ -69,7 +69,9 @@ master_sample_sheet %>%
     mean_library_nuclei_yield = mean(`library nuclei yield`),
     sd_library_nuclei_yield = sd(`library nuclei yield`),
     total_single_nuclei_libraries = sum(`library nuclei yield`)
-  ) -> stats
+  ) -> overall_stats
+write.csv(overall_stats, "supp1a_library_technical_details/overall_stats.csv", row.names = FALSE)
+
 # also get total number of single nuclei per case, not sample, and take median of that
 master_sample_sheet %>% 
   group_by(case) %>% 
@@ -78,6 +80,11 @@ master_sample_sheet %>%
   ) -> stats_by_case
 mean_by_case <- mean(stats_by_case$total_single_nuclei_libraries)
 mean_by_case
+# save the mean library nuclei yield per case to a CSV file
+write.csv(data.frame(mean_library_nuclei_yield_per_case = mean_by_case), 
+          "supp1a_library_technical_details/mean_library_nuclei_yield_per_case.csv", 
+          row.names = FALSE)
+
 # median library nuclei yield for each collection method
 # standard deviation of library nuclei yield for each collection method
 
@@ -87,3 +94,13 @@ master_sample_sheet %>%
     mean_library_nuclei_yield = mean(`library nuclei yield`),
     sd_library_nuclei_yield = sd(`library nuclei yield`)
   ) -> stats_by_collection_method
+# save the median library nuclei yield and standard deviation for each collection method to a CSV file
+write.csv(stats_by_collection_method, 
+          "supp1a_library_technical_details/stats_by_collection_method.csv", 
+          row.names = FALSE)
+
+# how many samples are pancreas primary and how many are mets?
+grepl(pattern = "pancreas", x = master_sample_sheet$`anatomical site`, ignore.case = TRUE) %>% sum()
+grepl(pattern = "met", x = master_sample_sheet$`primary_or_met`, ignore.case = TRUE) %>% sum()
+
+
