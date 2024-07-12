@@ -4,6 +4,9 @@ import pandas as pd
 import pickle
 from pathlib import Path
 from collections import Counter
+import os
+
+os.chdir(__file__.rsplit("/",1)[0])
 
 pickle_dir = Path("../../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
 GOI = ["KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "PIK3CA", "FGFR1","RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"]
@@ -141,8 +144,8 @@ for patient_name in poi:
 master_maf = pd.concat(master_maf_dict.values(), ignore_index=True)
 master_maf.to_csv("1B_pan_cohort_scMAF.LOH_events.csv", index=False)
 # %%
-tree_log_df["truncal_snv_density"] = tree_log_df["truncal_snvs"] / tree_log_df["total_snvs"]
-tree_log_df["truncal_snp_density"] = tree_log_df["truncal_cnvs"] / tree_log_df["total_cnvs"]
+tree_log_df["truncal_snv_density"] = tree_log_df["truncal_snvs"].astype(float) / tree_log_df["total_snvs"].astype(float)
+tree_log_df["truncal_snp_density"] = tree_log_df["truncal_cnvs"].astype(float) / tree_log_df["total_cnvs"].astype(float)
 mean_truncal_snv_density = tree_log_df["truncal_snv_density"].mean()
 print(f"mean truncal SNV density: {mean_truncal_snv_density}")
 # median

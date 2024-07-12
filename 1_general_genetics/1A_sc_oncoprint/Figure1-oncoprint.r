@@ -12,7 +12,7 @@ library(ggnewscale)
 library(patchwork)
 
 # change directory into the same folder as the script
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+setwd("/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/1_general_genetics/1A_sc_oncoprint/")
 
 # ----- 0. per-case clinical info table -----
 patient_info_table <- read.xlsx("../../Tapestri_batch2_samples_MASTER.xlsx", sheet = "all_case_genetics", startRow = 2, colNames = TRUE)
@@ -64,7 +64,7 @@ combined_del_amp_maf <- combined_del_amp_maf %>%
 # capitalize alteration_class column
 combined_del_amp_maf$alteration_class <- toupper(combined_del_amp_maf$alteration_class)
 # -- LOH
-combined_loh_maf <- read.csv("../1B_tree_analysis/1B_pan_cohort_phylogeny_scMAF.csv")
+combined_loh_maf <- read.csv("../1B_tree_analysis/1B_pan_cohort_scMAF.LOH_events.csv")
 # we don't need the GAIN events, which are used for truncal status determination
 combined_loh_maf %>% filter(alteration_class == "LOH") -> combined_loh_maf
 
@@ -77,7 +77,7 @@ composite_maf <- rbind(
 # +++++ 4. add in germline BRCA2 variants +++++
 # M04, BPA-1, BPA-2, BPA-3, BPA-5 have germline BRCA2 variants, CCF=1
 germline_brca2_variants <- data.frame(
-  patient_name = c("M04", "BPA-1", "BPA-2", "BPA-3", "BPA-5"),
+  patient_name = c("M04", "BPA-1", "BPA-2", "BPA-3", "BPA-4", "BPA-5"),
   gene_name = "BRCA2",
   alteration_class = "germline_mutation",
   CCF = 1
@@ -204,16 +204,15 @@ fig_a <- ggplot(composite_maf, aes(
       title.position = "top", byrow = TRUE, order=3)
     ) +
   theme(panel.background = element_blank()) +
-  geom_hline(yintercept = seq(1, nlevels(composite_maf$patient_name)) - 0.5, alpha = 0.3) +
-  geom_vline(xintercept = seq(1, nlevels(composite_maf$gene_name)) - 0.5, alpha = 0.3) + 
+  geom_hline(yintercept = seq(1, nlevels(composite_maf$patient_name)+2) + 0.5, alpha = 0.3) +
+  geom_vline(xintercept = seq(1, nlevels(composite_maf$gene_name)+2) - 0.5, alpha = 0.3) + 
   # xlab("Case_ID") + 
   ylab("Gene") +
   theme(
     # aspect.ratio = 1,
     axis.text.x = element_blank(),
     axis.text.y = element_text(size = 10, face = "bold.italic"),
-    # panel.grid.major = element_blank(),
-    # panel.grid.minor = element_blank(), axis.line = element_blank(),
+ 
     axis.ticks = element_blank(), axis.title.x = element_blank(),
     legend.position = "right", 
     legend.direction = "vertical",
@@ -253,7 +252,7 @@ fig_c <- ggplot(data = patient_info_table) +
     axis.ticks.y = element_blank(), 
     axis.title.y = element_blank(), axis.title.x = element_blank(),
     legend.position = "right", 
-    legend.justification='top',
+    # legend.justification='top',
     legend.direction = "vertical",
     legend.key = element_rect(fill = "white"),
   )
@@ -284,17 +283,17 @@ fig_c <- ggplot(data = patient_info_table) +
 
 # # ========== patchwork method ==========
 combined.plot <- fig_a / fig_c + 
-  plot_layout(ncol = 1, heights = c(20, 1), guides = "collect") + 
+  plot_layout(ncol = 1, heights = c(24, 1), guides = "collect") + 
   theme(
     legend.justification = c(0.5, 0),
     )
 
-pdf("Figure_1B_sc_oncoprint.pdf", height=9, width=11, useDingbats = FALSE)
+pdf("Figure_1B_sc_oncoprint.pdf", height=9, width=12, useDingbats = FALSE)
 grid.draw(combined.plot)
 dev.off()
-
+    
 # also save to PNG with dpi=400
-png("Figure_1B_sc_oncoprint.png", height=9, width=11, units = "in", res = 400)
+png("Figure_1B_sc_oncoprint.png", height=9, width=12, units = "in", res = 400)
 grid.draw(combined.plot)
 dev.off()
 
@@ -322,9 +321,29 @@ write.csv(tgfb_maf, "1A_composite_maf.TGFB.csv", row.names = FALSE)
 # # fill in WT
 # cdkn2a_stats_count <- rbind(cdkn2a_stats_count, data.frame(alteration_class = "WT", freq = 5))
 
+composite_maf <- read.csv("1A_composite_maf.FINAL.csv")
+# Group by patient_name and gene_name, then filter to keep the entry with the highest CCF for each group
+composite_maf %>%
+  group_by(patient_name, gene_name) %>%
+  filter(CCF == max(CCF)) %>%
+  ungroup() -> unique_patient_gene_maf
+
+# # View the resulting table
+# View(unique_patient_gene_maf)
+
+
 # ----- get CCF stats -----
-composite_maf %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n()) %>% arrange(desc(mean_CCF)) -> CCF_stats
+unique_patient_gene_maf %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n(), proportion = n/24) %>% arrange(desc(n)) -> CCF_stats
 View(CCF_stats)
 
-# for ARID1A, don't count LOH
-composite_maf %>% filter(gene_name == "ARID1A" & alteration_class != "LOH") %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n()) %>% arrange(desc(mean_CCF))
+# # for ARID1A, don't count LOH
+# composite_maf %>% filter(gene_name == "ARID1A" & alteration_class != "LOH") %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n()) %>% arrange(desc(mean_CCF)) -> ARID1A_CCF_stats
+
+# write to file
+write.csv(CCF_stats, "1A_CCF_stats.csv", row.names = FALSE)
+write.csv(ARID1A_CCF_stats, "1A_ARID1A_CCF_stats.csv", row.names = FALSE)
+
+
+
+
+

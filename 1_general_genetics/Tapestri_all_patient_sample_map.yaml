@@ -49,12 +49,12 @@ RA21_17:
 # RA21_17hpo:
 #   samples: [RA21_17-Asc3, RA21_17-EUS56, RA21_17-39_1_2, RA21_17-Asc]
 #   driver_snv: chr12:25398284:C/T
-TP12hpo:
-  samples: [TP12-1T, TP12-4T]
-  driver_snv: chr12:25398284:C/A
-TP6hpo: 
-  samples: [TP6-1T, TP6-2T]
-  driver_snv: chr12:25398285:C/G
+# TP12hpo:
+#   samples: [TP12-1T, TP12-4T]
+#   driver_snv: chr12:25398284:C/A
+# TP6hpo: 
+#   samples: [TP6-1T, TP6-2T]
+#   driver_snv: chr12:25398285:C/G
 # normal_pancreas:
 #   samples: [RA17_5-14_1, RA17_37-39_1, RA17_46-20_1, RA18_10-30_1, RA18_18-11_1, RA18_22-10_1, RA19_04-10_1, RA19_06-36_1]
 TP11:
