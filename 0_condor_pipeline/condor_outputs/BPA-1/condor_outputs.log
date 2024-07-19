@@ -1,4 +1,4 @@
-[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
 n = 5114, m = 40, p = 5
 Set parameter WLSAccessID
 Set parameter WLSSecret
@@ -9,12 +9,12 @@ Set parameter Method to value 4
 Set parameter IntFeasTol to value 1e-06
 Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
 
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
 Optimize a model with 113095 rows, 26800 columns and 339895 nonzeros
-Model fingerprint: 0xc9995861
+Model fingerprint: 0xdd3280ae
 Variable types: 26000 continuous, 800 integer (800 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
@@ -22,59 +22,34 @@ Coefficient statistics:
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
 Presolve removed 45493 rows and 13686 columns
-Presolve time: 0.69s
+Presolve time: 0.53s
 Presolved: 67602 rows, 13114 columns, 202682 nonzeros
 Variable types: 12636 continuous, 478 integer (478 binary)
 Found heuristic solution: objective -619207.4521
 Root relaxation presolved: 13114 rows, 80715 columns, 215792 nonzeros
 
 
-Root relaxation: objective -6.092455e+05, 10607 iterations, 0.42 seconds (0.31 work units)
+Root relaxation: objective -6.092455e+05, 10296 iterations, 0.30 seconds (0.29 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-     0     0 -609245.51    0    6 -619207.45 -609245.51  1.61%     -    1s
-H    0     0                    -609245.5111 -609245.51  0.00%     -    1s
-     0     0 -609245.51    0    6 -609245.51 -609245.51  0.00%     -    1s
+*    0     0               0    -609245.5111 -609245.51  0.00%     -    0s
 
-Explored 1 nodes (10607 simplex iterations) in 1.40 seconds (1.25 work units)
-Thread count was 1 (of 72 available processors)
+Explored 1 nodes (10296 simplex iterations) in 0.97 seconds (1.18 work units)
+Thread count was 1 (of 128 available processors)
 
 Solution count 2: -609246 -619207 
 No other solutions better than -609246
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective -6.092455111370e+05, best bound -6.092455111370e+05, gap 0.0000%
-root
-chr1:27106355:G/C_1
-chr22:29130300:C/T_2
-chr13:25052261:C/T_3
-chr13:25052420:T/A_3
-chr9:101908915:G/A_3
-chr12:25380277:G/T_1
-chr17:7577427:G/A_3
-chr1:27106355:G/C_3
-chr13:32936733:A/T_3
-chr17:7579472:G/C_2
-chr17:7579801:G/C_2
-chr2:148657117:G/A_2
-chr12:25380278:A/T_1
-chr13:28883061:G/A_2
-chr3:52637486:C/G_2
-chr17:7577407:A/C_3
-chr4:153247071:G/C_2
-chr13:32929232:A/G_2
 0
-[]
 1
-[]
-2
-['chr8:128750707:T/TC']
+2 chr8:128750707:T/TC_4 179
+2 2 103
 3
-[]
 4
-[]
 cluster_id
 3    3137
 4    1126
@@ -82,7 +57,6 @@ cluster_id
 2     282
 0     175
 Name: count, dtype: int64
-subclusters [1, 2]
 chr1:27106355:G/C_1 9
 chr12:25380277:G/T_1 27
 chr12:25380278:A/T_1 640

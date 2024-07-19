@@ -1,20 +1,20 @@
-        Unnamed: 0 cell_barcode  clone_id
-0            M13-1       cell_1         5
+            sample cell_barcode  clone_id
+0            M13-1       cell_1         4
 1            M13-1      cell_10         3
-2            M13-1     cell_100         5
-3            M13-1    cell_1000         9
+2            M13-1     cell_100         4
+3            M13-1    cell_1000         0
 4            M13-1    cell_1001         3
 ...            ...          ...       ...
-4747  RA18_18-11_1     cell_995         9
-4748  RA18_18-11_1     cell_996         9
-4749  RA18_18-11_1     cell_997         5
-4750  RA18_18-11_1     cell_998         9
-4751  RA18_18-11_1     cell_999         5
+4747  RA18_18-11_1     cell_995         0
+4748  RA18_18-11_1     cell_996         0
+4749  RA18_18-11_1     cell_997         4
+4750  RA18_18-11_1     cell_998         0
+4751  RA18_18-11_1     cell_999         4
 
 [4752 rows x 3 columns]
 [INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/M13.patient_wide.genotyped.h5
 Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/M13.patient_wide.genotyped.h5
-Loaded in 0.6s.
+Loaded in 0.4s.
 (3529, 375)
 
     germline: 34
@@ -43,26 +43,23 @@ Index(['cell_1-M13-1', 'cell_10-M13-1', 'cell_100-M13-1', 'cell_1000-M13-1',
 4751    RA18_18-11_1:cell_999
 Name: cell_barcode, Length: 4752, dtype: object
 clone_id
-9    1953
-5     639
-6     557
+0    1955
+4     639
+5     557
 3     514
 1     350
 2     332
-7     214
-8     191
-4       1
-0       1
+6     214
+7     191
 Name: count, dtype: int64
 clone_id
-9    995
-6    555
+0    996
+5    555
 3    514
-5    377
+4    377
 1    350
 2    332
-7    214
-8    191
-4      1
+6    214
+7    191
 Name: count, dtype: int64
-[5, 3, 9, 1, 6, 2, 7, 8, 4]
+[4, 3, 0, 1, 5, 2, 6, 7]

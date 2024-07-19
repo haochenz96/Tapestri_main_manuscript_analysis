@@ -14,7 +14,7 @@
 [6337 rows x 3 columns]
 [INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-1.patient_wide.genotyped.h5
 Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-1.patient_wide.genotyped.h5
-Loaded in 0.6s.
+Loaded in 13.2s.
 (5114, 453)
 
     germline: 27

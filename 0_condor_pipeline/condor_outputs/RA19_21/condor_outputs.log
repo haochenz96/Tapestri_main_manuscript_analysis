@@ -1,5 +1,5 @@
-[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
-n = 6035, m = 45, p = 6
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
+n = 6035, m = 44, p = 6
 Set parameter WLSAccessID
 Set parameter WLSSecret
 Set parameter LicenseID to value 2416028
@@ -9,89 +9,47 @@ Set parameter Method to value 4
 Set parameter IntFeasTol to value 1e-06
 Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
 
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
-Optimize a model with 170367 rows, 34020 columns and 511872 nonzeros
-Model fingerprint: 0x06f45f2e
-Variable types: 32940 continuous, 1080 integer (1080 binary)
+Optimize a model with 162824 rows, 32560 columns and 489216 nonzeros
+Model fingerprint: 0x45e8d113
+Variable types: 31504 continuous, 1056 integer (1056 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
   Objective range  [8e-02, 7e+04]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
-Presolve removed 80928 rows and 19326 columns
-Presolve time: 1.00s
-Presolved: 89439 rows, 14694 columns, 268122 nonzeros
-Variable types: 14076 continuous, 618 integer (618 binary)
-Root relaxation presolved: 14694 rows, 104133 columns, 282816 nonzeros
+Presolve removed 78806 rows and 18739 columns
+Presolve time: 0.71s
+Presolved: 84018 rows, 13821 columns, 251859 nonzeros
+Variable types: 13221 continuous, 600 integer (600 binary)
+Found heuristic solution: objective -868995.4621
+Root relaxation presolved: 13821 rows, 97839 columns, 265680 nonzeros
 
 
-Root relaxation: objective -8.621463e+05, 14186 iterations, 0.67 seconds (0.46 work units)
+Root relaxation: objective -8.430272e+05, 13834 iterations, 0.48 seconds (0.45 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0    -862146.3248 -862146.32  0.00%     -    1s
+*    0     0               0    -843027.1571 -843027.16  0.00%     -    1s
 
-Explored 1 nodes (14186 simplex iterations) in 1.86 seconds (1.72 work units)
-Thread count was 1 (of 72 available processors)
+Explored 1 nodes (13834 simplex iterations) in 1.37 seconds (1.70 work units)
+Thread count was 1 (of 128 available processors)
 
-Solution count 1: -862146 
-No other solutions better than -862146
+Solution count 2: -843027 -868995 
+No other solutions better than -843027
 
 Optimal solution found (tolerance 1.00e-04)
-Best objective -8.621463247640e+05, best bound -8.621463247640e+05, gap 0.0000%
-root
-chr20:9520142:G/A_2
-chr17:73627539:T/C_3
-chr17:41245466:G/A_3
-chr1:6257826:T/C_2
-chr1:16474839:AC/A_3
-chr8:30933859:C/T_2
-chr17:56436128:G/A_1
-chr4:187538942:T/G_2
-chrX:70349947:A/C_3
-chr9:21968199:C/G_3
-chr1:209969821:C/T_1
-chr9:21968159:G/A_3
-chr18:48604750:G/A_1
-chr20:31387954:C/G_3
-chr13:25052420:T/A_3
-chr13:28883061:G/A_2
-chr22:29130300:C/T_2
-chr12:49434074:C/A_3
-chr18:45374926:G/C_1
-chr1:16246018:C/T_2
-chr18:45374926:G/C_3
-chr17:56436128:G/A_3
-chr9:8470930:AG/A_2
-chr12:25380275:T/A_1
-chr13:32929232:A/G_2
-chr9:8465598:A/G_2
-chr17:56448297:C/T_3
-chr18:48604750:G/A_3
-chr1:209969821:C/T_3
-chr11:64572602:G/A_3
-chr11:64572602:G/A_2
-chr19:5219803:T/C_2
-chr9:8465598:A/G_3
-chr1:16246018:C/T_3
-chr19:5219829:T/G_2
-chr3:178936091:G/A_1
+Best objective -8.430271570740e+05, best bound -8.430271570740e+05, gap 0.0000%
 0
-['chr3:178936091:G/A']
 1
-[]
 2
-[]
 3
-[]
 4
-[]
 5
-[]
 cluster_id
 4    3528
 1     955
@@ -100,24 +58,23 @@ cluster_id
 3     440
 2       1
 Name: count, dtype: int64
-subclusters [2, 0, 3]
 chr17:56436128:G/A_1 94
 chr18:48604750:G/A_1 98
 chr1:209969821:C/T_1 918
-subclusters [0, 3]
-chr18:45374926:G/C_1 256
-chr12:25380275:T/A_1 853
-Node 0: 221
+chr12:25380275:T/A_1 98
+chr18:45374926:G/C_1 156
+chr3:178936091:G/A_1 855
+Node 0: 669
 Node 1: 955
 Node 2: 1
 Node 3: 440
 Node 4: 3528
 Node 5: 442
-Node chr3:178936091:G/A_4: 448
 Node chr17:56436128:G/A_1: 94
 Node chr18:48604750:G/A_1: 98
 Node chr1:209969821:C/T_1: 918
-Node chr18:45374926:G/C_1: 256
-Node chr12:25380275:T/A_1: 853
+Node chr12:25380275:T/A_1: 98
+Node chr18:45374926:G/C_1: 156
+Node chr3:178936091:G/A_1: 855
 total cells 6035
 [('root', 0)]

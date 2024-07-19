@@ -1,64 +1,63 @@
-chr6:7229619:G/A
-chr9:8465598:A/G
-chr1:27057923:A/G
-chr3:178936091:G/A
-chr9:101908915:G/A
-chr18:45374926:G/C
-chr1:158612236:A/G
-chr3:178935943:C/T
-chr19:5219829:T/G
-chr7:151926977:A/G
 chr13:28883061:G/A
-chr13:32929232:A/G
-chr6:7229346:T/C
-chr10:68280359:A/G
-chr19:5219803:T/C
-chr13:25052420:T/A
-chr17:73627539:T/C
-chr22:29130300:C/T
-chr11:65631167:C/T
-chr18:48604750:G/A
-chr9:21968159:G/A
-chr1:209969821:C/T
-chr17:56448297:C/T
+chr9:101908915:G/A
+chr9:8465598:A/G
 chr5:38953665:G/GA
-chr14:92537379:T/C
-chr20:9520142:G/A
 chr6:31860118:G/A
-chr6:80751780:G/A
-chr11:64572602:G/A
-chr9:21968199:C/G
-chr2:80085247:G/A
-chr2:215609693:G/A
-chr12:49434074:C/A
-chrX:70349947:A/C
-chr12:25380275:T/A
-chr3:30686414:A/G
+chr1:158612236:A/G
+chr6:7229619:G/A
 chr4:187538942:T/G
-chr9:8470930:AG/A
-chr17:56436128:G/A
-chr8:30933859:C/T
+chr3:178936091:G/A
+chr17:56448297:C/T
 chr1:16474839:AC/A
-chr1:16246018:C/T
-chr1:6257826:T/C
+chr9:8470930:AG/A
+chr10:68280359:A/G
+chr20:9520142:G/A
+chr9:21968199:C/G
+chr13:32929232:A/G
 chr17:41245466:G/A
 chr20:31387954:C/G
-1070    0
-5401    0
-2652    0
-4517    0
-4518    0
+chr14:92537379:T/C
+chr2:215609693:G/A
+chr1:6257826:T/C
+chr8:30933859:C/T
+chr12:49434074:C/A
+chr17:73627539:T/C
+chr18:45374926:G/C
+chr1:16246018:C/T
+chr6:80751780:G/A
+chr18:48604750:G/A
+chr3:178935943:C/T
+chrX:70349947:A/C
+chr17:56436128:G/A
+chr3:30686414:A/G
+chr19:5219803:T/C
+chr2:80085247:G/A
+chr1:209969821:C/T
+chr13:25052420:T/A
+chr11:65631167:C/T
+chr11:64572602:G/A
+chr9:21968159:G/A
+chr19:5219829:T/G
+chr22:29130300:C/T
+chr12:25380275:T/A
+chr7:151926977:A/G
+chr6:7229346:T/C
+4196    0
+4148    0
+4157    0
+4161    0
+4165    0
        ..
-1557    5
-3980    5
-1558    5
-1547    5
-993     5
+2640    5
+4422    5
+2650    5
+4418    5
+4403    5
 Name: cluster_id, Length: 6035, dtype: int64
 check
 Index(['RPL22 intron_variant', 'SPEN intron_variant', 'EPHA2 intron_variant',
-       'ARID1A p.His544Arg', 'SPTA1 p.Cys1568Arg', 'IRF6 p.Arg84His',
-       'CTNNA2 p.Arg136His', 'BARD1 intron_variant', 'TGFBR2 intron_variant',
+       'SPTA1 p.Cys1568Arg', 'IRF6 p.Arg84His', 'CTNNA2 p.Arg136His',
+       'BARD1 intron_variant', 'TGFBR2 intron_variant',
        'PIK3CA intron_variant', 'PIK3CA p.Glu545Lys', 'FAT1 p.Gln2933Pro',
        'RICTOR intron_variant', 'RREB1 p.His338=', 'RREB1 p.Ala429=',
        'EHMT2 intron_variant', 'TTK intron_variant', 'KMT2C intron_variant',
@@ -79,7 +78,6 @@ Index(['RPL22 intron_variant', 'SPEN intron_variant', 'EPHA2 intron_variant',
 RPL22 intron_variant
 SPEN intron_variant
 EPHA2 intron_variant
-ARID1A p.His544Arg
 SPTA1 p.Cys1568Arg
 IRF6 p.Arg84His
 CTNNA2 p.Arg136His

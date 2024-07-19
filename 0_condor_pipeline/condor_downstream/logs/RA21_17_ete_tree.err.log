@@ -1,0 +1,8 @@
+/data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/condor_downstream/4a_make_ete_tree_with_subclonal_snvs.py:78: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  snv_ann["annotation"].fillna("", inplace=True)
+QStandardPaths: error creating runtime directory '/lilac/data/iacobuzc/tmp' (No such file or directory)

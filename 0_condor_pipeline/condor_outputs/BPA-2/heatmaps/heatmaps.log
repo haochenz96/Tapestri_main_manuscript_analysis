@@ -1,71 +1,73 @@
-chr9:21968199:C/G
-chr3:9793343:T/G
-chr2:148657117:G/A
-chr20:31387954:C/G
-chr12:49424235:G/T
-chr20:57415609:C/T
-chr17:8051922:C/T
-chr1:226578099:T/C
-chr12:49424234:G/A
-chr17:56492800:T/C
-chr3:189604149:T/G
-chr1:91859801:A/G
-chr17:7801776:C/T
-chr18:19751450:C/T
-chr17:41245471:C/T
-chr6:35425761:G/T
-chr14:75514610:T/C
-chr10:88683209:T/G
-chr3:52436820:T/C
-chr4:187538942:T/G
-chr8:30933859:C/T
-chr1:120458924:G/A
-chr17:7579472:G/C
-chr3:52637486:C/G
-chr22:29130458:T/C
-chr1:11288758:G/A
-chr6:7229346:T/C
-chr13:32913061:T/A
-chr11:57572122:G/A
-chr17:41245466:G/A
-chr10:88683122:T/C
-chr16:68857289:T/C
-chr17:7573996:A/T
-chr1:163298548:T/C
-chr22:29130347:G/GT
-chr6:101099555:A/C
-chr3:30686414:A/G
-chr19:36222924:C/T
-chr19:5219829:T/G
-chr13:32914437:GT/G
-chr4:55980456:C/T
-chr17:7572927:T/C
-chr18:46476196:C/T
-chr19:5219803:T/C
-chr17:56436109:C/T
-chr20:62303794:G/A
-chr13:32929232:A/G
-chr4:2210065:C/A
 chr17:7579801:G/C
-chr14:75514734:A/G
+chr3:52436820:T/C
+chr4:2210065:C/A
+chr13:32929232:A/G
+chr8:30933859:C/T
+chr4:187538942:T/G
+chr10:88683122:T/C
+chr20:57415609:C/T
 chr12:25398284:C/T
-chr6:7229619:G/A
-chr15:41275014:T/G
-chr12:49434074:C/A
-chr11:118344655:C/T
-chr17:7578115:T/C
+chr3:189604149:T/G
 chrX:70349824:T/C
-247    0
+chr3:52637486:C/G
+chr4:55980456:C/T
+chr19:5219803:T/C
+chr12:49434074:C/A
+chr14:75514734:A/G
+chr13:32913061:T/A
+chr12:133252796:C/G
+chr1:11288758:G/A
+chr16:68857289:T/C
+chr19:36222924:C/T
+chr6:101099555:A/C
+chr6:7229619:G/A
+chr2:148657117:G/A
+chr17:56436109:C/T
+chr17:7579472:G/C
+chr11:118344655:C/T
+chr15:41275014:T/G
+chr6:7229346:T/C
+chr17:7573996:A/T
+chr10:88683209:T/G
+chr9:137293761:G/A
+chr22:29130458:T/C
+chr17:7801776:C/T
+chr20:31387954:C/G
+chr17:8051922:C/T
+chr17:41245466:G/A
+chr22:29130347:G/GT
+chr1:226578099:T/C
+chr19:5219829:T/G
+chr17:41245471:C/T
+chr18:46476196:C/T
+chr1:91859801:A/G
+chr14:75514610:T/C
+chr1:163298548:T/C
+chr11:57572122:G/A
+chr18:19751450:C/T
+chr1:120458924:G/A
+chr12:49424235:G/T
+chr9:21968199:C/G
+chr17:7572927:T/C
+chr17:56492800:T/C
+chr3:9793343:T/G
+chr20:62303794:G/A
+chr13:32914437:GT/G
+chr6:35425761:G/T
+chr17:7578115:T/C
+chr3:30686414:A/G
+chr12:49424234:G/A
 135    0
+247    0
 172    0
 82     0
 322    0
       ..
-154    6
-70     6
-69     6
-90     6
-164    6
+11     6
+14     6
+311    6
+3      6
+320    6
 Name: cluster_id, Length: 329, dtype: int64
 check
 Index(['MTOR p.Asn999=', 'HFM1 p.Ser115Pro', 'NOTCH2 p.Leu2141=',
@@ -75,11 +77,12 @@ Index(['MTOR p.Asn999=', 'HFM1 p.Ser115Pro', 'NOTCH2 p.Leu2141=',
        'KDR intron_variant', 'FAT1 p.Gln2933Pro', 'RREB1 p.His338=',
        'RREB1 p.Ala429=', 'FANCE p.Gln323His', 'ASCC3 intron_variant',
        'WRN intron_variant', 'CDKN2A 3_prime_UTR_variant',
-       'BMPR1A intron_variant', 'BMPR1A p.Val473=', 'CTNND1 intron_variant',
-       'KMT2A p.Ala927=', 'KRAS p.Gly12Asp', 'KMT2D intron_variant',
-       'KMT2D intron_variant', 'KMT2D p.Gly2493=', 'BRCA2 p.Gly1523=',
-       'BRCA2 p.Ser1982ArgfsTer22', 'BRCA2 p.Ser2414=', 'MLH3 p.Lys583=',
-       'MLH3 p.Leu542Ser', 'INO80 intron_variant', 'CDH1 intron_variant',
+       'RXRA intron_variant', 'BMPR1A intron_variant', 'BMPR1A p.Val473=',
+       'CTNND1 intron_variant', 'KMT2A p.Ala927=', 'KRAS p.Gly12Asp',
+       'KMT2D intron_variant', 'KMT2D intron_variant', 'KMT2D p.Gly2493=',
+       'POLE intron_variant', 'BRCA2 p.Gly1523=', 'BRCA2 p.Ser1982ArgfsTer22',
+       'BRCA2 p.Ser2414=', 'MLH3 p.Lys583=', 'MLH3 p.Leu542Ser',
+       'INO80 intron_variant', 'CDH1 intron_variant',
        'TP53 p.Ter394TrpextTer9', 'TP53 p.Leu344Gln', 'TP53 intron_variant',
        'TP53 p.Pro72Arg', 'TP53 intron_variant', 'CHD3 intron_variant',
        'PER1 intron_variant', 'BRCA1 p.Ser694=', 'BRCA1 p.Asp693Asn',
@@ -112,6 +115,7 @@ FANCE p.Gln323His
 ASCC3 intron_variant
 WRN intron_variant
 CDKN2A 3_prime_UTR_variant
+RXRA intron_variant
 BMPR1A intron_variant
 BMPR1A p.Val473=
 CTNND1 intron_variant
@@ -120,6 +124,7 @@ KRAS p.Gly12Asp
 KMT2D intron_variant
 KMT2D intron_variant
 KMT2D p.Gly2493=
+POLE intron_variant
 BRCA2 p.Gly1523=
 BRCA2 p.Ser1982ArgfsTer22
 BRCA2 p.Ser2414=

@@ -1,0 +1,41 @@
+Sender: LSF System <lsfadmin@lt20>
+Subject: Job 8216985: <condor_inputs.patient=BPA-5> in cluster <lila> Done
+
+Job <condor_inputs.patient=BPA-5> was submitted from host <lt03> by user <zhangh5> in cluster <lila> at Fri Jul 19 13:14:31 2024
+Job was executed on host(s) <4*lt20>, in queue <cpuqueue>, as user <zhangh5> in cluster <lila> at Fri Jul 19 13:14:34 2024
+</home/zhangh5> was used as the home directory.
+</lila/data/iacobuzc/haochen/condor_pipeline_trial> was used as the working directory.
+Started at Fri Jul 19 13:14:34 2024
+Terminated at Fri Jul 19 13:15:51 2024
+Results reported at Fri Jul 19 13:15:51 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/lila/data/iacobuzc/haochen/condor_pipeline_trial/.snakemake/tmp.e3awy4tj/snakejob.condor_inputs.24.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   22.81 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     32.00 GB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              6
+    Max Threads :                                16
+    Run time :                                   77 sec.
+    Turnaround time :                            80 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <logs/cluster/condor_inputs/patient=BPA-5/jobid24_9a779358-09ec-4ac5-aa52-43cf606fd161.err> for stderr output of this job.
+

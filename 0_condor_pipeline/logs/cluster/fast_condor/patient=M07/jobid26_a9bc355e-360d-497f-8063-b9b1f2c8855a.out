@@ -1,0 +1,41 @@
+Sender: LSF System <lsfadmin@lt04>
+Subject: Job 8217039: <fast_condor.patient=M07> in cluster <lila> Done
+
+Job <fast_condor.patient=M07> was submitted from host <lt03> by user <zhangh5> in cluster <lila> at Fri Jul 19 13:16:56 2024
+Job was executed on host(s) <16*lt04>, in queue <cpuqueue>, as user <zhangh5> in cluster <lila> at Fri Jul 19 13:16:59 2024
+</home/zhangh5> was used as the home directory.
+</lila/data/iacobuzc/haochen/condor_pipeline_trial> was used as the working directory.
+Started at Fri Jul 19 13:16:59 2024
+Terminated at Fri Jul 19 13:17:16 2024
+Results reported at Fri Jul 19 13:17:16 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/lila/data/iacobuzc/haochen/condor_pipeline_trial/.snakemake/tmp.e3awy4tj/snakejob.fast_condor.26.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   16.14 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     16.00 GB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              6
+    Max Threads :                                24
+    Run time :                                   18 sec.
+    Turnaround time :                            20 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <logs/cluster/fast_condor/patient=M07/jobid26_a9bc355e-360d-497f-8063-b9b1f2c8855a.err> for stderr output of this job.
+

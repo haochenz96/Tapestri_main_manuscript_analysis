@@ -1,0 +1,75 @@
+Processing BPA-3
+INFO:__main__:[Internal node] IN_1 -- events: ['chr13:32914288:TAACC/T_2', 'chr14:30099873:GC/G_1'] 
+INFO:__main__:[Leaf node] 0 with subclonal SNV tree, events: [Tree node 'chr9:21971349:C/G_4' (0x2b67ba5a86d)]
+INFO:__main__:[Leaf node] 3 with subclonal SNV tree, events: [Tree node 'chr17:56436091:G/A_4' (0x2b67ba5a895)]
+INFO:__main__:[Internal node] IN_2 -- events: ['chr13:32914288:TAACC/T_3', 'chr15:89858602:T/C_2'] 
+INFO:__main__:[Leaf node] 1 with no subclonal SNV tree
+INFO:__main__:[Internal node] IN_3 -- events: ['chr10:131506192:C/T_2', 'chr6:157528506:G/A_1', 'chr14:20818602:C/G_3', 'chr13:28883061:G/A_2', 'chr22:29130300:C/T_2', 'chr10:131506283:C/T_2'] 
+INFO:__main__:[Leaf node] 2 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 4 with no subclonal SNV tree
+INFO:__main__:added events info to node IN_1
+INFO:__main__:added events info to node 0
+INFO:__main__:added events info to node 3
+INFO:__main__:added events info to node IN_2
+INFO:__main__:added events info to node 1
+INFO:__main__:added events info to node IN_3
+INFO:__main__:added events info to node 2
+INFO:__main__:added events info to node 4
+INFO:refine_condor_tree:total cell number: 7493
+INFO:refine_condor_tree:min_leaf_size: 37.465
+INFO:refine_condor_tree:leaf: 0, clone size: 250
+INFO:refine_condor_tree:leaf 0 is the diploid, skipping
+INFO:refine_condor_tree:leaf: 3, clone size: 4594
+INFO:refine_condor_tree:leaf 3 has 2 events to the root
+INFO:refine_condor_tree:leaf: 1, clone size: 1
+INFO:refine_condor_tree:leaf 1 has a clone size of 1, smaller than lower threshold 37.465. Merging into diploid
+WARNING:refine_condor_tree:merging leaf 1 into diploid_clone 0
+INFO:refine_condor_tree:leaf: 2, clone size: 1081
+INFO:refine_condor_tree:leaf 2 has 8 events to the root
+INFO:refine_condor_tree:leaf: 4, clone size: 1567
+INFO:refine_condor_tree:leaf 4 has 8 events to the root
+INFO:refine_condor_tree:merging parent IN_2's event to child IN_3
+renaming clone 0 to 0
+renaming clone 3 to 1
+renaming clone 2 to 2
+renaming clone 4 to 3
+[INFO] renaming clone 1 to diploid
+WARNING:root:internal node IN_1 has events attached, movin it to its child
+WARNING:sankoff_fixed_tree:
+            amplicons of interest: [] not in the tree, ignoring
+        
+[INFO] Processing node IN_3
+
+        Orig clone name: 0
+        New clone name: 0
+            
+
+        Orig clone name: 3
+        New clone name: 1
+            
+INFO:__main__:added subclonal SNV tree to node 0
+INFO:__main__:added subclonal SNV tree to node 1
+
+    ===== [Node: IN_3] =====
+        dist: 401.66666666666674
+    
+
+    ===== [Node: 2] =====
+        dist: 45.5
+    
+
+    ===== [Node: 3] =====
+        dist: 0.5
+    
+
+    ===== [Node: 1] =====
+        dist: 109.16666666666666
+    
+
+    ===== [Node: SUB_NODE_2] =====
+        dist: 33.83333333333333
+    
+
+    ===== [Node: SUB_NODE_1] =====
+        dist: 33.83333333333333
+    

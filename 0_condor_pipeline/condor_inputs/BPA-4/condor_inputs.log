@@ -14,14 +14,14 @@
 [3889 rows x 3 columns]
 [INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-4.patient_wide.genotyped.h5
 Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-4.patient_wide.genotyped.h5
-Loaded in 4.8s.
+Loaded in 78.6s.
 (2666, 19560)
 
     germline: 44
     somatic: 0
-    total: 94
-(2666, 94)
-(2666, 94)
+    total: 44
+(2666, 44)
+(2666, 44)
 Index(['cell_1-BPA-4-RSX', 'cell_10-BPA-4-RSX', 'cell_100-BPA-4-RSX',
        'cell_1000-BPA-4-RSX', 'cell_1001-BPA-4-RSX', 'cell_1002-BPA-4-RSX',
        'cell_1003-BPA-4-RSX', 'cell_1004-BPA-4-RSX', 'cell_1005-BPA-4-RSX',

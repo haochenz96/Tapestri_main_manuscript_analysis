@@ -14,7 +14,7 @@
 [5216 rows x 3 columns]
 [INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/M07.patient_wide.genotyped.h5
 Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/M07.patient_wide.genotyped.h5
-Loaded in 0.5s.
+Loaded in 0.6s.
 (3993, 403)
 
     germline: 31

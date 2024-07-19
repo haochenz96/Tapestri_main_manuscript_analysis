@@ -1,4 +1,4 @@
-[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
 n = 8820, m = 61, p = 7
 Set parameter WLSAccessID
 Set parameter WLSSecret
@@ -9,12 +9,12 @@ Set parameter Method to value 4
 Set parameter IntFeasTol to value 1e-06
 Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
 
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
 Optimize a model with 363983 rows, 62098 columns and 1093299 nonzeros
-Model fingerprint: 0x307d9e50
+Model fingerprint: 0x810376c6
 Variable types: 60390 continuous, 1708 integer (1708 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
@@ -22,107 +22,38 @@ Coefficient statistics:
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
 Presolve removed 151600 rows and 32171 columns
-Presolve time: 2.65s
+Presolve time: 2.17s
 Presolved: 212383 rows, 29927 columns, 636902 nonzeros
 Variable types: 28899 continuous, 1028 integer (1028 binary)
 Root relaxation presolved: 29927 rows, 242310 columns, 666829 nonzeros
 
 
-Root relaxation: objective -1.546093e+06, 27086 iterations, 1.80 seconds (1.20 work units)
+Root relaxation: objective -1.546093e+06, 25783 iterations, 1.22 seconds (1.09 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-H    0     0                    -1546093.136 -860343.43  44.4%     -    4s
-     0     0          -    0      -1546093.1 -1546093.1  0.00%     -    5s
+     0     0 -1546093.1    0    6          - -1546093.1      -     -    3s
+H    0     0                    -1547615.439 -1546093.1  0.10%     -    4s
+H    0     0                    -1546093.136 -1546093.1  0.00%     -    4s
 
-Explored 1 nodes (27178 simplex iterations) in 5.17 seconds (4.35 work units)
-Thread count was 1 (of 72 available processors)
+Explored 1 nodes (25783 simplex iterations) in 4.41 seconds (4.36 work units)
+Thread count was 1 (of 128 available processors)
 
-Solution count 1: -1.54609e+06 
+Solution count 2: -1.54609e+06 -1.54762e+06 
 No other solutions better than -1.54609e+06
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective -1.546093135652e+06, best bound -1.546093135652e+06, gap 0.0000%
-root
-chr17:7579717:GA/G_3
-chr9:8470930:AG/A_3
-chr18:48581173:G/T_3
-chr18:48581173:G/T_1
-chr17:7578115:T/C_3
-chr16:89858759:C/T_3
-chr9:101908915:G/A_2
-chr9:21968159:G/A_2
-chr9:21968712:C/A_3
-chr17:7579717:GA/G_1
-chr9:8470974:G/A_3
-chr8:30933859:C/T_2
-chr1:16474839:AC/A_3
-chr12:25398285:C/A_1
-chr17:7579472:G/C_3
-chr9:21974695:G/GT_1
-chr11:94170484:TTC/T_2
-chr9:21974695:G/GT_3
-chr1:91859801:A/G_2
-chr1:46521517:G/A_3
-chr1:46521559:A/T_3
-chr3:30686414:A/G_3
-chr19:1220321:T/C_3
-chr15:41275014:T/G_2
-chr9:101900209:C/T_1
-chr9:101891277:C/T_1
-chr3:30713842:C/T_3
-chr1:6252946:G/A_3
-chr1:6257826:T/C_3
-chr22:29130300:C/T_2
 0
-[]
 1
-[]
 2
-[]
-3
-[]
+3 chr9:101900209:C/T_4 860
+3 3 505
 4
-[]
 5
-[]
-6
-['chr9:101900209:C/T', 'chr9:101891277:C/T']
-n = 519, m = 2, p = 1
-Set parameter TimeLimit to value 1800
-Set parameter Threads to value 1
-Set parameter Method to value 4
-Set parameter IntFeasTol to value 1e-06
-Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
-
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
-
-Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
-Optimize a model with 3646 rows, 2090 columns and 7808 nonzeros
-Model fingerprint: 0x1b8d1f59
-Variable types: 1052 continuous, 1038 integer (1038 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [7e+00, 7e+00]
-  Bounds range     [1e+00, 1e+00]
-  RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective -0.0000000
-Presolve removed 3636 rows and 2081 columns
-Presolve time: 0.01s
-Presolved: 10 rows, 9 columns, 30 nonzeros
-Found heuristic solution: objective 2078.9331884
-Variable types: 0 continuous, 9 integer (9 binary)
-
-Explored 0 nodes (0 simplex iterations) in 0.01 seconds (0.01 work units)
-Thread count was 1 (of 72 available processors)
-
-Solution count 2: 2078.93 -0 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 2.078933188373e+03, best bound 2.078933188373e+03, gap 0.0000%
-587, 370, 2078.9331883732075
+6 chr9:101891277:C/T_4 386
+6 6 133
 cluster_id
 0    2432
 2    1795
@@ -132,23 +63,22 @@ cluster_id
 4     664
 6     519
 Name: count, dtype: int64
-subclusters [1, 4, 2, 6, 3]
 chr18:48581173:G/T_1 228
 chr17:7579717:GA/G_1 256
 chr9:21974695:G/GT_1 1085
 chr12:25398285:C/A_1 3612
-Node root: 218
 Node 0: 2432
 Node 1: 838
 Node 2: 1795
-Node 3: 1365
+Node 3: 505
 Node 4: 664
 Node 5: 1207
-Node chr9:101900209:C/T_4: 161
-Node chr9:101891277:C/T_4: 140
+Node 6: 133
+Node chr9:101900209:C/T_4: 860
+Node chr9:101891277:C/T_4: 386
 Node chr18:48581173:G/T_1: 228
 Node chr17:7579717:GA/G_1: 256
 Node chr9:21974695:G/GT_1: 1085
 Node chr12:25398285:C/A_1: 3612
-total cells 8602
+total cells 8820
 [('root', 0)]

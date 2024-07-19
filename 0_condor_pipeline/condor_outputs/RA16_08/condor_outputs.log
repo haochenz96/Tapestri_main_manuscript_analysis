@@ -8,93 +8,82 @@ Set parameter Method to value 4
 Set parameter IntFeasTol to value 1e-06
 Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
 
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
 Optimize a model with 89433 rows, 13122 columns and 268983 nonzeros
-Model fingerprint: 0x89280ea2
+Model fingerprint: 0x1a05b5fb
 Variable types: 12150 continuous, 972 integer (972 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
   Objective range  [7e-01, 4e+04]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
+Presolve removed 46686 rows and 7843 columns (presolve time = 6s) ...
+Presolve removed 46686 rows and 7843 columns (presolve time = 10s) ...
+Presolve removed 46932 rows and 8086 columns (presolve time = 16s) ...
 Presolve removed 46932 rows and 8086 columns
-Presolve time: 0.61s
+Presolve time: 20.05s
 Presolved: 42501 rows, 5036 columns, 127275 nonzeros
 Variable types: 0 continuous, 5036 integer (5036 binary)
-Found heuristic solution: objective -921364.4558
+Found heuristic solution: objective -834742.8828
 Found heuristic solution: objective -805174.3499
 Root relaxation presolved: 5036 rows, 47537 columns, 132311 nonzeros
 
 
-Root relaxation: objective -7.234849e+05, 4233 iterations, 0.21 seconds (0.13 work units)
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -1.5090000e+33   4.527000e+33   1.509000e+03     28s
+    4565   -7.2348492e+05   0.000000e+00   0.000000e+00     28s
+    4565   -7.2348492e+05   0.000000e+00   0.000000e+00     28s
+
+Root relaxation: objective -7.234849e+05, 4565 iterations, 1.87 seconds (0.14 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0    -723484.9242 -723484.92  0.00%     -    0s
+*    0     0               0    -723484.9242 -723484.92  0.00%     -   28s
 
-Explored 1 nodes (4233 simplex iterations) in 0.98 seconds (0.79 work units)
-Thread count was 1 (of 72 available processors)
+Explored 1 nodes (4565 simplex iterations) in 28.18 seconds (0.80 work units)
+Thread count was 1 (of 128 available processors)
 
-Solution count 3: -723485 -805174 -921364 
+Solution count 3: -723485 -805174 -834743 
 No other solutions better than -723485
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective -7.234849241713e+05, best bound -7.234849241713e+05, gap 0.0000%
-root
-chr17:7577427:G/A_3
-chr12:49434074:C/A_3
-chr12:25398284:C/A_1
-chr6:111628626:C/T_3
-chr6:111628597:C/G_3
-chr17:7577407:A/C_3
-chr6:26271241:G/A_2
-chr3:189604149:T/G_3
-chr17:7579472:G/C_2
-chr15:59322829:A/G_2
-chr17:56492800:T/C_2
-chr16:68857289:T/C_2
 0
-[]
-1
-[]
+1 chr2:25457242:C/T_4 104
+1 1 391
 2
-[]
 3
-[]
 4
-[]
 5
-[]
 6
-[]
 7
-[]
 8
-[]
 cluster_id
-5    3348
-1     999
-6     982
-7     980
-3     519
-0     495
-2     347
-8     148
-4       4
+6    3348
+2     999
+7     982
+8     980
+4     519
+1     495
+3     347
+0     148
+5       4
 Name: count, dtype: int64
-Node 0: 495
-Node 1: 999
-Node 2: 347
-Node 3: 519
-Node 4: 4
-Node 5: 2593
-Node 6: 982
-Node 7: 980
-Node 8: 148
-Node chr2:25457242:C/T_4: 755
+Node 0: 148
+Node 1: 391
+Node 2: 999
+Node 3: 347
+Node 4: 519
+Node 5: 4
+Node 6: 3348
+Node 7: 982
+Node 8: 980
+Node chr2:25457242:C/T_4: 104
 total cells 7822
 [('root', 0)]

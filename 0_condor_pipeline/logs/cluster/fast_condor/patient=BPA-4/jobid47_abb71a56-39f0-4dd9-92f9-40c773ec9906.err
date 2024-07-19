@@ -1,0 +1,132 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, mem_gb=16, time_min=119
+Select jobs to execute...
+
+[Fri Jul 19 13:23:56 2024]
+rule fast_condor:
+    input: condor_inputs/BPA-4/character_bin_matrix.csv, condor_inputs/BPA-4/alt_readcounts.csv, condor_inputs/BPA-4/total_readcounts.csv, condor_inputs/BPA-4/germline_mutations.txt, condor_inputs/BPA-4/somatic_mutations.txt, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv
+    output: condor_outputs/BPA-4/out_tree.newick, condor_outputs/pickle_files/BPA-4_self.solT_cell
+    log: condor_outputs/BPA-4/condor_outputs.log, condor_outputs/BPA-4/condor_outputs.err.log
+    jobid: 0
+    reason: Missing output files: condor_outputs/pickle_files/BPA-4_self.solT_cell, condor_outputs/BPA-4/out_tree.newick
+    wildcards: patient=BPA-4
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/scratch/lsftmp/8217192.tmpdir, mem_gb=16, time_min=119
+
+Activating conda environment: condor
+/usr/bin/bash: line 1: 37801 Bus error               (core dumped) python /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/fast-ConDoR/src/fast-condor.py -i condor_inputs/BPA-4/character_bin_matrix.csv -r condor_inputs/BPA-4/total_readcounts.csv -v condor_inputs/BPA-4/alt_readcounts.csv -s condor_inputs/BPA-4/germline_mutations.txt -s2 condor_inputs/BPA-4/somatic_mutations.txt -o condor_outputs/BPA-4/out -m /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv -d BPA-4 --scr --cnp /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv --subclonal_mutations /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_subclonal_snvs/BPA-4.subclonal_mutations.yaml > condor_outputs/BPA-4/condor_outputs.log 2> condor_outputs/BPA-4/condor_outputs.err.log
+[Fri Jul 19 13:28:22 2024]
+Error in rule fast_condor:
+    jobid: 0
+    input: condor_inputs/BPA-4/character_bin_matrix.csv, condor_inputs/BPA-4/alt_readcounts.csv, condor_inputs/BPA-4/total_readcounts.csv, condor_inputs/BPA-4/germline_mutations.txt, condor_inputs/BPA-4/somatic_mutations.txt, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv
+    output: condor_outputs/BPA-4/out_tree.newick, condor_outputs/pickle_files/BPA-4_self.solT_cell
+    log: condor_outputs/BPA-4/condor_outputs.log, condor_outputs/BPA-4/condor_outputs.err.log (check log file(s) for error details)
+    conda-env: condor
+    shell:
+        
+		python /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/fast-ConDoR/src/fast-condor.py 			-i condor_inputs/BPA-4/character_bin_matrix.csv 			-r condor_inputs/BPA-4/total_readcounts.csv 			-v condor_inputs/BPA-4/alt_readcounts.csv 			-s condor_inputs/BPA-4/germline_mutations.txt 			-s2 condor_inputs/BPA-4/somatic_mutations.txt 			-o condor_outputs/BPA-4/out 			-m /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv 			-d BPA-4 			--scr 			--cnp /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv 			--subclonal_mutations /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_subclonal_snvs/BPA-4.subclonal_mutations.yaml 			1> condor_outputs/BPA-4/condor_outputs.log 2> condor_outputs/BPA-4/condor_outputs.err.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Trying to restart job 0.
+Select jobs to execute...
+
+[Fri Jul 19 13:28:23 2024]
+rule fast_condor:
+    input: condor_inputs/BPA-4/character_bin_matrix.csv, condor_inputs/BPA-4/alt_readcounts.csv, condor_inputs/BPA-4/total_readcounts.csv, condor_inputs/BPA-4/germline_mutations.txt, condor_inputs/BPA-4/somatic_mutations.txt, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv
+    output: condor_outputs/BPA-4/out_tree.newick, condor_outputs/pickle_files/BPA-4_self.solT_cell
+    log: condor_outputs/BPA-4/condor_outputs.log, condor_outputs/BPA-4/condor_outputs.err.log
+    jobid: 0
+    reason: Missing output files: condor_outputs/pickle_files/BPA-4_self.solT_cell, condor_outputs/BPA-4/out_tree.newick
+    wildcards: patient=BPA-4
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/scratch/lsftmp/8217192.tmpdir, mem_gb=16, time_min=119
+
+Activating conda environment: condor
+/usr/bin/bash: line 1: 39264 Killed                  python /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/fast-ConDoR/src/fast-condor.py -i condor_inputs/BPA-4/character_bin_matrix.csv -r condor_inputs/BPA-4/total_readcounts.csv -v condor_inputs/BPA-4/alt_readcounts.csv -s condor_inputs/BPA-4/germline_mutations.txt -s2 condor_inputs/BPA-4/somatic_mutations.txt -o condor_outputs/BPA-4/out -m /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv -d BPA-4 --scr --cnp /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv --subclonal_mutations /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_subclonal_snvs/BPA-4.subclonal_mutations.yaml > condor_outputs/BPA-4/condor_outputs.log 2> condor_outputs/BPA-4/condor_outputs.err.log
+[Fri Jul 19 13:32:28 2024]
+Error in rule fast_condor:
+    jobid: 0
+    input: condor_inputs/BPA-4/character_bin_matrix.csv, condor_inputs/BPA-4/alt_readcounts.csv, condor_inputs/BPA-4/total_readcounts.csv, condor_inputs/BPA-4/germline_mutations.txt, condor_inputs/BPA-4/somatic_mutations.txt, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv
+    output: condor_outputs/BPA-4/out_tree.newick, condor_outputs/pickle_files/BPA-4_self.solT_cell
+    log: condor_outputs/BPA-4/condor_outputs.log, condor_outputs/BPA-4/condor_outputs.err.log (check log file(s) for error details)
+    conda-env: condor
+    shell:
+        
+		python /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/fast-ConDoR/src/fast-condor.py 			-i condor_inputs/BPA-4/character_bin_matrix.csv 			-r condor_inputs/BPA-4/total_readcounts.csv 			-v condor_inputs/BPA-4/alt_readcounts.csv 			-s condor_inputs/BPA-4/germline_mutations.txt 			-s2 condor_inputs/BPA-4/somatic_mutations.txt 			-o condor_outputs/BPA-4/out 			-m /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv 			-d BPA-4 			--scr 			--cnp /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv 			--subclonal_mutations /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_subclonal_snvs/BPA-4.subclonal_mutations.yaml 			1> condor_outputs/BPA-4/condor_outputs.log 2> condor_outputs/BPA-4/condor_outputs.err.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Trying to restart job 0.
+Select jobs to execute...
+
+[Fri Jul 19 13:32:28 2024]
+rule fast_condor:
+    input: condor_inputs/BPA-4/character_bin_matrix.csv, condor_inputs/BPA-4/alt_readcounts.csv, condor_inputs/BPA-4/total_readcounts.csv, condor_inputs/BPA-4/germline_mutations.txt, condor_inputs/BPA-4/somatic_mutations.txt, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv
+    output: condor_outputs/BPA-4/out_tree.newick, condor_outputs/pickle_files/BPA-4_self.solT_cell
+    log: condor_outputs/BPA-4/condor_outputs.log, condor_outputs/BPA-4/condor_outputs.err.log
+    jobid: 0
+    reason: Missing output files: condor_outputs/pickle_files/BPA-4_self.solT_cell, condor_outputs/BPA-4/out_tree.newick
+    wildcards: patient=BPA-4
+    threads: 4
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/scratch/lsftmp/8217192.tmpdir, mem_gb=16, time_min=119
+
+Activating conda environment: condor
+Terminating processes on user request, this might take some time.
+[Fri Jul 19 13:32:29 2024]
+Error in rule fast_condor:
+    jobid: 0
+    input: condor_inputs/BPA-4/character_bin_matrix.csv, condor_inputs/BPA-4/alt_readcounts.csv, condor_inputs/BPA-4/total_readcounts.csv, condor_inputs/BPA-4/germline_mutations.txt, condor_inputs/BPA-4/somatic_mutations.txt, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv
+    output: condor_outputs/BPA-4/out_tree.newick, condor_outputs/pickle_files/BPA-4_self.solT_cell
+    log: condor_outputs/BPA-4/condor_outputs.log, condor_outputs/BPA-4/condor_outputs.err.log (check log file(s) for error details)
+    conda-env: condor
+    shell:
+        
+		python /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/fast-ConDoR/src/fast-condor.py 			-i condor_inputs/BPA-4/character_bin_matrix.csv 			-r condor_inputs/BPA-4/total_readcounts.csv 			-v condor_inputs/BPA-4/alt_readcounts.csv 			-s condor_inputs/BPA-4/germline_mutations.txt 			-s2 condor_inputs/BPA-4/somatic_mutations.txt 			-o condor_outputs/BPA-4/out 			-m /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv 			-d BPA-4 			--scr 			--cnp /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-4-RSX_homdel_nclones=9.unique_cn_clone_profiles.csv 			--subclonal_mutations /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_subclonal_snvs/BPA-4.subclonal_mutations.yaml 			1> condor_outputs/BPA-4/condor_outputs.log 2> condor_outputs/BPA-4/condor_outputs.err.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Traceback (most recent call last):
+  File "/lila/data/iacobuzc/haochen/mambaforge/bin/conda", line 13, in <module>
+    sys.exit(main())
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/conda/cli/main.py", line 118, in main
+    from ..exceptions import conda_exception_handler
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/conda/exceptions.py", line 24, in <module>
+    from .models.channel import Channel
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/conda/models/channel.py", line 17, in <module>
+    from ..base.context import context, Context
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/conda/base/context.py", line 55, in <module>
+    from ..common.configuration import (Configuration, ConfigurationLoadError, MapParameter,
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/conda/common/configuration.py", line 41, in <module>
+    from .path import expand
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/conda/common/path.py", line 21, in <module>
+    from distutils.spawn import find_executable
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1002, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 945, in _find_spec
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/_distutils_hack/__init__.py", line 97, in find_spec
+    return method()
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/_distutils_hack/__init__.py", line 108, in spec_for_distutils
+    mod = importlib.import_module('setuptools._distutils')
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/setuptools/__init__.py", line 16, in <module>
+    import setuptools.version
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/setuptools/version.py", line 1, in <module>
+    import pkg_resources
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/site-packages/pkg_resources/__init__.py", line 33, in <module>
+    import email.parser
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/email/parser.py", line 12, in <module>
+    from email.feedparser import FeedParser, BytesFeedParser
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/email/feedparser.py", line 27, in <module>
+    from email._policybase import compat32
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/email/_policybase.py", line 9, in <module>
+    from email.utils import _has_surrogates
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/email/utils.py", line 29, in <module>
+    import socket
+  File "/lila/data/iacobuzc/haochen/mambaforge/lib/python3.10/socket.py", line 549, in <module>
+    import array
+KeyboardInterrupt

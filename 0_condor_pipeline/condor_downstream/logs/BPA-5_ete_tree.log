@@ -1,0 +1,57 @@
+Processing BPA-5
+INFO:__main__:[Leaf node] 0 with no subclonal SNV tree
+INFO:__main__:[Internal node] IN_1 -- events: ['chr18:48575152:C/T_1', 'chr6:31860118:G/A_2'] 
+INFO:__main__:[Leaf node] 1 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 2 with subclonal SNV tree, events: [Tree node 'chr12:25398284:C/T_4' (0x2b3222af405)]
+INFO:__main__:[Leaf node] 3 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 4 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 5 with no subclonal SNV tree
+INFO:__main__:added events info to node 0
+INFO:__main__:added events info to node 3
+INFO:__main__:added events info to node 4
+INFO:__main__:added events info to node 5
+INFO:__main__:added events info to node IN_1
+INFO:__main__:added events info to node 1
+INFO:__main__:added events info to node 2
+INFO:refine_condor_tree:total cell number: 543
+INFO:refine_condor_tree:min_leaf_size: 5
+INFO:refine_condor_tree:leaf: 0, clone size: 60
+INFO:refine_condor_tree:leaf 0 is the diploid, skipping
+INFO:refine_condor_tree:leaf: 3, clone size: 118
+INFO:refine_condor_tree:leaf 3 has no events to the root, merging into diploid
+WARNING:refine_condor_tree:merging leaf 3 into diploid 0
+INFO:refine_condor_tree:leaf: 4, clone size: 213
+INFO:refine_condor_tree:leaf 4 has no events to the root, merging into diploid
+WARNING:refine_condor_tree:merging leaf 4 into diploid 0
+INFO:refine_condor_tree:leaf: 5, clone size: 44
+INFO:refine_condor_tree:leaf 5 has no events to the root, merging into diploid
+WARNING:refine_condor_tree:merging leaf 5 into diploid 0
+INFO:refine_condor_tree:leaf: 1, clone size: 1
+INFO:refine_condor_tree:leaf 1 has a clone size of 1, smaller than lower threshold 5. Merging into diploid
+WARNING:refine_condor_tree:merging leaf 1 into diploid_clone 0
+INFO:refine_condor_tree:leaf: 2, clone size: 107
+INFO:refine_condor_tree:leaf 2 has both somatic SNV and germline SNP events, skipping
+INFO:refine_condor_tree:somatic SNV events: {'chr18:48575152:C/T-3': ('SMAD4 p.Q116*', 'LOH', 'Purple')}
+INFO:refine_condor_tree:merging parent IN_1's event to child 2
+renaming clone 0 to 0
+renaming clone 2 to 1
+[INFO] renaming clone 3 to diploid
+[INFO] renaming clone 4 to diploid
+[INFO] renaming clone 5 to diploid
+[INFO] renaming clone 1 to diploid
+WARNING:sankoff_fixed_tree:
+            amplicons of interest: [] not in the tree, ignoring
+        
+
+        Orig clone name: 2
+        New clone name: 1
+            
+INFO:__main__:added subclonal SNV tree to node 1
+
+    ===== [Node: 1] =====
+        dist: 490.5
+    
+
+    ===== [Node: SUB_NODE_1] =====
+        dist: 33.83333333333333
+    

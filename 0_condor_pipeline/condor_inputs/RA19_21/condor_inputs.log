@@ -14,14 +14,14 @@
 [7258 rows x 3 columns]
 [INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/RA19_21.patient_wide.genotyped.h5
 Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/RA19_21.patient_wide.genotyped.h5
-Loaded in 0.7s.
+Loaded in 0.6s.
 (6035, 484)
 
     germline: 37
     somatic: 6
-    total: 45
-(6035, 45)
-(6035, 45)
+    total: 44
+(6035, 44)
+(6035, 44)
 Index(['cell_1-RA19_21-31_1', 'cell_10-RA19_21-31_1', 'cell_100-RA19_21-31_1',
        'cell_1000-RA19_21-31_1', 'cell_1001-RA19_21-31_1',
        'cell_1002-RA19_21-31_1', 'cell_1003-RA19_21-31_1',

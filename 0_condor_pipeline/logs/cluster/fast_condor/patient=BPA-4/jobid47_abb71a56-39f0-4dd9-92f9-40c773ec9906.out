@@ -1,0 +1,42 @@
+Sender: LSF System <lsfadmin@lt12>
+Subject: Job 8217192: <fast_condor.patient=BPA-4> in cluster <lila> Exited
+
+Job <fast_condor.patient=BPA-4> was submitted from host <lu06> by user <zhangh5> in cluster <lila> at Fri Jul 19 13:23:48 2024
+Job was executed on host(s) <4*lt12>, in queue <cpuqueue>, as user <zhangh5> in cluster <lila> at Fri Jul 19 13:23:52 2024
+</home/zhangh5> was used as the home directory.
+</lila/data/iacobuzc/haochen/condor_pipeline_trial> was used as the working directory.
+Started at Fri Jul 19 13:23:52 2024
+Terminated at Fri Jul 19 13:32:31 2024
+Results reported at Fri Jul 19 13:32:31 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/lila/data/iacobuzc/haochen/condor_pipeline_trial/.snakemake/tmp.8wc02eyx/snakejob.fast_condor.47.sh
+------------------------------------------------------------
+
+TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   493.71 sec.
+    Max Memory :                                 4 GB
+    Average Memory :                             0.97 GB
+    Total Requested Memory :                     4.00 GB
+    Delta Memory :                               0.00 GB
+    Max Swap :                                   -
+    Max Processes :                              7
+    Max Threads :                                12
+    Run time :                                   521 sec.
+    Turnaround time :                            523 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <logs/cluster/fast_condor/patient=BPA-4/jobid47_abb71a56-39f0-4dd9-92f9-40c773ec9906.err> for stderr output of this job.
+

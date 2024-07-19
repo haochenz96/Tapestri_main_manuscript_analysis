@@ -1,4 +1,4 @@
-[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
 n = 10025, m = 53, p = 7
 Set parameter WLSAccessID
 Set parameter WLSSecret
@@ -9,12 +9,12 @@ Set parameter Method to value 4
 Set parameter IntFeasTol to value 1e-06
 Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
 
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
 Optimize a model with 274255 rows, 47170 columns and 823971 nonzeros
-Model fingerprint: 0x76f3fccb
+Model fingerprint: 0xea13e7e7
 Variable types: 45686 continuous, 1484 integer (1484 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
@@ -22,54 +22,34 @@ Coefficient statistics:
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
 Presolve removed 108028 rows and 23621 columns
-Presolve time: 2.09s
+Presolve time: 1.40s
 Presolved: 166227 rows, 23549 columns, 498520 nonzeros
 Variable types: 22611 continuous, 938 integer (938 binary)
 Root relaxation presolved: 23549 rows, 189776 columns, 522069 nonzeros
 
 
-Root relaxation: objective -1.715244e+06, 17993 iterations, 1.09 seconds (0.70 work units)
+Root relaxation: objective -1.715244e+06, 17314 iterations, 0.73 seconds (0.64 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0    -1715243.873 -1715243.9  0.00%     -    3s
+*    0     0               0    -1715243.873 -1715243.9  0.00%     -    2s
 
-Explored 1 nodes (17993 simplex iterations) in 3.54 seconds (2.82 work units)
-Thread count was 1 (of 72 available processors)
+Explored 1 nodes (17314 simplex iterations) in 2.39 seconds (2.76 work units)
+Thread count was 1 (of 128 available processors)
 
 Solution count 1: -1.71524e+06 
 No other solutions better than -1.71524e+06
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective -1.715243872679e+06, best bound -1.715243872679e+06, gap 0.0000%
-root
-chr8:30933859:C/T_2
-chr12:46243885:C/G_1
-chr3:41266124:A/G_1
-chr17:7577547:C/T_1
-chr17:7577547:C/T_3
-chr19:1220321:T/C_2
-chr6:26271241:G/A_3
-chr12:46245592:C/G_1
-chr15:28422022:G/C_1
-chr9:21968159:G/A_3
-chr12:25398284:C/A_1
-chr12:25398285:C/T_1
 0
-[]
 1
-[]
 2
-['chr12:25398285:C/T']
 3
-[]
 4
-[]
 5
-[]
 6
-[]
 cluster_id
 5    2789
 6    2150
@@ -79,13 +59,13 @@ cluster_id
 1     865
 2     709
 Name: count, dtype: int64
-subclusters [1, 3, 5, 6, 2]
-chr12:25398284:C/A_1 72
-chr12:46245592:C/G_1 7
-chr17:7577547:C/T_1 99
-chr3:41266124:A/G_1 265
-chr15:28422022:G/C_1 1050
-chr12:46243885:C/G_1 6362
+chr17:7577547:C/T_1 71
+chr12:46245592:C/G_1 4
+chr3:41266124:A/G_1 24
+chr12:25398285:C/T_1 270
+chr12:25398284:C/A_1 174
+chr15:28422022:G/C_1 1056
+chr12:46243885:C/G_1 6256
 Node 0: 1110
 Node 1: 865
 Node 2: 709
@@ -93,11 +73,12 @@ Node 3: 1342
 Node 4: 1060
 Node 5: 2789
 Node 6: 2150
-Node chr12:25398284:C/A_1: 72
-Node chr12:46245592:C/G_1: 7
-Node chr17:7577547:C/T_1: 99
-Node chr3:41266124:A/G_1: 265
-Node chr15:28422022:G/C_1: 1050
-Node chr12:46243885:C/G_1: 6362
+Node chr17:7577547:C/T_1: 71
+Node chr12:46245592:C/G_1: 4
+Node chr3:41266124:A/G_1: 24
+Node chr12:25398285:C/T_1: 270
+Node chr12:25398284:C/A_1: 174
+Node chr15:28422022:G/C_1: 1056
+Node chr12:46243885:C/G_1: 6256
 total cells 10025
 [('root', 0)]

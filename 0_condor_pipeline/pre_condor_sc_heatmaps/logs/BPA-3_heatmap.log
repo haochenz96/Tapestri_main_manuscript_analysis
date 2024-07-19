@@ -1,0 +1,5 @@
+Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-3.patient_wide.genotyped.h5
+Loaded in 0.6s.
+[INFO] Loaded CN clone assignment file /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/BPA-3_homdel_nclones=9.sample_sc_clone_assignment.updated.csv.
+[INFO] Saved heatmap for BPA-3 to pre_condor_sc_heatmaps/BPA-3_DNA_heatmap.pdf.
+[INFO] Saved heatmap for BPA-3 to pre_condor_sc_heatmaps/BPA-3_DNA_heatmap.png.

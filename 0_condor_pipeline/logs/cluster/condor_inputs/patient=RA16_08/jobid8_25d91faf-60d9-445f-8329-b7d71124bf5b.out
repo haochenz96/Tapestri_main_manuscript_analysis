@@ -1,0 +1,41 @@
+Sender: LSF System <lsfadmin@ls16>
+Subject: Job 8217180: <condor_inputs.patient=RA16_08> in cluster <lila> Done
+
+Job <condor_inputs.patient=RA16_08> was submitted from host <lu06> by user <zhangh5> in cluster <lila> at Fri Jul 19 13:23:45 2024
+Job was executed on host(s) <4*ls16>, in queue <cpuqueue>, as user <zhangh5> in cluster <lila> at Fri Jul 19 13:23:48 2024
+</home/zhangh5> was used as the home directory.
+</lila/data/iacobuzc/haochen/condor_pipeline_trial> was used as the working directory.
+Started at Fri Jul 19 13:23:48 2024
+Terminated at Fri Jul 19 13:24:44 2024
+Results reported at Fri Jul 19 13:24:44 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/lila/data/iacobuzc/haochen/condor_pipeline_trial/.snakemake/tmp.8wc02eyx/snakejob.condor_inputs.8.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   26.24 sec.
+    Max Memory :                                 1 GB
+    Average Memory :                             0.07 GB
+    Total Requested Memory :                     32.00 GB
+    Delta Memory :                               31.00 GB
+    Max Swap :                                   -
+    Max Processes :                              6
+    Max Threads :                                16
+    Run time :                                   58 sec.
+    Turnaround time :                            59 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <logs/cluster/condor_inputs/patient=RA16_08/jobid8_25d91faf-60d9-445f-8329-b7d71124bf5b.err> for stderr output of this job.
+

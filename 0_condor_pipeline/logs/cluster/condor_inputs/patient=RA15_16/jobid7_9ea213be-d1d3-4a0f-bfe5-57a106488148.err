@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=8000, mem_mib=7630, disk_mb=1000, disk_mib=954, time_min=59
+Select jobs to execute...
+
+[Fri Jul 19 13:14:40 2024]
+rule condor_inputs:
+    input: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/RA15_16.patient_wide.genotyped.h5, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/falcon_solutions/RA15_16.sample_sc_clone_assignment.updated.csv, /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists/RA15_16-patient-all_vars-voi.hz_curated.txt
+    output: condor_inputs/RA15_16/character_vaf_matrix.csv, condor_inputs/RA15_16/character_bin_matrix.csv, condor_inputs/RA15_16/alt_readcounts.csv, condor_inputs/RA15_16/total_readcounts.csv, condor_inputs/RA15_16/germline_mutations.txt, condor_inputs/RA15_16/somatic_mutations.txt
+    log: condor_inputs/RA15_16/condor_inputs.log, condor_inputs/RA15_16/condor_inputs.err.log
+    jobid: 0
+    reason: Missing output files: condor_inputs/RA15_16/alt_readcounts.csv, condor_inputs/RA15_16/character_vaf_matrix.csv, condor_inputs/RA15_16/somatic_mutations.txt, condor_inputs/RA15_16/total_readcounts.csv, condor_inputs/RA15_16/germline_mutations.txt, condor_inputs/RA15_16/character_bin_matrix.csv
+    wildcards: patient=RA15_16
+    threads: 4
+    resources: mem_mb=8000, mem_mib=7630, disk_mb=1000, disk_mib=954, tmpdir=/scratch/lsftmp/8216972.tmpdir, time_min=59
+
+Activating conda environment: mosaic
+[Fri Jul 19 13:15:55 2024]
+Finished job 0.
+1 of 1 steps (100%) done

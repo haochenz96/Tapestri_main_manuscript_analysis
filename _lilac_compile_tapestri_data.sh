@@ -21,7 +21,7 @@ do
     # done
 
     for i in $(find -L ${CAITLIN_AKI_falcon_dir}/ \
-        -name "${case_i}*assignment.updated.csv" -o -name *unique*clone_profile*.csv -o -name *png)
+        -name "${case_i}*assignment.updated.csv" -o -name "${case_i}*unique*clone_profile*.csv" -o -name "${case_i}*.png")
     do
         rsync -avzu -L $i ${COMPILED_DATA_DIR}/falcon_solutions/
     done

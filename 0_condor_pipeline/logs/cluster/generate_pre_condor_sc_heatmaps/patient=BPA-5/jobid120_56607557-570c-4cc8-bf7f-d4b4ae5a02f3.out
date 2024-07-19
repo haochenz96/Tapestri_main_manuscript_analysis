@@ -1,0 +1,41 @@
+Sender: LSF System <lsfadmin@ls13>
+Subject: Job 8216975: <generate_pre_condor_sc_heatmaps.patient=BPA-5> in cluster <lila> Done
+
+Job <generate_pre_condor_sc_heatmaps.patient=BPA-5> was submitted from host <lt03> by user <zhangh5> in cluster <lila> at Fri Jul 19 13:14:27 2024
+Job was executed on host(s) <4*ls13>, in queue <cpuqueue>, as user <zhangh5> in cluster <lila> at Fri Jul 19 13:14:30 2024
+</home/zhangh5> was used as the home directory.
+</lila/data/iacobuzc/haochen/condor_pipeline_trial> was used as the working directory.
+Started at Fri Jul 19 13:14:30 2024
+Terminated at Fri Jul 19 13:15:58 2024
+Results reported at Fri Jul 19 13:15:58 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/lila/data/iacobuzc/haochen/condor_pipeline_trial/.snakemake/tmp.e3awy4tj/snakejob.generate_pre_condor_sc_heatmaps.120.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   25.00 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     32.00 GB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              14
+    Max Threads :                                69
+    Run time :                                   87 sec.
+    Turnaround time :                            91 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <logs/cluster/generate_pre_condor_sc_heatmaps/patient=BPA-5/jobid120_56607557-570c-4cc8-bf7f-d4b4ae5a02f3.err> for stderr output of this job.
+

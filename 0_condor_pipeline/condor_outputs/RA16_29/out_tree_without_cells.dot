@@ -2,18 +2,18 @@ digraph N {
 	overlap="false"
 	rankdir="TB"
 	0 [label="root", style="bold"];
-	1 [label="chr8:30933859:C/T_2", style="bold"];
-	2 [label="chr12:46243885:C/G_1", style="bold"];
-	3 [label="chr3:41266124:A/G_1", style="bold"];
-	4 [label="chr17:7577547:C/T_1", style="bold"];
-	5 [label="chr17:7577547:C/T_3", style="bold"];
+	1 [label="chr12:46243885:C/G_1", style="bold"];
+	2 [label="chr12:25398284:C/A_1", style="bold"];
+	3 [label="chr17:7577547:C/T_1", style="bold"];
+	4 [label="chr17:7577547:C/T_3", style="bold"];
+	5 [label="chr12:25398285:C/T_1", style="bold"];
 	6 [label="chr19:1220321:T/C_2", style="bold"];
-	7 [label="chr6:26271241:G/A_3", style="bold"];
-	8 [label="chr12:46245592:C/G_1", style="bold"];
-	9 [label="chr15:28422022:G/C_1", style="bold"];
-	10 [label="chr9:21968159:G/A_3", style="bold"];
-	11 [label="chr12:25398284:C/A_1", style="bold"];
-	12 [label="chr12:25398285:C/T_1", style="bold"];
+	7 [label="chr12:46245592:C/G_1", style="bold"];
+	8 [label="chr15:28422022:G/C_1", style="bold"];
+	9 [label="chr9:21968159:G/A_3", style="bold"];
+	10 [label="chr3:41266124:A/G_1", style="bold"];
+	11 [label="chr6:26271241:G/A_3", style="bold"];
+	12 [label="chr8:30933859:C/T_2", style="bold"];
 	0 -> 1 [style="bold"];
 	1 -> 2 [style="bold"];
 	2 -> 3 [style="bold"];

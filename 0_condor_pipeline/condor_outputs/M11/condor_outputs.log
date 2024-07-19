@@ -1,4 +1,4 @@
-[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
 n = 6294, m = 41, p = 6
 Set parameter WLSAccessID
 Set parameter WLSSecret
@@ -9,12 +9,12 @@ Set parameter Method to value 4
 Set parameter IntFeasTol to value 1e-06
 Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
 
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
 Optimize a model with 141203 rows, 28372 columns and 424308 nonzeros
-Model fingerprint: 0x48f1ffed
+Model fingerprint: 0xb37f579a
 Variable types: 27388 continuous, 984 integer (984 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
@@ -22,105 +22,34 @@ Coefficient statistics:
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
 Presolve removed 67583 rows and 16235 columns
-Presolve time: 0.88s
+Presolve time: 0.61s
 Presolved: 73620 rows, 12137 columns, 220671 nonzeros
 Variable types: 11583 continuous, 554 integer (554 binary)
 Found heuristic solution: objective -819268.5074
 Root relaxation presolved: 12137 rows, 85757 columns, 232808 nonzeros
 
 
-Root relaxation: objective -7.855412e+05, 9720 iterations, 0.42 seconds (0.28 work units)
+Root relaxation: objective -7.855412e+05, 9611 iterations, 0.30 seconds (0.28 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
 *    0     0               0    -785541.2413 -785541.24  0.00%     -    1s
 
-Explored 1 nodes (9720 simplex iterations) in 1.53 seconds (1.35 work units)
-Thread count was 1 (of 72 available processors)
+Explored 1 nodes (9611 simplex iterations) in 1.07 seconds (1.35 work units)
+Thread count was 1 (of 128 available processors)
 
 Solution count 2: -785541 -819269 
 No other solutions better than -785541
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective -7.855412412568e+05, best bound -7.855412412568e+05, gap 0.0000%
-root
-chr17:7579472:G/C_3
-chr6:80751780:G/A_3
-chr17:7578437:G/A_1
-chr17:7577427:G/A_2
-chr18:48581196:AG/A_3
-chr18:48581196:AG/A_1
-chr6:7229346:T/C_3
-chr20:9560633:C/T_3
-chr17:7577407:A/C_2
-chr17:7578437:G/A_3
-chr12:25398284:C/A_1
-chr18:45394653:G/A_2
-chr20:9560712:A/G_3
-chr18:45394662:C/A_2
-chr15:67473722:C/T_1
-chr17:12016559:C/T_1
-chr13:25052420:T/A_2
-chr17:56492800:T/C_3
-chr17:41245466:G/A_3
-chr6:7229346:T/C_2
-chr6:80751780:G/A_2
-chr5:38953665:G/GA_3
-chr13:25052261:C/T_2
 0
-[]
 1
-['chr17:12016559:C/T', 'chr15:67473722:C/T']
 2
-[]
 3
-[]
 4
-[]
 5
-[]
-n = 1582, m = 2, p = 1
-Set parameter TimeLimit to value 1800
-Set parameter Threads to value 1
-Set parameter Method to value 4
-Set parameter IntFeasTol to value 1e-06
-Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
-
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
-
-Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
-Optimize a model with 11087 rows, 6342 columns and 23753 nonzeros
-Model fingerprint: 0xd4448dbc
-Variable types: 3178 continuous, 3164 integer (3164 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [7e+00, 7e+00]
-  Bounds range     [1e+00, 1e+00]
-  RHS range        [1e+00, 2e+00]
-Found heuristic solution: objective -0.0000000
-Presolve removed 11077 rows and 6333 columns
-Presolve time: 0.03s
-Presolved: 10 rows, 9 columns, 30 nonzeros
-Found heuristic solution: objective 6734.0859092
-Variable types: 0 continuous, 9 integer (9 binary)
-
-Root relaxation: objective 7.162305e+03, 2 iterations, 0.00 seconds (0.00 work units)
-
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
-
-*    0     0               0    7162.3047055 7162.30471  0.00%     -    0s
-
-Explored 1 nodes (2 simplex iterations) in 0.03 seconds (0.03 work units)
-Thread count was 1 (of 72 available processors)
-
-Solution count 3: 7162.3 6734.09 -0 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 7.162304705459e+03, best bound 7.162304705459e+03, gap 0.0000%
-1795, 1313, 7162.30470545872
 cluster_id
 4    1871
 1    1582
@@ -129,20 +58,21 @@ cluster_id
 0     196
 5       1
 Name: count, dtype: int64
-subclusters [1, 3]
-chr17:7578437:G/A_1 134
-chr18:48581196:AG/A_1 666
-chr12:25398284:C/A_1 2341
-Node root: 883
+chr17:7578437:G/A_1 105
+chr17:12016559:C/T_1 39
+chr15:67473722:C/T_1 129
+chr18:48581196:AG/A_1 570
+chr12:25398284:C/A_1 2298
 Node 0: 196
+Node 1: 1582
 Node 2: 1085
 Node 3: 1559
 Node 4: 1871
 Node 5: 1
-Node chr17:12016559:C/T_4: 340
-Node chr15:67473722:C/T_4: 359
-Node chr17:7578437:G/A_1: 134
-Node chr18:48581196:AG/A_1: 666
-Node chr12:25398284:C/A_1: 2341
-total cells 5411
+Node chr17:7578437:G/A_1: 105
+Node chr17:12016559:C/T_1: 39
+Node chr15:67473722:C/T_1: 129
+Node chr18:48581196:AG/A_1: 570
+Node chr12:25398284:C/A_1: 2298
+total cells 6294
 [('root', 0)]

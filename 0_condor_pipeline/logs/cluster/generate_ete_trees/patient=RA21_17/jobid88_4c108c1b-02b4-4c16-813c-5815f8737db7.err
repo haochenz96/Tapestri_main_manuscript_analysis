@@ -1,0 +1,62 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=8000, mem_mib=7630, disk_mb=1000, disk_mib=954, time_min=59
+Select jobs to execute...
+
+[Fri Jul 19 13:24:56 2024]
+rule generate_ete_trees:
+    input: condor_outputs/pickle_files/RA21_17_self.solT_cell, /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists/RA21_17-patient-all_vars-voi.hz_curated.txt, /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER_INTERNAL.xlsx
+    output: condor_downstream/RA21_17/RA21_17_ETE_tree.refined.subclonal_snvs.png, condor_downstream/RA21_17/RA21_17_final_sc_clone_assignment.csv
+    log: condor_downstream/logs/RA21_17_ete_tree.log, condor_downstream/logs/RA21_17_ete_tree.err.log
+    jobid: 0
+    reason: Missing output files: condor_downstream/RA21_17/RA21_17_final_sc_clone_assignment.csv, condor_downstream/RA21_17/RA21_17_ETE_tree.refined.subclonal_snvs.png
+    wildcards: patient=RA21_17
+    threads: 4
+    resources: mem_mb=8000, mem_mib=7630, disk_mb=1000, disk_mib=954, tmpdir=/scratch/lsftmp/8217220.tmpdir, time_min=59
+
+Activating conda environment: condor
+[Fri Jul 19 13:25:15 2024]
+Error in rule generate_ete_trees:
+    jobid: 0
+    input: condor_outputs/pickle_files/RA21_17_self.solT_cell, /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists/RA21_17-patient-all_vars-voi.hz_curated.txt, /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER_INTERNAL.xlsx
+    output: condor_downstream/RA21_17/RA21_17_ETE_tree.refined.subclonal_snvs.png, condor_downstream/RA21_17/RA21_17_final_sc_clone_assignment.csv
+    log: condor_downstream/logs/RA21_17_ete_tree.log, condor_downstream/logs/RA21_17_ete_tree.err.log (check log file(s) for error details)
+    conda-env: condor
+    shell:
+        
+		python /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/condor_downstream/4a_make_ete_tree_with_subclonal_snvs.py 			--amp_gene_map /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv 			--sample_name_map /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER_INTERNAL.xlsx 			--patient_name RA21_17 			--condor_tree_pickle condor_outputs/pickle_files/RA21_17_self.solT_cell 			--snv_ann_f /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists/RA21_17-patient-all_vars-voi.hz_curated.txt 			--output_dir condor_downstream 			1> condor_downstream/logs/RA21_17_ete_tree.log 2> condor_downstream/logs/RA21_17_ete_tree.err.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Trying to restart job 0.
+Select jobs to execute...
+
+[Fri Jul 19 13:25:15 2024]
+rule generate_ete_trees:
+    input: condor_outputs/pickle_files/RA21_17_self.solT_cell, /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists/RA21_17-patient-all_vars-voi.hz_curated.txt, /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER_INTERNAL.xlsx
+    output: condor_downstream/RA21_17/RA21_17_ETE_tree.refined.subclonal_snvs.png, condor_downstream/RA21_17/RA21_17_final_sc_clone_assignment.csv
+    log: condor_downstream/logs/RA21_17_ete_tree.log, condor_downstream/logs/RA21_17_ete_tree.err.log
+    jobid: 0
+    reason: Missing output files: condor_downstream/RA21_17/RA21_17_final_sc_clone_assignment.csv, condor_downstream/RA21_17/RA21_17_ETE_tree.refined.subclonal_snvs.png
+    wildcards: patient=RA21_17
+    threads: 4
+    resources: mem_mb=8000, mem_mib=7630, disk_mb=1000, disk_mib=954, tmpdir=/scratch/lsftmp/8217220.tmpdir, time_min=59
+
+Activating conda environment: condor
+[Fri Jul 19 13:25:18 2024]
+Error in rule generate_ete_trees:
+    jobid: 0
+    input: condor_outputs/pickle_files/RA21_17_self.solT_cell, /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists/RA21_17-patient-all_vars-voi.hz_curated.txt, /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER_INTERNAL.xlsx
+    output: condor_downstream/RA21_17/RA21_17_ETE_tree.refined.subclonal_snvs.png, condor_downstream/RA21_17/RA21_17_final_sc_clone_assignment.csv
+    log: condor_downstream/logs/RA21_17_ete_tree.log, condor_downstream/logs/RA21_17_ete_tree.err.log (check log file(s) for error details)
+    conda-env: condor
+    shell:
+        
+		python /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/condor_downstream/4a_make_ete_tree_with_subclonal_snvs.py 			--amp_gene_map /data/iacobuzc/haochen/Tapestri_batch2/analysis/full-ConDoR/references/panel3559_analysis.gene_cytoband.formatted.manual_adjusted.gene_pos_ado_added.csv 			--sample_name_map /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER_INTERNAL.xlsx 			--patient_name RA21_17 			--condor_tree_pickle condor_outputs/pickle_files/RA21_17_self.solT_cell 			--snv_ann_f /lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/manual_annotated_snv_lists/RA21_17-patient-all_vars-voi.hz_curated.txt 			--output_dir condor_downstream 			1> condor_downstream/logs/RA21_17_ete_tree.log 2> condor_downstream/logs/RA21_17_ete_tree.err.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message

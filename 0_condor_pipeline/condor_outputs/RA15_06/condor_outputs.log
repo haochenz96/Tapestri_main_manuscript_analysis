@@ -1,4 +1,4 @@
-[WARNING] subclonal mutations file not found. Proceeding without automatic subclonal mutation selection & refinement.
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
 n = 4977, m = 41, p = 7
 Set parameter WLSAccessID
 Set parameter WLSSecret
@@ -9,72 +9,63 @@ Set parameter Method to value 4
 Set parameter IntFeasTol to value 1e-06
 Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
 
-CPU model: Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz, instruction set [SSE2|AVX|AVX2]
-Thread count: 36 physical cores, 72 logical processors, using up to 1 threads
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
 
 Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
 Optimize a model with 163472 rows, 28618 columns and 491308 nonzeros
-Model fingerprint: 0x20e65d5c
+Model fingerprint: 0x79f12afc
 Variable types: 27470 continuous, 1148 integer (1148 binary)
 Coefficient statistics:
   Matrix range     [1e+00, 1e+00]
   Objective range  [4e+01, 2e+04]
   Bounds range     [1e+00, 1e+00]
   RHS range        [1e+00, 2e+00]
+Presolve removed 70149 rows and 15015 columns (presolve time = 5s) ...
+Presolve removed 70430 rows and 15282 columns (presolve time = 12s) ...
+Presolve removed 70430 rows and 15282 columns (presolve time = 16s) ...
+Presolve removed 70430 rows and 15282 columns (presolve time = 21s) ...
+Presolve removed 70430 rows and 15282 columns (presolve time = 27s) ...
+Presolve removed 70430 rows and 15282 columns (presolve time = 31s) ...
+Presolve removed 70430 rows and 15282 columns (presolve time = 36s) ...
 Presolve removed 70430 rows and 15282 columns
-Presolve time: 1.18s
+Presolve time: 37.41s
 Presolved: 93042 rows, 13336 columns, 278961 nonzeros
 Variable types: 12645 continuous, 691 integer (691 binary)
 Found heuristic solution: objective -628880.6264
 Root relaxation presolved: 13336 rows, 106378 columns, 292297 nonzeros
 
 
-Root relaxation: objective -5.519918e+05, 10672 iterations, 0.54 seconds (0.35 work units)
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0      handle free variables                         48s
+   10095   -5.9097094e+05   7.547569e+05   0.000000e+00     50s
+   10756   -5.5199182e+05   0.000000e+00   0.000000e+00     51s
+   10756   -5.5199182e+05   0.000000e+00   0.000000e+00     52s
+
+Root relaxation: objective -5.519918e+05, 10756 iterations, 12.33 seconds (0.36 work units)
 
     Nodes    |    Current Node    |     Objective Bounds      |     Work
  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
 
-*    0     0               0    -551991.8199 -551991.82  0.00%     -    2s
+*    0     0               0    -551991.8199 -551991.82  0.00%     -   51s
 
-Explored 1 nodes (10672 simplex iterations) in 2.02 seconds (1.63 work units)
-Thread count was 1 (of 72 available processors)
+Explored 1 nodes (10756 simplex iterations) in 51.75 seconds (1.64 work units)
+Thread count was 1 (of 128 available processors)
 
 Solution count 2: -551992 -628881 
 No other solutions better than -551992
 
 Optimal solution found (tolerance 1.00e-04)
 Best objective -5.519918198889e+05, best bound -5.519918198889e+05, gap 0.0000%
-root
-chr3:52637486:C/G_2
-chr18:48593507:C/T_1
-chr17:7577407:A/C_2
-chr20:62303825:C/T_1
-chr8:30933859:C/T_3
-chr6:157528197:C/T_2
-chr3:30713126:T/A_3
-chr17:7578524:G/C_3
-chr17:7578524:G/C_1
-chr9:101908915:G/A_3
-chr17:7577427:G/A_2
-chr12:25398284:C/A_1
-chr18:48593507:C/T_3
-chr1:27106312:GAT/G_1
-chr13:25052420:T/A_3
-chr13:25052261:C/T_3
 0
-[]
 1
-[]
 2
-[]
 3
-[]
 4
-[]
 5
-[]
 6
-[]
 cluster_id
 2    1057
 4     846
@@ -84,7 +75,6 @@ cluster_id
 0     383
 1     273
 Name: count, dtype: int64
-subclusters [2, 3, 5, 4]
 chr20:62303825:C/T_1 16
 chr17:7578524:G/C_1 65
 chr1:27106312:GAT/G_1 93
