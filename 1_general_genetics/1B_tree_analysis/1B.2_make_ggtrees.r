@@ -15,7 +15,7 @@ library(Cairo)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # Read in NHX tree
-NHX_tree_dir <- "_NHX_trees"
+NHX_tree_dir <- "NHX_trees"
 OUTPUT_DIR <- "."
 
 NONFUNC_SO <- c('2kb_upstream_variant', '3_prime_UTR_variant', '5_prime_UTR_variant', 'intron_variant', 'synonymous_variant')
@@ -54,6 +54,9 @@ process_nhx_tree <- function(nhx_tree_f) {
     tree_tbl$parent[tree_tbl$node == pseudo_root] <- num_nodes+1
   }
   # ========== end of edge cases ==========
+
+  # convert trunk to string: if trunk is TRUE, it would be "trunk"; otherwise it would be ""
+  tree_tbl$trunk <- ifelse(tree_tbl$trunk, "trunk", "")
 
   # normalize clone_size by total number of cells
   tree_tbl$clone_size <- tree_tbl$clone_size / sum(tree_tbl$clone_size, na.rm=TRUE)
@@ -108,10 +111,15 @@ d <- as_tibble(tree)
 # plot a simple tree
 ggtree(tree, layout = "rectangular", ladderize = FALSE) +
   geom_label(aes(label=label)) + 
+  geom_label(aes(x = branch, label=ifelse(trunk == TRUE, "Trunk", trunk)), fill='steelblue')
   geom_point(aes(size=clone_size), color="#7e7e7e") + guides(colour=FALSE, size=FALSE)
 
 # Plot the tree with the added tags and annotations
-ggtree(tree, ladderize = FALSE, layout = "roundrect", branch.length = "dist") +
+ggtree(
+  tree, ladderize = FALSE, layout = "roundrect", branch.length = "dist",
+  aes(color=trunk),
+  ) +
+  scale_color_manual(name='trunk', values=c('trunk'='#ff7700', 'NA'='#000000')) +
   geom_tippoint(aes(size=clone_size), color="#7e7e7e") + 
   geom_nodepoint(aes(size=clone_size), color="#7e7e7e") + guides(colour=FALSE, size=FALSE) + 
   # geom_tiplab(size=5, color="black", hjust = -2) + 
@@ -170,8 +178,10 @@ tree_objs <- tree_objs[order(unlist(tree_max_depths), decreasing=FALSE)]
 class(tree_objs) = "multiPhylo"
 # add yscale which is the number of clones
 N_trees <- length(tree_objs)
-ggtree(tree_objs, layout = "roundrect", branch.length = "dist", ladderize = FALSE, ) +
+ggtree(
+  tree_objs, layout = "roundrect", branch.length = "dist", ladderize = FALSE, aes(color=trunk)) +
   facet_wrap(~.id, scales="free_y", nrow=N_trees, strip.position = "right") + 
+  scale_color_manual(name='trunk', values=c('trunk'='#ff7700', 'NA'='#000000')) +
   geom_tippoint(aes(size=clone_size*100), color="#7e7e7e") + 
   geom_nodepoint(aes(size=clone_size*100), color="#7e7e7e") + guides(colour=FALSE, size=FALSE) + 
   geom_label(

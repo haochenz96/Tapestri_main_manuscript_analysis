@@ -1,6 +1,6 @@
 # %% Import modules
 import pickle as pkl
-# import ete3
+import ete3
 import pandas as pd
 from pathlib import Path
 import os
@@ -8,11 +8,11 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # %% Import tree
-refined_tree_dir = Path("/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/1_general_genetics/1B_tree_analysis")
+refined_tree_dir = Path("/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/1_general_genetics/1B_tree_analysis/ete_trees_w_trunk")
 output_dir = Path(".")
-output_dir = output_dir / "_NHX_trees"
+output_dir = output_dir / "NHX_trees"
 output_dir.mkdir(exist_ok=True, parents=True)
-patient_names = set([str(l).rsplit('/',1)[1].split("_HZ_ETE")[0] for l in refined_tree_dir.glob('**/*subclonal_snvs.pkl')])
+patient_names = set([str(l).rsplit('/',1)[1].split("_HZ_ETE")[0] for l in refined_tree_dir.glob('**/*subclonal_snvs.trunk.pkl')])
 
 event_table = pd.DataFrame(
     index=list(patient_names), 
@@ -20,10 +20,7 @@ event_table = pd.DataFrame(
     )
 
 for patient_i in patient_names:
-    if not patient_i == "M12":
-        continue
-
-    tree_f = refined_tree_dir / patient_i / f"{patient_i}_HZ_ETE_tree.refined.subclonal_snvs.pkl"
+    tree_f = refined_tree_dir / f"{patient_i}_HZ_ETE_tree.refined.subclonal_snvs.trunk.pkl"
     ete_tree = pkl.load(open(tree_f, "rb"))
 
     snv_gains = []
@@ -53,7 +50,7 @@ for patient_i in patient_names:
     nhx_f = output_dir / f"{patient_i}_HZ_ETE_tree.nhx"
 
     with open(nhx_f, "w") as f:
-        f.write(ete_tree.write(format=8, features=["dist","leaf_color","clone_size","name", "germline_snp_events_formatted", "n_germline_snp_lohs", "somatic_snv_gains", "somatic_snv_lohs"]))
+        f.write(ete_tree.write(format=8, features=["dist","leaf_color","clone_size","name", "germline_snp_events_formatted", "n_germline_snp_lohs", "somatic_snv_gains", "somatic_snv_lohs", "trunk"]))
     
     event_table.loc[patient_i, "somatic_snv_gains"] = ",".join(snv_gains)
     event_table.loc[patient_i, "somatic_snv_lohs"] = ",".join(snv_lohs)

@@ -1,0 +1,2 @@
+Wilcoxon rank-sum test statistic: 4.060318522829786
+p-value: 4.900581509240586e-05

@@ -6,12 +6,20 @@ library(ggrepel)
 # library(maftools)
 
 # excel
-library(readxl)
 
 # ----- read and process snDNA-seq MAF -----
-maf_f <- "1_general_genetics/1B_tree_analysis/1B_pan_cohort_phylogeny_scMAF.manual.xlsx"
+maf_f <- "1_general_genetics/1B_tree_analysis/1B_pan_cohort_scMAF.LOH_events.manual.xlsx"
 maf <- read_excel(maf_f)
 all_pts <- maf$patient_name %>% unique()
+
+# map the pts
+pt_map <- read_excel("Tapestri_batch2_samples_MASTER_INTERNAL.xlsx")
+# use first row as col.names
+colnames(pt_map) <- pt_map[1, ]
+pt_map <- pt_map[-1, ]
+
+# map the pts: case_ID --> HZ_specific_case_ID
+maf$patient_name <- pt_map[maf$patient_name, "HZ_specific_case_ID"]
 
 # ----- plot oncoprint -----
 genes_of_interest <- c("SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2")
@@ -61,6 +69,6 @@ oncoplot <- ggplot(maf, aes(x = patient_name, y = gene_name)) +
 # adjust order of legend to be c("truncal", "subtruncal","Pre-MRCA_of_mets""Post-MRCA_of_mets")
 
 # save 
-ggsave("2_convergence/tgfb_mrca_oncoplot.pdf", oncoplot, width = 10, height = 5, units = "in", useDingbats = FALSE)
-ggsave("2_convergence/tgfb_mrca_oncoplot.png", oncoplot, width = 10, height = 5, units = "in", dpi=300)
+ggsave("2_convergent_evolution/2_tgfb_mrca_oncoplot.pdf", oncoplot, width = 10, height = 5, units = "in", useDingbats = FALSE)
+ggsave("2_convergent_evolution/2_tgfb_mrca_oncoplot.png", oncoplot, width = 10, height = 5, units = "in", dpi=300)
 

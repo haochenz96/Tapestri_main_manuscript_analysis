@@ -1,11 +1,3 @@
-if (!requireNamespace("dplyr", quietly = TRUE)) {
-  install.packages("dplyr")
-}
-if (!requireNamespace("readxl", quietly = TRUE)) {
-  install.packages("readxl")
-}
-
-
 library(ggplot2)
 library(ggpubr)
 library(dplyr)
@@ -17,7 +9,7 @@ options(repr.plot.width = 10, repr.plot.height = 5)
 
 # read in master sample sheet
 master_sample_sheet <- read_excel(
-  "Tapestri_batch2_samples_MASTER.xlsx", 
+  "Tapestri_batch2_samples_MASTER_INTERNAL.xlsx", 
   sheet = "all_sample_clinical_info"
 )
 master_sample_sheet %>% 
@@ -110,5 +102,6 @@ write.csv(stats_by_collection_method,
 # how many samples are pancreas primary and how many are mets?
 grepl(pattern = "pancreas", x = master_sample_sheet$`anatomical site`, ignore.case = TRUE) %>% sum()
 grepl(pattern = "met", x = master_sample_sheet$`primary_or_met`, ignore.case = TRUE) %>% sum()
+
 
 

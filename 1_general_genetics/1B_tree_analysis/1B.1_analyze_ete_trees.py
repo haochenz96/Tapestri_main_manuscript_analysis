@@ -8,11 +8,13 @@ import os
 
 os.chdir(__file__.rsplit("/",1)[0])
 
-pickle_dir = Path("../../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
+pickle_dir = Path("../../0_condor_pipeline/condor_downstream")
+tree_out_dir = Path("ete_trees_w_trunk")
+tree_out_dir.mkdir(parents=True, exist_ok=True)
 GOI = ["KRAS", "TP53","CDKN2A", "SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2", "BRCA2", "ATM", "BAP1", "PIK3CA", "FGFR1","RNF43", "POLD1", "IRF6", "GATA6", "MYC", "MTOR"]
 TGFB_GENES = ["SMAD4", "SMAD2", "SMAD3", "TGFBR1", "TGFBR2", "ACVR1B", "BMPR1A", "ARID1A", "ARID2"]
 
-sample_sheet = pd.read_excel("../../Tapestri_batch2_samples_MASTER.xlsx", sheet_name="all_case_genetics", index_col=0, skiprows=1)
+sample_sheet = pd.read_excel("../../Tapestri_batch2_samples_MASTER_INTERNAL.xlsx", sheet_name="all_case_genetics", index_col=0, skiprows=1)
 sample_sheet = sample_sheet[sample_sheet["censor"] == 0]
 poi = sample_sheet.index
 # rename:
@@ -94,8 +96,10 @@ for patient_name in poi:
 			trunk = event_count.most_common(1)[0][0]
 			print(f"for patient {patient_name}, selected trunk with events: {events[trunk]}")
 		if len(trunk.somatic_snv_events) == 0:
-			# if the trunk has no somatic SNV events, we need to move down the tree until we find one; unless this case is BPA-3 which has no driver SNVs
-			if patient_name == "BPA-3":
+			# if the trunk has no somatic SNV events, we need to move down the tree until we find one; 
+			# unless this case is BPA-3 which has no driver SNVs
+			# unless this case is RA16_08 whose somatic KRAS is placed not on the trunk
+			if patient_name == "BPA-3" or patient_name == "RA16_08":
 				print(f"for patient {patient_name}, no driver SNV present")
 			else:
 				for node in trunk.traverse("preorder"):
@@ -103,6 +107,11 @@ for patient_name in poi:
 						print(f"for patient {patient_name}, moved down to {node.name} with somatic snvs: {node.somatic_snv_events}")
 						trunk = node
 						break
+		# add "trunk" status to the trunk node
+		trunk.add_features(trunk=True)
+		tree_out = tree_out_dir / f"{patient_name}_HZ_ETE_tree.refined.subclonal_snvs.trunk.pkl"
+		with open(tree_out, "wb") as f:
+			pickle.dump(tree, f)
 		# ===== 2. get truncal events =====
   		# total tumor size is sum of all clones' clone_sizes after the trunk
 		total_tumor_size = sum([d.clone_size for d in trunk.traverse("preorder") if "clone_size" in d.__dict__])
@@ -146,6 +155,7 @@ master_maf.to_csv("1B_pan_cohort_scMAF.LOH_events.csv", index=False)
 # %%
 tree_log_df["truncal_snv_density"] = tree_log_df["truncal_snvs"].astype(float) / tree_log_df["total_snvs"].astype(float)
 tree_log_df["truncal_snp_density"] = tree_log_df["truncal_cnvs"].astype(float) / tree_log_df["total_cnvs"].astype(float)
+
 mean_truncal_snv_density = tree_log_df["truncal_snv_density"].mean()
 print(f"mean truncal SNV density: {mean_truncal_snv_density}")
 # median
@@ -157,6 +167,16 @@ print(f"mean truncal SNP density: {mean_truncal_snp_density}")
 # median
 median_truncal_snp_density = tree_log_df["truncal_snp_density"].median()
 print(f"median truncal SNP density: {median_truncal_snp_density}")
+
+# write the above stats to a txt file
+with open("1B.1_tree_analysis_stats.txt", "w") as f:
+	f.write(f"mean truncal SNV density: {mean_truncal_snv_density}\n")
+	f.write(f"median truncal SNV density: {median_truncal_snv_density}\n")
+	f.write(f"mean truncal SNP density: {mean_truncal_snp_density}\n")
+	f.write(f"median truncal SNP density: {median_truncal_snp_density}\n")
+
+# write the tree_log_df to a csv
+tree_log_df.to_csv("1B.1_tree_analysis_stats.csv", index=False)
 
 # # %% t-test, if the two means are significantly different
 # from scipy.stats import ttest_ind

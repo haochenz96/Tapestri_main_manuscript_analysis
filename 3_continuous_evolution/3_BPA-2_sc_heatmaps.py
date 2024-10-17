@@ -20,7 +20,7 @@ pt = mio.load(pt_h5)
 
 snv_f = list(Path("../data_compiled/manual_annotated_snv_lists").glob(f"{patient_name}*voi*.txt"))[0]
 output_dir = Path(".")
-condor_downstream_dir = Path("../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
+condor_downstream_dir = Path("../0_condor_pipeline/condor_downstream/")
 
 # need to use the params for Tapestri V3
 amplicon_params = Path('/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_project/tap_cn_calling/train-normals/train-combined_8_normals/NB_train-combined_8_normals-results.gene_added.csv')

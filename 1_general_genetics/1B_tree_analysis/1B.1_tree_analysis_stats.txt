@@ -1,0 +1,4 @@
+mean truncal SNV density: 0.743840579710145
+median truncal SNV density: 1.0
+mean truncal SNP density: 0.7600890735081912
+median truncal SNP density: 0.9077380952380952

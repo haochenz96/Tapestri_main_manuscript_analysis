@@ -15,7 +15,7 @@ library(patchwork)
 setwd("/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/1_general_genetics/1A_sc_oncoprint/")
 
 # ----- 0. per-case clinical info table -----
-patient_info_table <- read.xlsx("../../Tapestri_batch2_samples_MASTER.xlsx", sheet = "all_case_genetics", startRow = 2, colNames = TRUE)
+patient_info_table <- read.xlsx("../../Tapestri_batch2_samples_MASTER_INTERNAL.xlsx", sheet = "all_case_genetics", startRow = 2, colNames = TRUE)
 # preprocess 
 patient_info_table <- patient_info_table %>% filter(censor == 0) %>% rename(patient_name = case_ID)
 # str_trim everything
@@ -147,7 +147,7 @@ fig_a <- ggplot(composite_maf, aes(
     data=composite_maf, 
     aes(
       fill=alteration_class, # height=CCF, width=CCF, 
-      size = CCF, stroke = LOH*1.5, color = LOH_factor
+      size = CCF, stroke = LOH*2, color = LOH_factor
       # bin the CCF into 4 groups
       # size=cut(CCF, breaks=c(0, 0.25, 0.5, 0.75, 1)),
       # alpha=fraction_altered,
@@ -335,14 +335,8 @@ composite_maf %>%
 # ----- get CCF stats -----
 unique_patient_gene_maf %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n(), proportion = n/24) %>% arrange(desc(n)) -> CCF_stats
 View(CCF_stats)
-
-# # for ARID1A, don't count LOH
-# composite_maf %>% filter(gene_name == "ARID1A" & alteration_class != "LOH") %>% group_by(gene_name) %>% summarise(mean_CCF = mean(CCF), median_CCF = median(CCF), max_CCF = max(CCF), min_CCF = min(CCF), n = n()) %>% arrange(desc(mean_CCF)) -> ARID1A_CCF_stats
-
-# write to file
-write.csv(CCF_stats, "1A_CCF_stats.csv", row.names = FALSE)
-write.csv(ARID1A_CCF_stats, "1A_ARID1A_CCF_stats.csv", row.names = FALSE)
-
+# write CCF_stats
+write.csv(CCF_stats, "1A_composite_maf.CCF_stats.csv", row.names = FALSE)
 
 
 
