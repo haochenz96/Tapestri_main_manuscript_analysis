@@ -1,0 +1,89 @@
+Processing RA16_08
+INFO:__main__:[Leaf node] 0 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 1 with subclonal SNV tree, events: [Tree node 'chr2:25457242:C/T_4' (0x2b312328a61)]
+INFO:__main__:[Internal node] IN_1 -- events: ['chr6:111628626:C/T_3', 'chr12:49434074:C/A_3', 'chr17:7579472:G/C_2', 'chr6:26271241:G/A_2', 'chr3:189604149:T/G_3', 'chr6:111628597:C/G_3', 'chr17:7577407:A/C_3', 'chr15:59322829:A/G_2', 'chr17:7577427:G/A_3'] 
+INFO:__main__:[Leaf node] 2 with no subclonal SNV tree
+INFO:__main__:[Internal node] IN_2 -- events: ['chr12:25398284:C/A_1'] 
+INFO:__main__:[Leaf node] 3 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 4 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 7 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 8 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 5 with no subclonal SNV tree
+INFO:__main__:[Leaf node] 6 with no subclonal SNV tree
+INFO:__main__:added events info to node 0
+INFO:__main__:added events info to node 1
+INFO:__main__:added events info to node 6
+INFO:__main__:added events info to node IN_1
+INFO:__main__:added events info to node 2
+INFO:__main__:added events info to node IN_2
+INFO:__main__:added events info to node 3
+INFO:__main__:added events info to node 4
+INFO:__main__:added events info to node 7
+INFO:__main__:added events info to node 8
+INFO:__main__:added events info to node 5
+INFO:refine_condor_tree:total cell number: 7822
+INFO:refine_condor_tree:min_leaf_size: 39.11
+INFO:refine_condor_tree:leaf: 0, clone size: 148
+INFO:refine_condor_tree:leaf 0 is the diploid, skipping
+INFO:refine_condor_tree:leaf: 1, clone size: 495
+INFO:refine_condor_tree:leaf 1 has no events to the root, merging into diploid
+WARNING:refine_condor_tree:merging leaf 1 into diploid 0
+INFO:refine_condor_tree:leaf: 6, clone size: 3348
+INFO:refine_condor_tree:leaf 6 has no events to the root, merging into diploid
+WARNING:refine_condor_tree:merging leaf 6 into diploid 0
+INFO:refine_condor_tree:leaf: 2, clone size: 999
+INFO:refine_condor_tree:leaf 2 has 9 events to the root
+INFO:refine_condor_tree:leaf: 3, clone size: 347
+INFO:refine_condor_tree:leaf 3 has 10 events to the root
+INFO:refine_condor_tree:leaf: 4, clone size: 519
+INFO:refine_condor_tree:leaf 4 has 10 events to the root
+INFO:refine_condor_tree:leaf: 7, clone size: 982
+INFO:refine_condor_tree:leaf 7 has 10 events to the root
+INFO:refine_condor_tree:leaf: 8, clone size: 980
+INFO:refine_condor_tree:leaf 8 has 10 events to the root
+INFO:refine_condor_tree:leaf: 5, clone size: 4
+INFO:refine_condor_tree:leaf 5 has a clone size of 4, smaller than lower threshold 39.11. Merging into diploid
+WARNING:refine_condor_tree:merging leaf 5 into diploid_clone 0
+renaming clone 0 to 0
+renaming clone 2 to 1
+renaming clone 3 to 2
+renaming clone 4 to 3
+renaming clone 7 to 4
+renaming clone 8 to 5
+[INFO] renaming clone 1 to diploid
+[INFO] renaming clone 6 to diploid
+[INFO] renaming clone 5 to diploid
+WARNING:sankoff_fixed_tree:
+            amplicons of interest: ['AMPL253673'] not in the tree, ignoring
+        
+[INFO] Processing node IN_2
+[INFO] Processing node IN_1
+WARNING:__main__:clone 1 has been merged to diploid clone. Skipping...
+
+    ===== [Node: IN_1] =====
+        dist: 570.0
+    
+
+    ===== [Node: 1] =====
+        dist: 238.49999999999997
+    
+
+    ===== [Node: IN_2] =====
+        dist: 33.33333333333333
+    
+
+    ===== [Node: 2] =====
+        dist: 97.0
+    
+
+    ===== [Node: 3] =====
+        dist: 0.0
+    
+
+    ===== [Node: 4] =====
+        dist: 229.5
+    
+
+    ===== [Node: 5] =====
+        dist: 244.0
+    

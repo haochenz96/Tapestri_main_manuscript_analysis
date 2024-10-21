@@ -7,9 +7,9 @@ import mosaic.io as mio
 import plotly.express as px
 from tea.plots import plot_snv_clone
 from pathlib import Path
-
+import os 
 os.chdir(Path(__file__).parent)
-sample_name = "TP12-EUS-0T"
+sample_name = "PC18-T0-pancreas_biopsy"
 
 pt_h5 = "../data_compiled/fillout_h5/TP12.patient_wide.genotyped.h5"
 pt = mio.load(pt_h5)

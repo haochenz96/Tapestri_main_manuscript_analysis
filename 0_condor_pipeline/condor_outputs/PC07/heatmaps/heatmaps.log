@@ -1,0 +1,106 @@
+chr11:65631167:C/T
+chr1:226578099:T/C
+chr16:89858759:C/T
+chr20:9560712:A/G
+chr1:46521559:A/T
+chr20:54959296:G/C
+chr6:7229346:T/C
+chr6:52149594:G/A
+chr20:31387954:C/G
+chr3:9793474:G/A
+chr20:62303794:G/A
+chr12:18800725:A/AT
+chr4:187538942:T/G
+chr12:25380275:T/G
+chr20:9560633:C/T
+chr1:46521517:G/A
+chr22:29130347:G/GT
+chr19:5219803:T/C
+chr13:25052261:C/T
+chr1:91859801:A/G
+chr12:133252796:C/G
+chr17:41245466:G/A
+chr3:178935943:C/T
+chr7:154760666:C/T
+chr10:88683122:T/C
+chr1:158612236:A/G
+chr18:45371686:T/C
+chr1:16474839:AC/A
+chr14:20818602:C/G
+chr12:25362777:A/G
+chr19:5219829:T/G
+chr19:50902700:A/G
+chr20:57484363:G/A
+chr7:2962753:G/A
+chrX:44896871:A/AT
+chr8:30933859:C/T
+chr12:49434074:C/A
+chr13:25052420:T/A
+2551    0
+1       0
+1104    0
+887     0
+1066    0
+       ..
+790     5
+333     5
+788     5
+1377    5
+338     5
+Name: cluster_id, Length: 2868, dtype: int64
+check
+Index(['EPHA2 intron_variant', 'PIK3R3 p.Ser297=', 'PIK3R3 p.Asn283Lys',
+       'HFM1 p.Ser115Pro', 'SPTA1 p.Cys1568Arg', 'PARP1 intron_variant',
+       'OGG1 p.Asp136Asn', 'PIK3CA intron_variant', 'FAT1 p.Gln2933Pro',
+       'RREB1 p.His338=', 'MCM3 2kb_upstream_variant', 'CARD11 intron_variant',
+       'PAXIP1 p.Pro415=', 'WRN intron_variant', 'BMPR1A intron_variant',
+       'MUS81 p.Ala312=', 'PIK3C2G intron_variant', 'KRAS 3_prime_UTR_variant',
+       'KRAS p.Gln61His', 'KMT2D p.Gly2493=', 'POLE intron_variant',
+       'PARP4 p.Ser534=', 'PARP4 intron_variant', 'PARP2 intron_variant',
+       'FANCA intron_variant', 'BRCA1 p.Ser694=', 'SMAD2 intron_variant',
+       'PTPRS intron_variant', 'PTPRS intron_variant', 'POLD1 p.Glu92Gly',
+       'PAK5 intron_variant', 'PAK5 intron_variant', 'DNMT3B intron_variant',
+       'AURKA intron_variant', 'GNAS intron_variant', 'RTEL1 intron_variant',
+       'CHEK2 intron_variant', 'KDM6A intron_variant'],
+      dtype='object')
+==============
+{'chr11:65481166:T/C': 'KAT5 intron_variant', 'chr17:7578115:T/C': 'TP53 intron_variant', 'chr3:30713126:T/A': 'TGFBR2 intron_variant', 'chr11:107879887:G/C': 'CUL5 5_prime_UTR_variant', 'chr9:21968199:C/G': 'CDKN2A 3_prime_UTR_variant', 'chr12:25368462:C/T': 'KRAS p.Arg161=', 'chr3:189604149:T/G': 'TP63 intron_variant', 'chr13:32929232:A/G': 'BRCA2 p.Ser2414=', 'chr1:158612236:A/G': 'SPTA1 p.Cys1568Arg', 'chr1:6257826:T/C': 'RPL22 intron_variant', 'chr17:73627565:A/G': 'RECQL5 p.Tyr471=', 'chr17:41245466:G/A': 'BRCA1 p.Ser694=', 'chr1:46521517:G/A': 'PIK3R3 p.Ser297=', 'chr1:46521559:A/T': 'PIK3R3 p.Asn283Lys', 'chr18:48584855:AT/A': 'SMAD4 intron_variant', 'chr20:31387954:C/G': 'DNMT3B intron_variant', 'chr16:89858759:C/T': 'FANCA intron_variant', 'chr12:49434074:C/A': 'KMT2D p.Gly2493=', 'chr1:226578099:T/C': 'PARP1 intron_variant', 'chr3:9793474:G/A': 'OGG1 p.Asp136Asn', 'chr10:88683122:T/C': 'BMPR1A intron_variant', 'chr20:62303794:G/A': 'RTEL1 intron_variant', 'chrX:44896871:A/AT': 'KDM6A intron_variant', 'chr13:28883061:G/A': 'FLT1 p.Tyr1213=', 'chr12:25380275:T/G': 'KRAS p.Gln61His', 'chr22:29130347:G/GT': 'CHEK2 intron_variant', 'chr1:16474839:AC/A': 'EPHA2 intron_variant', 'chr3:178935943:C/T': 'PIK3CA intron_variant', 'chr4:187538942:T/G': 'FAT1 p.Gln2933Pro', 'chr3:30686414:A/G': 'TGFBR2 intron_variant', 'chr17:7579472:G/C': 'TP53 p.Pro72Arg', 'chr20:54959296:G/C': 'AURKA intron_variant', 'chr6:52149594:G/A': 'MCM3 2kb_upstream_variant', 'chr18:45371686:T/C': 'SMAD2 intron_variant', 'chr19:50902700:A/G': 'POLD1 p.Glu92Gly', 'chr20:57484363:G/A': 'GNAS intron_variant', 'chr11:65631167:C/T': 'MUS81 p.Ala312=', 'chr14:20818602:C/G': 'PARP2 intron_variant', 'chr6:7229346:T/C': 'RREB1 p.His338=', 'chr19:5219829:T/G': 'PTPRS intron_variant', 'chr19:5219803:T/C': 'PTPRS intron_variant', 'chr1:91859795:T/C': 'HFM1 p.Ile117Val', 'chr11:64572557:A/G': 'MEN1 p.His433=', 'chr13:32913055:A/G': 'BRCA2 p.Leu1521=', 'chr13:25052261:C/T': 'PARP4 p.Ser534=', 'chr13:25052420:T/A': 'PARP4 intron_variant', 'chr12:133252796:C/G': 'POLE intron_variant', 'chr14:105242966:T/C': 'AKT1 intron_variant', 'chr20:9560712:A/G': 'PAK5 intron_variant', 'chr20:9560633:C/T': 'PAK5 intron_variant', 'chr7:2962753:G/A': 'CARD11 intron_variant', 'chr12:25362777:A/G': 'KRAS 3_prime_UTR_variant', 'chr7:151935730:T/C': 'KMT2C intron_variant', 'chr1:27057923:A/G': 'ARID1A p.His544Arg', 'chr1:91859801:A/G': 'HFM1 p.Ser115Pro', 'chr7:154760666:C/T': 'PAXIP1 p.Pro415=', 'chr8:30933859:C/T': 'WRN intron_variant', 'chr4:96073753:AAAT/A': 'BMPR1B intron_variant', 'chr18:48584804:G/T': 'SMAD4 p.Met294Ile', 'chr2:100055101:AT/A': 'REV1 p.Met392Ter', 'chr12:18800725:A/AT': 'PIK3C2G intron_variant'}
+==============
+EPHA2 intron_variant
+PIK3R3 p.Ser297=
+PIK3R3 p.Asn283Lys
+HFM1 p.Ser115Pro
+SPTA1 p.Cys1568Arg
+PARP1 intron_variant
+OGG1 p.Asp136Asn
+PIK3CA intron_variant
+FAT1 p.Gln2933Pro
+RREB1 p.His338=
+MCM3 2kb_upstream_variant
+CARD11 intron_variant
+PAXIP1 p.Pro415=
+WRN intron_variant
+BMPR1A intron_variant
+MUS81 p.Ala312=
+PIK3C2G intron_variant
+KRAS 3_prime_UTR_variant
+KRAS p.Gln61His
+KMT2D p.Gly2493=
+POLE intron_variant
+PARP4 p.Ser534=
+PARP4 intron_variant
+PARP2 intron_variant
+FANCA intron_variant
+BRCA1 p.Ser694=
+SMAD2 intron_variant
+PTPRS intron_variant
+PTPRS intron_variant
+POLD1 p.Glu92Gly
+PAK5 intron_variant
+PAK5 intron_variant
+DNMT3B intron_variant
+AURKA intron_variant
+GNAS intron_variant
+RTEL1 intron_variant
+CHEK2 intron_variant
+KDM6A intron_variant

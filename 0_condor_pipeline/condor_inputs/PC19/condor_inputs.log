@@ -1,0 +1,69 @@
+               sample cell_barcode  clone_id
+0          TP49-IR-0T       cell_1         2
+1          TP49-IR-0T      cell_10         2
+2          TP49-IR-0T      cell_11         6
+3          TP49-IR-0T      cell_12         6
+4          TP49-IR-0T      cell_13         6
+...               ...          ...       ...
+4877  RA18_18-11_1-v3     cell_995         0
+4878  RA18_18-11_1-v3     cell_996         3
+4879  RA18_18-11_1-v3     cell_997         0
+4880  RA18_18-11_1-v3     cell_998         0
+4881  RA18_18-11_1-v3     cell_999         0
+
+[4882 rows x 3 columns]
+[INFO] Using H5: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/TP49.patient_wide.genotyped.h5
+Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/TP49.patient_wide.genotyped.h5
+Loaded in 10.9s.
+(2333, 274)
+
+    germline: 38
+    somatic: 2
+    total: 42
+(2333, 42)
+(2333, 42)
+Index(['cell_1-TP49-IR-0T', 'cell_10-TP49-IR-0T', 'cell_11-TP49-IR-0T',
+       'cell_12-TP49-IR-0T', 'cell_13-TP49-IR-0T', 'cell_14-TP49-IR-0T',
+       'cell_15-TP49-IR-0T', 'cell_16-TP49-IR-0T', 'cell_17-TP49-IR-0T',
+       'cell_18-TP49-IR-0T',
+       ...
+       'cell_990-TP49-IR-1T', 'cell_991-TP49-IR-1T', 'cell_992-TP49-IR-1T',
+       'cell_993-TP49-IR-1T', 'cell_994-TP49-IR-1T', 'cell_995-TP49-IR-1T',
+       'cell_996-TP49-IR-1T', 'cell_997-TP49-IR-1T', 'cell_998-TP49-IR-1T',
+       'cell_999-TP49-IR-1T'],
+      dtype='object', name='cell_barcode', length=2333)
+0              TP49-IR-0T:cell_1
+1             TP49-IR-0T:cell_10
+2             TP49-IR-0T:cell_11
+3             TP49-IR-0T:cell_12
+4             TP49-IR-0T:cell_13
+                  ...           
+4877    RA18_18-11_1-v3:cell_995
+4878    RA18_18-11_1-v3:cell_996
+4879    RA18_18-11_1-v3:cell_997
+4880    RA18_18-11_1-v3:cell_998
+4881    RA18_18-11_1-v3:cell_999
+Name: cell_barcode, Length: 4882, dtype: object
+clone_id
+0    1696
+1     774
+2     423
+4     402
+3     376
+5     367
+7     300
+8     298
+6     246
+Name: count, dtype: int64
+clone_id
+1    770
+2    423
+4    402
+7    300
+6    246
+5     97
+3     44
+0     37
+8     14
+Name: count, dtype: int64
+[2, 6, 4, 1, 7, 5, 3, 8, 0]

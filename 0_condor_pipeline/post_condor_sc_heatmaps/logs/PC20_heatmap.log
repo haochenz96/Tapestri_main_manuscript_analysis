@@ -1,0 +1,5 @@
+Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/BPA-1.patient_wide.genotyped.h5
+Loaded in 0.5s.
+[INFO] Loaded CN clone assignment file condor_downstream/BPA-1/BPA-1_final_sc_clone_assignment.csv.
+[INFO] Saved heatmap for BPA-1 to post_condor_sc_heatmaps/BPA-1_DNA_heatmap.pdf.
+[INFO] Saved heatmap for BPA-1 to post_condor_sc_heatmaps/BPA-1_DNA_heatmap.png.

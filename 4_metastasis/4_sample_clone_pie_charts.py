@@ -22,7 +22,7 @@ sample_name_organ_map = dict(zip(sample_sheet_df['sample'], sample_sheet_df['HZ_
 
 # %% Load clone assignment df
 
-patient_names = ["RA16_29", "RA17_13", "RA17_22", "RA21_17"]
+patient_names = ["PC09", "PC10", "PC11", "PC16"]
 for patient_name in patient_names:
     wd =  Path("sample_pie_charts")
     wd.mkdir(exist_ok=True, parents=True)

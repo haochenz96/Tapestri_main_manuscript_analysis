@@ -5,11 +5,13 @@
 import mosaic.io as mio
 import pandas as pd
 from pathlib import Path
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # %% 
-MASTER_SAMPLE_SHEET = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER.xlsx"
-H5_DIR = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/ss_h5")
-OUTDIR=Path("/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/snv_black_whitelists")
+MASTER_SAMPLE_SHEET = "../Tapestri_batch2_samples_MASTER_INTERNAL.xlsx"
+H5_DIR = Path("../data_compiled/ss_h5")
+OUTDIR=Path("snv_black_whitelists/")
 # ----- patient-sample map -----
 master_sample_df = pd.read_excel(
 	MASTER_SAMPLE_SHEET, 
@@ -18,8 +20,8 @@ master_sample_df = pd.read_excel(
 master_sample_df = master_sample_df[master_sample_df["censor"] == 0]
 sample_map = {}
 sample_h5s = {}
-for patient_i in master_sample_df['case'].unique(): 
-	case_samples = master_sample_df[master_sample_df['case'] == patient_i]['sample']
+for patient_i in master_sample_df["HZ_specific_case_ID"].unique(): 
+	case_samples = master_sample_df[master_sample_df["HZ_specific_case_ID"] == patient_i]["HZ_specific_sample_ID"]
 	sample_map[patient_i] = case_samples.tolist()
 	for sample_i in case_samples:
 		h5 = list(Path(H5_DIR).glob(f"*{sample_i}.mpileup.h5"))
@@ -27,7 +29,7 @@ for patient_i in master_sample_df['case'].unique():
 			raise ValueError(f"!= 1 H5 found for {sample_i}")
 		sample_h5s[sample_i] = h5[0]
 
-sample_names = master_sample_df["sample"].unique()
+sample_names = master_sample_df["HZ_specific_sample_ID"].unique()
 # %%
 sample_objs = {}
 for sample_i in sample_names:

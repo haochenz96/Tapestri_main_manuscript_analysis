@@ -1,6 +1,6 @@
 # %%
 from pathlib import Path
-import os, sys
+import os
 import yaml
 
 import mosaic.io as mio
@@ -18,11 +18,10 @@ from tea.format import CONDENSED_SNV_FORMAT, check_matrix_format
 from tea.utils import get_simple_timestamp
 timestamp = get_simple_timestamp()
 from IPython import embed
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 	
 # ===== IO =====
-WD = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics"
-os.chdir(WD)
 WD = Path(".")
 ANALYSIS_CONFIG = "pan_cohort_snv_heatmaps.yaml"
 with open(ANALYSIS_CONFIG, 'r') as f:

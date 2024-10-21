@@ -1,0 +1,85 @@
+n = 3529, m = 41, p = 8
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2416028
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 185797 rows, 28864 columns and 558364 nonzeros
+Model fingerprint: 0xb48e9f3c
+Variable types: 27552 continuous, 1312 integer (1312 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [2e+01, 3e+04]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 88918 rows and 16525 columns
+Presolve time: 0.97s
+Presolved: 96879 rows, 12339 columns, 290419 nonzeros
+Variable types: 11583 continuous, 756 integer (756 binary)
+Found heuristic solution: objective -576694.7731
+Root relaxation presolved: 12339 rows, 109218 columns, 302758 nonzeros
+
+
+Root relaxation: objective -5.136299e+05, 11597 iterations, 0.47 seconds (0.42 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    -513629.8528 -513629.85  0.00%     -    1s
+
+Explored 1 nodes (11597 simplex iterations) in 1.66 seconds (1.85 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 2: -513630 -576695 
+No other solutions better than -513630
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -5.136298528437e+05, best bound -5.136298528437e+05, gap 0.0000%
+0 chr2:25457242:C/T_4 102
+0 0 894
+1 chr17:7576651:T/C_4 64
+1 1 286
+2
+3
+4
+5
+6
+7
+cluster_id
+0    996
+5    555
+3    514
+4    377
+1    350
+2    332
+6    214
+7    191
+Name: count, dtype: int64
+chr17:7578231:CA/C_1 190
+chr12:49440207:C/A_1 1788
+chr12:25398284:C/T_1 180
+chr1:27099479:G/A_1 1421
+Node 0: 894
+Node 1: 286
+Node 2: 332
+Node 3: 514
+Node 4: 377
+Node 5: 555
+Node 6: 214
+Node 7: 191
+Node chr2:25457242:C/T_4: 102
+Node chr17:7576651:T/C_4: 64
+Node chr17:7578231:CA/C_1: 190
+Node chr12:49440207:C/A_1: 1788
+Node chr12:25398284:C/T_1: 180
+Node chr1:27099479:G/A_1: 1421
+total cells 3529
+[('root', 0)]

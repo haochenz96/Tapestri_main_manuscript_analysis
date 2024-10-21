@@ -6,10 +6,11 @@ import mosaic.io as mio
 import seaborn as sns
 import plotly.express as px
 from tea.plots import plot_snv_clone
-
-data_dir = Path('/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/data_compiled')
-condor_pipeline_dir = Path("/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/condor_pipeline/")
-amplicon_params = Path('/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_project/tap_cn_calling/train-normals/train-combined_8_normals/NB_train-combined_8_normals-results.gene_added.csv')
+import os
+os.chdir(Path(__file__))
+data_dir = Path('../../data_compiled')
+condor_pipeline_dir = Path("../../0_condor_pipeline/")
+amplicon_params = Path('../../tap_cn_calling/train-normals/train-combined_8_normals/NB_train-combined_8_normals-results.gene_added.csv')
 
 amp_params_df = pd.read_csv(
     amplicon_params,

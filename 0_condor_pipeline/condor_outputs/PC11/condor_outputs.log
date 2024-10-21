@@ -1,0 +1,77 @@
+n = 16139, m = 50, p = 7
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2416028
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 243895 rows, 42100 columns and 732795 nonzeros
+Model fingerprint: 0xb338ac47
+Variable types: 40700 continuous, 1400 integer (1400 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [4e+01, 2e+05]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 101083 rows and 21852 columns
+Presolve time: 1.18s
+Presolved: 142812 rows, 20248 columns, 428209 nonzeros
+Variable types: 19425 continuous, 823 integer (823 binary)
+Root relaxation presolved: 20248 rows, 163060 columns, 448457 nonzeros
+
+
+Root relaxation: objective -2.384589e+06, 16438 iterations, 0.69 seconds (0.60 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0    -2384588.662 -2384588.7  0.00%     -    2s
+
+Explored 1 nodes (16438 simplex iterations) in 2.09 seconds (2.46 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 1: -2.38459e+06 
+No other solutions better than -2.38459e+06
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -2.384588662385e+06, best bound -2.384588662385e+06, gap 0.0000%
+0
+1
+2
+3 chr3:178936082:G/A_4 54
+3 3 2879
+4
+5
+6
+cluster_id
+0    7766
+3    2933
+5    1706
+6    1508
+2    1036
+1     771
+4     419
+Name: count, dtype: int64
+chr18:48573531:G/A_1 667
+chr18:48573570:G/A_1 130
+chr12:25398284:C/A_1 4613
+Node 0: 7766
+Node 1: 771
+Node 2: 1036
+Node 3: 2879
+Node 4: 419
+Node 5: 1706
+Node 6: 1508
+Node chr3:178936082:G/A_4: 54
+Node chr18:48573531:G/A_1: 667
+Node chr18:48573570:G/A_1: 130
+Node chr12:25398284:C/A_1: 4613
+total cells 16139
+[('root', 0)]

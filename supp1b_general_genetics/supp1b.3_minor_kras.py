@@ -18,8 +18,8 @@ def config_params(font_size=7):
     plt.rcParams['mathtext.cal'] = 'arial'
     plt.rcParams['mathtext.rm'] = 'arial'
 
-patient="RA17_22"
-h5= "../data_compiled/fillout_h5/RA17_22.patient_wide.genotyped.h5"
+patient="PC11"
+h5= "../data_compiled/fillout_h5/PC11.patient_wide.genotyped.h5"
 
 # %% 
 s = mio.load(h5)

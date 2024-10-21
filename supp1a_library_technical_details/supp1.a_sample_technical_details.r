@@ -3,6 +3,9 @@ library(ggpubr)
 library(dplyr)
 library(readxl)
 
+# set wd to script dir
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
 # configure default font size, font family, theme, figure size
 theme_set(theme_pubr())
 options(repr.plot.width = 10, repr.plot.height = 5)

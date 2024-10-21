@@ -1,30 +1,30 @@
 workdir: /data/iacobuzc/haochen/condor_pipeline_trial
 sample_name_map: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/Tapestri_batch2_samples_MASTER_INTERNAL.xlsx
 patients:
-  - M04
-  - M07
-  - M11
-  - M12
-  - M13
-  - RA15_06
-  - RA15_16
-  - RA16_08
-  - RA16_29
-  - RA17_13
-  - RA17_22
-  - RA19_02
-  - RA19_10
-  - RA19_21
-  - RA20_05
-  - RA21_17 # ETE tree had some issue so had to be rerun
-  - TP11
-  - TP12
-  - TP49
-  - BPA-1
-  - BPA-2
-  - BPA-3
-  - BPA-4 # need to be run separately as it requires lots of memory
-  - BPA-5
+  - PC01
+  - PC02
+  - PC03
+  - PC04
+  - PC05
+  - PC06
+  - PC07
+  - PC08
+  - PC09
+  - PC10
+  - PC11
+  - PC12
+  - PC13
+  - PC14
+  - PC15
+  - PC16 # ETE tree had some issue so had to be rerun
+  - PC17
+  - PC18
+  - PC19
+  - PC20
+  - PC21
+  - PC22
+  - PC23 # need to be run separately as it requires lots of memory
+  - PC24
 
 # ===== centralized data directory =====
 raw_data_directory: /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5

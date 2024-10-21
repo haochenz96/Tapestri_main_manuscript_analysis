@@ -1,0 +1,90 @@
+[WARNING] manually enforced subclonal mutations file not found. Proceeding with automatic subclonal mutation selection & refinement.
+n = 1047, m = 101, p = 8
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2416028
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Set parameter Threads to value 1
+Set parameter Method to value 4
+Set parameter IntFeasTol to value 1e-06
+Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+
+CPU model: Intel(R) Xeon(R) Platinum 8352S CPU @ 2.20GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 64 physical cores, 128 logical processors, using up to 1 threads
+
+Academic license 2416028 - for non-commercial use only - registered to zh___@mskcc.org
+Optimize a model with 1138991 rows, 168064 columns and 3420278 nonzeros
+Model fingerprint: 0xdd7c0256
+Variable types: 164832 continuous, 3232 integer (3232 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [2e-01, 1e+04]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Presolve removed 195649 rows and 52740 columns (presolve time = 5s) ...
+Presolve removed 195649 rows and 52740 columns (presolve time = 10s) ...
+Presolve removed 195649 rows and 52740 columns
+Presolve time: 11.25s
+Presolved: 943342 rows, 115324 columns, 2829824 nonzeros
+Variable types: 113103 continuous, 2221 integer (2221 binary)
+Root relaxation presolved: 115324 rows, 1058665 columns, 2945144 nonzeros
+
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -1.9428734e+05   0.000000e+00   3.828900e+04     17s
+   38699   -2.0701925e+05   0.000000e+00   0.000000e+00     18s
+   38699   -2.0701925e+05   0.000000e+00   0.000000e+00     18s
+   38699   -2.0701925e+05   0.000000e+00   0.000000e+00     18s
+
+Root relaxation: objective -2.070192e+05, 38699 iterations, 5.07 seconds (5.19 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+H    0     0                    -207019.2475 117542.873   157%     -   18s
+     0     0          -    0      -207019.25 -207019.25  0.00%     -   18s
+
+Explored 1 nodes (38741 simplex iterations) in 18.97 seconds (17.45 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 1: -207019 
+No other solutions better than -207019
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -2.070192474982e+05, best bound -2.070192474982e+05, gap 0.0000%
+0
+1 chr10:68280327:A/G_4 1
+1 1 1
+2
+3
+4
+5
+6
+7
+cluster_id
+5    479
+6    252
+7    156
+3    136
+2     15
+0      4
+4      3
+1      2
+Name: count, dtype: int64
+chr17:7577018:C/A_1 9
+chr12:25398285:C/G_1 283
+Node 0: 4
+Node 1: 1
+Node 2: 15
+Node 3: 136
+Node 4: 3
+Node 5: 479
+Node 6: 252
+Node 7: 156
+Node chr10:68280327:A/G_4: 1
+Node chr17:7577018:C/A_1: 9
+Node chr12:25398285:C/G_1: 283
+total cells 1047
+[('root', 0)]

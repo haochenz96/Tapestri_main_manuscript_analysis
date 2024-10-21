@@ -11,7 +11,7 @@ os.chdir(Path(__file__).parent)
 output_dir = Path('.')
 output_dir.mkdir(parents=True, exist_ok=True)
 
-patients = ["RA15_06", "RA15_16", "RA16_08", "RA16_29", "RA17_13", "RA17_22", "RA19_02", "RA19_10", "RA19_21", "RA20_05", "RA21_17"]
+patients = ["PC06", "PC07", "PC08", "PC09", "PC10", "PC11", "PC12", "PC13", "PC14", "PC15", "PC16"]
 condor_downstream_dir = Path("../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
 
 # ----- read in sample anatomical name mapping file -----
@@ -99,7 +99,7 @@ for patient_i in patients:
 
 # %% Mark the outlier
 site_stat_df['outlier'] = False
-site_stat_df.loc[site_stat_df['patient'] == 'RA17_13', 'outlier'] = True
+site_stat_df.loc[site_stat_df['patient'] == 'PC10', 'outlier'] = True
 
 # %% ===== Plot stripplots of clonal heterogeneity ===== 
 import matplotlib.pyplot as plt
@@ -195,7 +195,7 @@ for tick in ax[1].get_xticklabels():
     new_x_ticklabels.append(tick.get_text())
 ax[1].set_xticklabels(new_x_ticklabels)
 
-sns.move_legend(ax[1], bbox_to_anchor=(1, 1.02), loc='upper left', title='RA17_13')
+sns.move_legend(ax[1], bbox_to_anchor=(1, 1.02), loc='upper left', title='PC10')
 
 # fig.suptitle("Heterogeneity between sites", fontsize=20)
 fig.tight_layout()
@@ -203,7 +203,7 @@ fig.subplots_adjust(top=0.85)
 fig.savefig(output_dir / "organ_tropism_stripplots.pdf")
 # %% ===== Draw pie charts =====
 
-patient_names = ["RA16_29", "RA17_13", "RA17_22"]
+patient_names = ["PC09", "PC10", "PC11"]
 for patient_name in patient_names:
     wd =  Path("sample_pie_charts")
     wd.mkdir(exist_ok=True, parents=True)

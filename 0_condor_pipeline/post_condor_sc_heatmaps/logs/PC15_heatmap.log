@@ -1,0 +1,5 @@
+Loading, /data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/fillout_h5/RA20_05.patient_wide.genotyped.h5
+Loaded in 0.9s.
+[INFO] Loaded CN clone assignment file condor_downstream/RA20_05/RA20_05_final_sc_clone_assignment.csv.
+[INFO] Saved heatmap for RA20_05 to post_condor_sc_heatmaps/RA20_05_DNA_heatmap.pdf.
+[INFO] Saved heatmap for RA20_05 to post_condor_sc_heatmaps/RA20_05_DNA_heatmap.png.

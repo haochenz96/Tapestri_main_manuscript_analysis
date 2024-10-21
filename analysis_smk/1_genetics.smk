@@ -5,7 +5,7 @@ rule all:
 rule 0_get_tumor_pon:
     input: 
 		ss_h5s = expand(
-			"/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/ss_h5/{patient_name}.h5",
+			"data_compiled/ss_h5/{sample_name}.h5",
 			patient_name = patient_names
 		),
         master_sample_sheet = "Tapestri_batch2_samples_MASTER_INTERNAL.xlsx"

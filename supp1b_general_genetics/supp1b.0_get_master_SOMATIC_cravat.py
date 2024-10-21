@@ -2,9 +2,11 @@
 import pandas as pd
 import os
 from glob import glob
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 # %%
-cravat_dir = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled/cravat"
-cravat_fs = glob(os.path.join(cravat_dir, "*.txt"))
+cravat_dir = "../data_compiled/fillout_h5"
+cravat_fs = glob(os.path.join(cravat_dir, "*CRAVAT*.txt"))
 
 assert len(cravat_fs) == 24
 
@@ -23,5 +25,5 @@ master_df = master_df.drop(columns=[c for c in master_df.columns if c[0] in cols
 # drop duplicates by index name
 master_df = master_df[~master_df.index.duplicated(keep='first')]
 # %%
-master_df.to_csv("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/master_cravat.csv", index=True)
+master_df.to_csv("../supp1b_general_genetics/master_cravat.csv", index=True)
 # %%
