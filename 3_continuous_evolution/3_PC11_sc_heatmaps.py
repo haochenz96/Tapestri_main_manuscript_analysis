@@ -20,9 +20,9 @@ pt = mio.load(pt_h5)
 
 snv_f = f"../data_compiled/manual_annotated_snv_lists/{patient_name}-patient-all_vars-voi.hz_curated.txt"
 output_dir = Path(".")
-condor_downstream_dir = Path("../0_condor_pipeline/condor_downstream/ete_trees_refined_subclonal_snvs")
+condor_downstream_dir = Path("../0_condor_pipeline/condor_downstream")
 
-amplicon_params = Path('/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_project/tap_cn_calling/train-normals/train-combined_8_normals/NB_train-combined_8_normals-results.gene_added.csv')
+amplicon_params = Path('/Users/haochenzhang/Iacobuzio_lab/Tapestri_batch2/tap_cn_calling/train-normals/train-combined_8_normals/NB_train-combined_8_normals-results.gene_added.csv')
 amp_params_df = pd.read_csv(
     amplicon_params,
     index_col= 0,
@@ -255,5 +255,5 @@ fig.savefig(
     bbox_inches='tight',
 )
 
-
 # %%
+

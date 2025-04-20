@@ -22,20 +22,21 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 	
 # ===== IO =====
-WD = Path(".")
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 ANALYSIS_CONFIG = "pan_cohort_snv_heatmaps.yaml"
 with open(ANALYSIS_CONFIG, 'r') as f:
 	analysis_config = yaml.safe_load(f)
+WD = analysis_config["WD"]
 
 # ===== PARAMS =====
 FILTER_SNV_ONLY = True
 PON_OCCURENCE_FREQUENCY=0.5
 # ==================
 
-master_sample_sheet = analysis_config["master_sample_sheet"]
-h5_dir = analysis_config["h5_dir"]
-cravat_dir = analysis_config['cravat_dir']
-falcon_dir = analysis_config['falcon_dir']
+master_sample_sheet = os.path.join(WD, analysis_config["master_sample_sheet"])
+h5_dir = os.path.join(WD, analysis_config["h5_dir"])
+cravat_dir = os.path.join(WD, analysis_config['cravat_dir'])
+falcon_dir = os.path.join(WD, analysis_config['falcon_dir'])
 
 # ----- patient-sample map -----
 master_sample_df = pd.read_excel(
@@ -43,21 +44,24 @@ master_sample_df = pd.read_excel(
 	sheet_name = "all_sample_clinical_info"
 	)
 master_sample_df = master_sample_df[master_sample_df["censor"] == 0]
+sample_rename_map = dict(zip(master_sample_df['sample'], master_sample_df['HZ_specific_sample_ID']))
+
 # ----- master CRAVAT -----
-cravat_fs = list(Path(cravat_dir).glob("*.txt"))
-assert len(cravat_fs) == master_sample_df['case'].nunique(), "Number of CRAVAT files != number of patients"
+# cravat_fs = list(Path(cravat_dir).glob("*.txt"))
+# assert len(cravat_fs) == master_sample_df['case'].nunique(), "Number of CRAVAT files != number of patients"
+master_cravat = pd.read_csv("master_cravat.csv", index_col=0, header=[0,1])
 patient_cravats = {}
 patient_sc_assignments = {}
 # construct case to sample map
 sample_map = {}
 sample_h5s = {}
-for patient_i in master_sample_df['case'].unique():
-	patient_cravat = [f for f in cravat_fs if patient_i in f.stem]
-	if not len(patient_cravat) == 1:
-		raise ValueError(f"!= 1 CRAVAT found for {patient_i}")
-	# patient_cravat = patient_cravat[0]
-	# cravat_dfs.append(pd.read_csv(patient_cravat, sep='\t', index_col=0, header=[0.1]))
-	patient_cravats[patient_i] = patient_cravat[0]
+for patient_i in master_sample_df['HZ_specific_case_ID'].unique():
+	# patient_cravat = [f for f in cravat_fs if patient_i in f.stem]
+	# if not len(patient_cravat) == 1:
+	# 	raise ValueError(f"!= 1 CRAVAT found for {patient_i}")
+	# # patient_cravat = patient_cravat[0]
+	# # cravat_dfs.append(pd.read_csv(patient_cravat, sep='\t', index_col=0, header=[0.1]))
+	# patient_cravats[patient_i] = patient_cravat[0]
 	
 	patient_sc_assignment = list(Path(falcon_dir).glob(f"{patient_i}*assignment*.csv"))
 	if not len(patient_sc_assignment) == 1:
@@ -83,18 +87,18 @@ for patient_i in master_sample_df['case'].unique():
 # master_cravat.to_csv("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1_general_genetics/master_cravat.csv", index=True)
 
 # ----- blacklists -----
-tumor_pon = pd.read_csv(analysis_config["snv_selection_params"]["tumor_pon"], index_col=0)
+tumor_pon = pd.read_csv(os.path.join(WD, analysis_config["snv_selection_params"]["tumor_pon"]), index_col=0)
 PON_OCCURENCE_FREQUENCY=0.5
 threshold_sample_count = (len(tumor_pon.columns)-2) * PON_OCCURENCE_FREQUENCY
 tumor_pon_blacklist = tumor_pon.index[tumor_pon["all_tumor_samples_occurence"] > threshold_sample_count]
 # plot distribution of tumor_pon["all_tumor_samples_occurence"]
 # px.histogram(tumor_pon["all_tumor_samples_occurence"]).show()
 
-manual_blacklist = pd.read_csv(analysis_config["snv_selection_params"]["manual_blacklist"], index_col=0)
+manual_blacklist = pd.read_csv(os.path.join(WD, analysis_config["snv_selection_params"]["manual_blacklist"]), index_col=0)
 manual_snp_blacklist = manual_blacklist.index[manual_blacklist["type"] == "snp"]
 manual_snp_loci_blacklist = [x.rsplit(":", 1)[0] for x in manual_snp_blacklist]
 manual_snv_blacklist = manual_blacklist.index[manual_blacklist["type"] == "snv"]
-manual_whitelist = pd.read_csv(analysis_config["snv_selection_params"]["manual_whitelist"], index_col=0)
+manual_whitelist = pd.read_csv(os.path.join(WD, analysis_config["snv_selection_params"]["manual_whitelist"]), index_col=0)
 manual_snv_whitelist = set(manual_whitelist.index)
 
 
@@ -116,11 +120,10 @@ for patient_i, sample_names in sample_map.items():
 	
 	# 1. mutational prevalence
 	MUT_PREV = snv_selection_params['mut_prev_threshold']
-	if (WD / f"{topic}_mut_prev={MUT_PREV}" / "vois" / f"{patient_i}_{topic}_mut_prev={MUT_PREV}_voi.txt").exists():
+	if os.path.exists(os.path.join(WD, f"{topic}_mut_prev={MUT_PREV}", "vois", f"{patient_i}_{topic}_mut_prev={MUT_PREV}_voi.txt")):
 		print(f"[INFO] {patient_i} already processed. Skipping...")
 		continue
 	sample_objs = {}
-	patient_cravat = pd.read_csv(patient_cravats[patient_i], sep="\t", index_col=0, header=[0,1])
 
 	for sample_i in sample_names:
 		sample_objs[sample_i] = mio.load(sample_h5s[sample_i])
@@ -246,8 +249,8 @@ for patient_i, sample_names in sample_map.items():
 			=====
 			""")
 	
-	(WD / f"{topic}_mut_prev={MUT_PREV}" / "sc_heatmaps").mkdir(exist_ok=True, parents=True) 
-	(WD / f"{topic}_mut_prev={MUT_PREV}" / "vois").mkdir(exist_ok=True, parents=True)
+	os.makedirs(os.path.join(WD, f"{topic}_mut_prev={MUT_PREV}", "sc_heatmaps"), exist_ok=True) 
+	os.makedirs(os.path.join(WD, f"{topic}_mut_prev={MUT_PREV}", "vois"), exist_ok=True)
 
 	# ----- @HZ 07/17/2023 filter T>C artifacts that are rare -----
 	if 'filter_TtoC_artifact' in snv_selection_params:
@@ -288,7 +291,7 @@ for patient_i, sample_names in sample_map.items():
 	
 		technical_mask = get_technical_artifact_mask(
 			snvs,
-			patient_cravat, 
+			master_cravat, 
 			num_cells = num_cells, 
 			mut_prev_series = mut_prev_series,
 			bq_prev_threshold = bq_prev_threshold, 
@@ -518,11 +521,11 @@ for patient_i, sample_names in sample_map.items():
 
 # %% ===== construct per-patient scMAF =====
 sample_mafs = {}
-DATA_DIR = Path("/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/data_compiled")
-PATIENT_SAMPLE_MAP_F = "/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/1_general_genetics/Tapestri_all_patient_sample_map.yaml"
+DATA_DIR = os.path.join(WD, "data_compiled")
+PATIENT_SAMPLE_MAP_F = os.path.join(WD, "1_general_genetics/Tapestri_all_patient_sample_map.yaml")
 with open(PATIENT_SAMPLE_MAP_F, "r") as f:
 	patient_sample_map = yaml.safe_load(f)
-MASTER_CRAVAT_F="/lila/data/iacobuzc/haochen/Tapestri_main_manuscript_analysis/supp1b_general_genetics/master_cravat.csv"
+MASTER_CRAVAT_F = os.path.join(WD, "supp1b_general_genetics/master_cravat.csv")
 master_cravat_df = pd.read_csv(MASTER_CRAVAT_F, index_col=0, header=[0,1])
 
 # manual tuning (mostly because some of these somatic vars are mislabeled as germline due to contamination in normal samples):

@@ -12,7 +12,7 @@ library(ggnewscale)
 library(patchwork)
 
 # change directory into the same folder as the script
-setwd("/Users/hzhang/Library/CloudStorage/OneDrive-MemorialSloanKetteringCancerCenter/Iacobuzio_lab/Tapestri_main_manuscript_analysis/1_general_genetics/1A_sc_oncoprint/")
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # ----- 0. per-case clinical info table -----
 patient_info_table <- read.xlsx("../../Tapestri_batch2_samples_MASTER_INTERNAL.xlsx", sheet = "all_case_genetics", startRow = 2, colNames = TRUE)
@@ -339,5 +339,15 @@ View(CCF_stats)
 write.csv(CCF_stats, "1A_composite_maf.CCF_stats.csv", row.names = FALSE)
 
 
-
+composite_snv_maf <- read.csv("1A_pan_cohort_scMAF.SNVs.csv")
+# for each patient, each gene of interest, keep the highest mean_sc_AF_in_mut_filtered
+composite_snv_maf %>% group_by(patient_name, gene_name) %>% 
+  filter(mean_sc_AF_in_mut_filtered == max(mean_sc_AF_in_mut_filtered)) %>% 
+  ungroup() -> unique_patient_gene_maf
+# for each genes of interest, get pan-patient mean_sc_AF_in_mut_filtered
+genes_of_interest <- c("KRAS", "TP53", "SMAD4")
+for (gene in genes_of_interest) {
+  print(gene)
+  print(unique_patient_gene_maf %>% filter(gene_name == gene) %>% summarise(mean_sc_AF_in_mut_filtered = mean(mean_sc_AF_in_mut_filtered)))
+}
 
